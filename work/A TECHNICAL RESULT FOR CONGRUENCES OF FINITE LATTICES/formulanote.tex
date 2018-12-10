@@ -1,0 +1,73 @@
+\documentclass{sample}
+
+% Enumera equações de acordo com a seção
+% \numberwithin{equation}{section}
+
+\begin{document}
+
+In first-year calculus, we define intervals such as $(u, v)$ and $(u, \infty)$. Such an interval
+is a neighborhood of $a$ if $a$ is in the interval. Students should realize that $\infty$ is only
+a symbol, not a number. This is important since we soon introduce concepts such as $\lim_{x \to \infty} f(x)$.
+
+When we introduce the derivative
+\[ % Não usar $$
+    \lim_{x \to a}\frac{f(x) - f(a)}{x - a}
+\]
+we assume that the function is defined and continuous in a neighborhood of $a$.
+
+% Enésima raiz (argumentos opcionais ficam entre colchetes):
+\[
+    \sqrt[2832]{abc}
+\]
+
+% Exemplo de matriz
+\[
+    \begin{bmatrix}
+        a + b + c & uv    & x - y & 27  \\
+        a + b     & u + v & z     & 134
+    \end{bmatrix}
+\]
+
+% Exemplo de matriz com linhas verticais e rótulo
+\begin{equation}\label{E:matrizV}
+    \begin{vmatrix}
+        a + b + c & uv    & x - y & 27  \\
+        a + b     & u + v & z     & 134
+    \end{vmatrix}
+\end{equation}
+
+% Exemplo de matriz com parênteses e tag arbitrária
+\begin{equation}\label{E:matrizP}\tag{tag arbitrária}
+    \begin{pmatrix}
+        a + b + c & uv    & x - y & 27  \\
+        a + b     & u + v & z     & 134
+    \end{pmatrix}
+\end{equation}
+
+
+Veja (\ref{E:matrizV}) na página \pageref{E:matrizV}.
+
+Veja (\ref{E:matrizP}) na página \pageref{E:matrizP}.
+
+% Alinhamento de fórmulas (usar apenas um & para definir pontos de alinhamento)
+% & pode ser usado para dividir equações em múltiplas linhas,
+% usando o mesmo environment (usar \notag)
+% align*: sem numeração
+\begin{align}
+    r^2 &= s^2 + t^2,\\
+    2u + 1 &= v + w^{\alpha},\\
+    x &= \frac{y + z}{\sqrt{s + 2u}}.
+\end{align}
+
+
+% Casos:
+\[
+    f (x) =
+    \begin{cases}
+        -x^{2}, &\text{if $x < 0$;}\\
+        a + x,  &\text{if $0 \leq x \leq 1$;}\\
+        x^2,    &\text{otherwise.}
+    \end{cases}
+\]
+
+\end{document}
