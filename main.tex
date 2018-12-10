@@ -1,6 +1,6 @@
 \documentclass[
 	% -- opções da classe memoir --
-	12pt,				% tamanho da fonte
+	14pt,				% tamanho da fonte
 	% openright,			% capítulos começam em página ímpar (insere página vazia caso preciso)
 	twoside,			% para impressão em recto e verso. Oposto a oneside
 	a4paper,			% tamanho do papel.
@@ -14,7 +14,8 @@
 	french,				% idioma adicional para hifenização
 	spanish,			% idioma adicional para hifenização
 	brazil,				% o último idioma é o principal do documento
-	]{abntex2}
+    ]{abntex2}
+
 
 \usepackage{lmodern}			% Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
@@ -23,11 +24,12 @@
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
+
+% Em geral, pacotes para tornar a aparência mais próxima da original da apostila
 \usepackage{float}
 \usepackage{mathabx}
 %\usepackage{amsmath}
 \usepackage[LGRgreek]{mathastext}
-
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{lipsum}
@@ -35,14 +37,19 @@
 \usepackage{enumitem}
 
 
-\newenvironment{tightcenter}{%
+\newenvironment{tightcenter}{
   \setlength\topsep{0pt}
   \setlength\parskip{0pt}
   \begin{center}
-}{%
+}{
   \end{center}
 }
 \renewcommand{\baselinestretch}{1.5}
+
+% Tamanho do recuo do parágrafo
+\setlength\parindent{2cm}
+
+% Estilo do documento
 \begin{document}
 
 \makepagestyle{memoir}
@@ -56,9 +63,14 @@
 \thispagestyle{plain}
 
 
-Linguagem natural é qualquer linguagem que os seres humanos aprendem em seu ambiente de vida e usam para a comunicação com outros seres humanos, como é o caso do português.
+Linguagem natural é qualquer linguagem que os seres humanos aprendem em seu
+ambiente de vida e usam para a comunicação com outros seres humanos, como é o
+caso do português.
 
-Embora seja interessante o estudo de todas as formas de linguagem e dos diversos fenômenos linguísticos, estes não serão aqui aprofundados. Faremos apenas alguns comentários para indicar a necessidade de construirmos uma linguagem artificial para o estudo da Lógica.
+Embora seja interessante o estudo de todas as formas de linguagem e dos diversos
+fenômenos linguísticos, estes não serão aqui aprofundados. Faremos apenas alguns
+comentários para indicar a necessidade de construirmos uma linguagem artificial
+para o estudo da Lógica.
 
 \newpage
 
@@ -73,34 +85,36 @@ Embora seja interessante o estudo de todas as formas de linguagem e dos diversos
 \newpage
 
 \section{Linguagem Simbólica}
-Por ser vaga e ambígua, a linguagem corrente ou natural não é inteiramente adequada para veicular os resultados oriundos da investigação científica, sobretudo no domínio das ciências formais (Matemática, Lógica, Computação, etc.). Por este motivo, para fixar os princípios, métodos e resultados de nossas investigações no plano da Lógica e da Computação, vamos aqui nos servir não de uma linguagem natural, mas de uma linguagem formal ou simbólica ou artificial. A introdução de linguagens artificiais com o objetivo de exprimir com correção e exatidão o pensamento e os resultados do conhecimento científico é apenas uma de suas vantagens. Outra, não menos importante, é a função de tornar sintético ou conciso o pensamento. Com efeito, a linguagem simbólica objetiva também torna concisas construções que, em linguagem corrente, seriam extremamente longas. O exemplo abaixo mostra com toda clareza o que queremos dizer:
+Por ser vaga e ambígua, a linguagem corrente ou natural não é inteiramente adequada para veicular os resultados oriundos da investigação científica, sobretudo no domínio das ciências formais (Matemática, Lógica, Computação, etc.).
+Por este motivo, para fixar os princípios, métodos e resultados de nossas investigações no plano da Lógica e da Computação, vamos aqui nos servir não de uma linguagem natural, mas de uma linguagem formal ou simbólica ou artificial.
+A introdução de linguagens artificiais com o objetivo de exprimir com correção e exatidão o pensamento e os resultados do conhecimento científico é apenas uma de suas vantagens.
+Outra, não menos importante, é a função de tornar sintético ou conciso o pensamento.
+Com efeito, a linguagem simbólica objetiva também torna concisas construções que, em linguagem corrente, seriam extremamente longas.
+O exemplo abaixo mostra com toda clareza o que queremos dizer:
 
 \vskip 1cm
 
 \begingroup
 \leftskip=3cm \rightskip=3cm
 \parfillskip=0.5cm plus 1fil
-\noindent\texttt{----------------------------------------------------------------------------------------------}
+\noindent\texttt{-----------------------------------------------------------------------------}
 
 \leftskip=3.3cm plus .fil \rightskip=3.3cm
 \parfillskip=0.5cm plus 1fil
 \noindent O produto de um número pela soma de dois outros é igual ao produto do primeiro pelo segundo somado ao produto do primeiro pelo terceiro.
 
-%¨\pretolerance = 10000
 \leftskip=3cm \rightskip=3cm
 \parfillskip=0.5cm plus 1fil
-\noindent\texttt{----------------------------------------------------------------------------------------------}\par
+\noindent\texttt{-----------------------------------------------------------------------------}\par
 
 \leftskip=3.3cm plus .fil \rightskip=3.3cm
 \parfillskip=0.5cm plus 1fil
 
-\vskip 0.5cm
 \centering simbolicamente
-\vskip 0.5cm
 
 \leftskip=3cm \rightskip=3cm
 \parfillskip=0.5cm plus 1fil
-\noindent\texttt{--------------------------------------------------------------------------------------------------}
+\noindent\texttt{----------------------------------------------------------------------------}
 
 \leftskip=3.6cm plus .fil \rightskip=3cm
 \parfillskip=0.5cm plus 1fil
@@ -109,13 +123,15 @@ $x \cdot (y + z) = x \cdot y + x \cdot z$
 
 \leftskip=3cm \rightskip=3cm
 \parfillskip=0.5cm plus 1fil
-\noindent\texttt{--------------------------------------------------------------------------------------------------}\par
+\noindent\texttt{----------------------------------------------------------------------------}\par
 
 \endgroup
-\newpage
-Este exemplo estabelece de modo inequívoco os dois seguintes resultados. Em primeiro lugar, o enunciado em linguagem portuguesa é menos claro e exato que aquele que foi expresso em linguagem simbólica. Em segundo lugar, um é muito mais conciso do que o outro. Mais tarde, veremos como precisar ainda mais a tradução acima pela introdução de símbolos lógicos.
 
 \newpage
+
+Este exemplo estabelece de modo inequívoco os dois seguintes resultados. Em primeiro lugar, o enunciado em linguagem portuguesa é menos claro e exato que aquele que foi expresso em linguagem simbólica.
+Em segundo lugar, um é muito mais conciso do que o outro.
+Mais tarde, veremos como precisar ainda mais a tradução acima pela introdução de símbolos lógicos.
 
 \newpage
 
@@ -155,12 +171,10 @@ Este exemplo estabelece de modo inequívoco os dois seguintes resultados. Em pri
     \item ou Pedro estuda ou Pedro será reprovado no nivelamento
     \item $x^2 - 5x + 6 = 0$
     \item pertence(México, América)
+\end{itemize}
 
 \newpage
 
-
-
-\end{itemize}
 
 
 \end{document}
