@@ -1,1 +1,1 @@
-Repositório referente ao estudo do sistema TeX (com LaTeX). Auxílio de (https://tobi.oetiker.ch/lshort/lshort.pdf)[The Not So Short Introduction to LaTeX] e Practical LaTeX.
+Repositório referente ao estudo do sistema TeX (com LaTeX) e auxílio de [The Not So Short Introduction to LaTeX](https://tobi.oetiker.ch/lshort/lshort.pdf) e Practical LaTeX.
