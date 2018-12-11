@@ -1,19 +1,14 @@
 \documentclass[
-	% -- opções da classe memoir --
-	12pt,				% tamanho da fonte
-	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	twoside,			% para impressão em recto e verso. Oposto a oneside
-	a4paper,			% tamanho do papel. 
-	% -- opções da classe abntex2 --
-	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% --- opções da classe memoir ---
+	12pt,				% Tamanho da fonte
+	openright,			% Capítulos começam em pág ímpar (insere página vazia caso preciso)
+	twoside,			% Para impressão em recto e verso. Oposto a oneside
+	a4paper,			% Tamanho do papel.
 	% -- opções do pacote babel --
-	english,			% idioma adicional para hifenização
-	french,				% idioma adicional para hifenização
-	spanish,			% idioma adicional para hifenização
-	brazil,				% o último idioma é o principal do documento
+	english,			% Idioma adicional para hifenização
+	french,				% Idioma adicional para hifenização
+	spanish,			% Idioma adicional para hifenização
+	brazil,				% O último idioma é o principal do documento
 	]{abntex2}
 
 
@@ -21,12 +16,12 @@
 % Pacotes
 % ---
 \usepackage{lmodern}			% Usa a fonte Latin Modern
-\usepackage[T1]{fontenc}		% Seleção de codigos de fonte.
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{microtype} 			% Para melhorias de justificação
 \usepackage{float}
 \usepackage{mathabx}
 \usepackage[ampersand]{easylist}
@@ -40,9 +35,9 @@
 \usepackage[alf]{abntex2cite}
 
 
-% --- 
+% ---
 % CONFIGURAÇÕES DE PACOTES
-% --- 
+% ---
 
 % ---
 % Configurações do pacote backref
@@ -66,22 +61,22 @@
 
 \usepackage[LGRgreek]{mathastext}
 
-% alterando o aspecto da cor azul
+% Alterando o aspecto da cor azul
 \definecolor{blue}{RGB}{41,5,195}
 
-% informações do PDF
+% Informações do PDF
 \makeatletter
 \hypersetup{
      	%pagebackref=true,
-		pdftitle={\@title}, 
+		pdftitle={\@title},
 		pdfauthor={\@author},
     	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{relatório técnico}, 
-		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=blue,          	% color of internal links
-    	citecolor=blue,        		% color of links to bibliography
-    	filecolor=magenta,      		% color of file links
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{relatório técnico},
+		colorlinks=true,       		% False: boxed links; true: colored links
+    	linkcolor=blue,          	% Color of internal links
+    	citecolor=blue,        		% Color of links to bibliography
+    	filecolor=magenta,      		% Color of file links
 		urlcolor=blue,
 		bookmarksdepth=4
 }
@@ -91,19 +86,18 @@
 \setlength{\parindent}{1.3cm}
 
 % Controle do espaçamento entre um parágrafo e outro:
-\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+\setlength{\parskip}{0.2cm}  % Tente também \onelineskip
 
-% ----
+% ---
 % Início do documento
-% ----
+% ---
 \begin{document}
 
 % Seleciona o idioma do documento (conforme pacotes do babel)
-%\selectlanguage{english}
 \selectlanguage{brazil}
 
 % Retira espaço extra obsoleto entre as frases.
-\frenchspacing 
+\frenchspacing
 
 % ---
 % Capa
@@ -112,7 +106,7 @@
 
 \imprimirfolhaderosto
 
-\tableofcontents*
+\tableofcontents* % Não exibe o sumário no sumário
 
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS
@@ -140,7 +134,7 @@ Primeiramente, antes de implementar o somador de duas entradas de 8 bits, estabe
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.5]{somador1b.png}
+	    \includegraphics[scale=0.5]{imagens/somador1b.png}
 	\end{center}
 \caption{\label{somador1b}Circuito do somador completo de 1 bit}
 \end{figure}
@@ -149,7 +143,7 @@ A partir desse circuito, podemos utilizá-lo como caixa preta e, com isso, criar
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.5]{somador8b.jpg}
+	    \includegraphics[scale=0.5]{imagens/somador8b.png}
 	\end{center}
 \caption{\label{somador8b}Circuito do somador completo de 8 bits}
 \end{figure}
@@ -159,7 +153,7 @@ Para realizar a subtração com duas entradas de 8 bits, usaremos a mesma lógic
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.4]{subtrator1b.png}
+	    \includegraphics[scale=0.4]{imagens/subtrator1b.png}
 	\end{center}
 \caption{\label{subtrator1b}Circuito do subtrator completo de 1 bit}
 \end{figure}
@@ -168,7 +162,7 @@ Utilizaremos o circuito acima como caixa preta e, por consequência, poderemos i
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.4]{subcircuito.png}
+        \includegraphics[scale=0.4]{imagens/subtrator8b.png}
 	\end{center}
 \caption{\label{subtrator8b}Circuito do subtrator completo de 8 bits}
 \end{figure}
@@ -178,7 +172,7 @@ Na operação XOR (‘ou exclusivo’) bit a bit, temos a possibilidade de 0 ou 
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.4]{xorcircuito.png}
+	    \includegraphics[scale=0.4]{imagens/xor8b.png}
 	\end{center}
 \caption{\label{xor}Circuito do ‘ou exclusivo’ de 8 bits}
 \end{figure}
@@ -189,7 +183,7 @@ Na operação OR (‘ou’) bit a bit, temos a possibilidade de 0 ou 1 como valo
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.4]{orcircuito.png}
+	    \includegraphics[scale=0.4]{imagens/or8b.png}
 	\end{center}
 \caption{\label{or}Circuito do ‘OR bit a bit’ de 8 bits.}
 \end{figure}
@@ -200,7 +194,7 @@ Na operação AND (‘e’) bit a bit, temos a possibilidade de 0 ou 1 como valo
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.4]{andcircuito.png}
+	    \includegraphics[scale=0.4]{imagens/and8b.png}
 	\end{center}
 \caption{\label{and}Circuito do ‘AND bit a bit’ de 8 bits.}
 \end{figure}
@@ -211,7 +205,7 @@ O shift left é uma instrução que desloca todos os bits de A para a esquerda, 
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{shiftleft.png}
+	    \includegraphics[scale=0.6]{imagens/shiftleft.png}
 	\end{center}
 \caption{\label{shl}Circuito do 'shift left'}
 \end{figure}
@@ -223,7 +217,7 @@ O shift right, por sua vez, é uma instrução que desloca todos os bits de A pa
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{shiftright.png}
+	    \includegraphics[scale=0.6]{imagens/shiftright.png}
 	\end{center}
 \caption{\label{shr}Circuito do 'shift right'}
 \end{figure}
@@ -232,7 +226,7 @@ O shift right, por sua vez, é uma instrução que desloca todos os bits de A pa
 
 \chapter{A Unidade Lógica e Aritmética}
 
-Ao empregar conceitos de modularização, podemos agora projetar uma Unidade Lógica Aritmética (ULA) que compute o resultado de todas as operações acima elencadas. Para isso, é imperiosa a implementação de um multiplexador que realizará a função primordial de selecionar qual das operações a ser realizada com os operandos de 8 bits. 
+Ao empregar conceitos de modularização, podemos agora projetar uma Unidade Lógica Aritmética (ULA) que compute o resultado de todas as operações acima elencadas. Para isso, é imperiosa a implementação de um multiplexador que realizará a função primordial de selecionar qual das operações a ser realizada com os operandos de 8 bits.
 
 \section{Multiplexadores}
 
@@ -240,35 +234,35 @@ Antes de chegar no multiplexador que seleciona a operação a ser realizada pela
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{mux21.png}
+	    \includegraphics[scale=0.6]{imagens/mux21.png}
 	\end{center}
 \caption{\label{mux21}Circuito do multiplexador 2:1 para operandos de 1 bit}
 \end{figure}
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{mux41.png}
+	    \includegraphics[scale=0.6]{imagens/mux41.png}
 	\end{center}
 \caption{\label{mux41}Circuito do multiplexador 4:1 para operandos de 1 bit}
 \end{figure}
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.5]{mux218.png}
+	    \includegraphics[scale=0.5]{imagens/mux218.png}
 	\end{center}
 \caption{\label{mux218}Circuito do multiplexador 2:1 para operandos de 8 bits}
 \end{figure}
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{mux418.png}
+	    \includegraphics[scale=0.6]{imagens/mux418.png}
 	\end{center}
 \caption{\label{mux418}Circuito do multiplexador 4:1 para operandos de 8 bits}
 \end{figure}
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.7]{mux818.png}
+	    \includegraphics[scale=0.7]{imagens/mux818.png}
 	\end{center}
 \caption{\label{mux818}Circuito do multiplexador 8:1 para operandos de 8 bits}
 \end{figure}
@@ -283,7 +277,7 @@ Para gerar a saída Z, ligamos a saída S em um novo circuito ZERO, que pode ser
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.5]{ZERO.png}
+	    \includegraphics[scale=0.5]{imagens/ZERO.png}
 	\end{center}
 \caption{\label{saidaZ}Circuito que calcula se todos os bits da saída S são 0}
 \end{figure}
@@ -299,21 +293,21 @@ No entanto, ao efetuar os cálculos, é notável, sobretudo quando operações s
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.5]{carryoutincorreto.png}
+	    \includegraphics[scale=0.5]{imagens/carryoutincorreto.png}
 	\end{center}
 \caption{\label{carryoutincorreto}Por reutilizarmos a entrada OP para determinar o carry-out, uma saída incorreta foi gerada. Note que a operação escolhida (OR) \textit{não} possui carry-out sob hipótese alguma}
 \end{figure}
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.5]{validacout.png}
+	    \includegraphics[scale=0.5]{imagens/validacout.png}
 	\end{center}
 \caption{\label{validacout}Circuito que impede \textit{carry-out} inadequado.}
 \end{figure}
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.8]{validacouttab.png}
+	    \includegraphics[scale=0.8]{imagens/validacouttab.png}
 	\end{center}
 \caption{\label{validacouttab}Tabela verdade do VALIDA\_COUT.}
 \end{figure}
@@ -321,7 +315,7 @@ No entanto, ao efetuar os cálculos, é notável, sobretudo quando operações s
 Como podemos ver na tabela da \autoref{validacouttab}, utilizada para a confecção do circuito, a saída é 1 apenas se alguma operação com \textit{carry-out} é selecionada, i.e. soma, subtração, shift left ou shift right. Com isso e o multiplexador, agora possuímos uma saída C coerente.
 
 \section{A saída S (resultado da operação)}
-Finalmente, a saída S é resultado da conexão entre as saídas de todas as operações citadas na \autoref{operacoes} e um multiplexador de 8:1 de 8 bits visto na \autoref{mux818}. O resultado a ser exibido estará de acordo com a entrada OP de 3 bits, que serve como \textit{switch} para o multiplexador. 
+Finalmente, a saída S é resultado da conexão entre as saídas de todas as operações citadas na \autoref{operacoes} e um multiplexador de 8:1 de 8 bits visto na \autoref{mux818}. O resultado a ser exibido estará de acordo com a entrada OP de 3 bits, que serve como \textit{switch} para o multiplexador.
 
 \section{O circuito da Unidade Lógica Aritmética de 8 bits}
 
@@ -329,11 +323,10 @@ Ao combinar todos os circuitos das operações vistas na \autoref{operacoes} jun
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.4]{alu8.png}
+	    \includegraphics[scale=0.38]{imagens/alu8.png}
 	\end{center}
 \caption{\label{ula8}Circuito da ULA de 8 bits.}
 \end{figure}
-
 
 
 \chapter{Calculadora}
@@ -341,11 +334,11 @@ Ao combinar todos os circuitos das operações vistas na \autoref{operacoes} jun
 Agora que construímos uma ULA, podemos colocá-la em caixa preta, e, assim, utilizá-la para criar novos circuitos combinacionais. Posto isso, usaremos essa ULA junta de dois decodificadores idênticos para elaborar uma calculadora, cuja saída será representada em dois dígitos hexadecimais em displays de 7 segmentos. Mantivemos a saída x (ponto) no circuito do decodificador, mesmo que este segmento esteja sempre desligado, como pode ser visto na \autoref{decodetabela}.
 
 \section{Decodificador}
-Para a criação do decodificador, relacionamos uma entrada de 4 bits (para todos os dígitos hexadecimais) com todos os segmentos do display. Através da ferramenta de análise combinacional do software \textit{Logisim}, foi possível facilmente implementar o decodificador através de portas de duas entradas apenas. 
+Para a criação do decodificador, relacionamos uma entrada de 4 bits (para todos os dígitos hexadecimais) com todos os segmentos do display. Através da ferramenta de análise combinacional do software \textit{Logisim}, foi possível facilmente implementar o decodificador através de portas de duas entradas apenas.
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.8]{decodetab.png}
+	    \includegraphics[scale=0.8]{imagens/decodetab.png}
 	\end{center}
 \caption{\label{decodetabela}Tabela verdade do decodificador.}
 \end{figure}
@@ -353,7 +346,7 @@ Para a criação do decodificador, relacionamos uma entrada de 4 bits (para todo
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.3]{decode.png}
+	    \includegraphics[scale=0.3]{imagens/decode.png}
 	\end{center}
 \caption{\label{decode}Circuito do decodificador.}
 \end{figure}
@@ -361,7 +354,7 @@ Para a criação do decodificador, relacionamos uma entrada de 4 bits (para todo
 \section{Circuito da calculadora}
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.57]{calc.png}
+	    \includegraphics[scale=0.57]{imagens/calc.png}
 	\end{center}
 \caption{\label{calc}Circuito da calculadora.}
 \end{figure}
@@ -377,13 +370,13 @@ Em favor da legibilidade do circuito, optamos por não simplificar excessivament
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.48]{ULA16.png}
+	    \includegraphics[scale=0.48]{imagens/ULA16.png}
 	\end{center}
 \caption{\label{ula16}Versão final do circuito da ULA de 16 bits.}
 \end{figure}
-    
+
 \section{Operações com \textit{carry-out}}\label{opcarry}
-Como supradito, após concatenar as duas ULAs de 8 bits, fez-se necessário lidar com as saídas de \textit{carry-out} a fim de que o as operações funcionassem da forma correta. A operação de shift right, em especial, precisou ser tratada de acordo para que o cálculo fosse realizado corretamente. 
+Como supradito, após concatenar as duas ULAs de 8 bits, fez-se necessário lidar com as saídas de \textit{carry-out} a fim de que o as operações funcionassem da forma correta. A operação de shift right, em especial, precisou ser tratada de acordo para que o cálculo fosse realizado corretamente.
 Para isso, implementamos o seguinte circuito:
 
 \begin{itemize}
@@ -392,12 +385,12 @@ Para isso, implementamos o seguinte circuito:
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{CARRY_SHR.png}
+	    \includegraphics[scale=0.6]{imagens/CARRY_SHR.png}
 	\end{center}
 \caption{\label{carry_shr}Circuito que retorna 1 quando o bit menos  significativo é 1 e a operação de shift right foi escolhida.}
 \end{figure}
 
-Este circuito trata os casos em que a operação é de shift right e o bit menos significativo da entrada A é 1. Assim, junto com outras portas lógicas básicas, ele impede que haja carry para o byte mais significativo apenas quando ocorre \textit{carry-out} da operação de shift right (isto é, evita um carry incoerente). Da mesma forma, também utilizamos este circuito para levar o carry do byte mais significativo para o byte menos significativo. 
+Este circuito trata os casos em que a operação é de shift right e o bit menos significativo da entrada A é 1. Assim, junto com outras portas lógicas básicas, ele impede que haja carry para o byte mais significativo apenas quando ocorre \textit{carry-out} da operação de shift right (isto é, evita um carry incoerente). Da mesma forma, também utilizamos este circuito para levar o carry do byte mais significativo para o byte menos significativo.
 
 Além disso, esse mesmo circuito foi capaz de controlar o \textit{carry-out} final, que também apresentava problemas, pois, mesmo havendo transporte interno (para outra ULA), a saída C (transporte final) tornava-se 1. Neste quesito, seu funcionamento é análogo ao do circuito VALIDA\_COUT, visto na \autoref{validacout}, que serve como um ``portão'' para o \textit{carry-out} da ULA de 8 bits, evitando que a saída C torne-se 1 inapropriadamente. Para o controle do carry, utilizamos portas NOT com portas AND, de forma a não alterar o funcionamento da ULA quando o circuito auxiliar retorna 0, como visto na \autoref{ula16}.
 
@@ -428,7 +421,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.38]{addteste.png}
+	    \includegraphics[scale=0.38]{imagens/add8bteste.png}
 	\end{center}
 \caption{\label{addteste}Exemplo de operação no circuito ADD de 8 bits.}
 \end{figure}
@@ -437,7 +430,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.4]{subtratorcompleto.png}
+	    \includegraphics[scale=0.4]{imagens/subtratorcompleto.png}
 	\end{center}
 \caption{\label{subteste}Exemplo de operação no circuito SUB de 8 bits.}
 \end{figure}
@@ -446,7 +439,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.4]{xor8.png}
+	    \includegraphics[scale=0.4]{imagens/xor8bteste.png}
 	\end{center}
 \caption{\label{xorteste}Exemplo de operação no circuito XOR de 8 bits.}
 \end{figure}
@@ -455,7 +448,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.4]{or8.png}
+	    \includegraphics[scale=0.4]{imagens/or8bteste.png}
 	\end{center}
 \caption{\label{orteste}Exemplo de operação no circuito OR de 8 bits.}
 \end{figure}
@@ -464,7 +457,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.4]{and8.png}
+	    \includegraphics[scale=0.4]{imagens/and8bteste.png}
 	\end{center}
 \caption{\label{andteste}Exemplo de operação no circuito AND de 8 bits.}
 \end{figure}
@@ -473,7 +466,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{SHLteste.png}
+	    \includegraphics[scale=0.6]{imagens/SHLteste.png}
 	\end{center}
 \caption{\label{shlteste}Exemplo de operação no circuito SHL de 8 bits.}
 \end{figure}
@@ -482,7 +475,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{SHRteste.png}
+	    \includegraphics[scale=0.6]{imagens/SHRteste.png}
 	\end{center}
 \caption{\label{shrteste}Exemplo de operação no circuito SHR de 8 bits.}
 \end{figure}
@@ -496,7 +489,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 \item {MUX 2:1 1 bit}
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{mux211teste.png}
+	    \includegraphics[scale=0.6]{imagens/mux211teste.png}
 	\end{center}
 \caption{\label{mux211teste}Exemplo de escolha no multiplexador 2:1 de 1 bit.}
 \end{figure}
@@ -504,7 +497,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 \item {MUX 4:1 1 bit}
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{mux411teste.png}
+	    \includegraphics[scale=0.6]{imagens/mux411teste.png}
 	\end{center}
 \caption{\label{mux411teste}Exemplo de escolha no multiplexador 4:1 de 1 bit.}
 \end{figure}
@@ -513,7 +506,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 \item {MUX 8:1 1 bit}
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.4]{mux811teste.png}
+	    \includegraphics[scale=0.4]{imagens/mux811teste.png}
 	\end{center}
 \caption{\label{mux811teste}Exemplo de escolha no multiplexador 8:1 de 1 bit.}
 \end{figure}
@@ -521,7 +514,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 \item {MUX 2:1 8 bit}
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.45]{mux218teste.png}
+	    \includegraphics[scale=0.45]{imagens/mux218teste.png}
 	\end{center}
 \caption{\label{mux218teste}Exemplo de escolha no multiplexador 2:1 de 8 bits.}
 \end{figure}
@@ -530,7 +523,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 \item {MUX 4:1 8 bit}
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{mux418teste.png}
+	    \includegraphics[scale=0.6]{imagens/mux418teste.png}
 	\end{center}
 \caption{\label{mux418teste}Exemplo de escolha no multiplexador 4:1 de 8 bits.}
 \end{figure}
@@ -538,7 +531,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 \item {MUX 8:1 8 bit}
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{mux818teste.png}
+	    \includegraphics[scale=0.6]{imagens/mux818teste.png}
 	\end{center}
 \caption{\label{mux818teste}Exemplo de escolha no multiplexador 8:1 de 8 bits.}
 \end{figure}
@@ -547,15 +540,15 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \newpage
 
-\section{Operações na ULA de 8 bits}
 
+\section{Operações na ULA de 8 bits}
 
 \begin{itemize}
 \item {OP 000 - ADD}
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.5]{alu8000add.png}
+	    \includegraphics[scale=0.5]{imagens/alu8000add.png}
 	\end{center}
 \caption{\label{alu8000add}Exemplo de uma operação ADD na ULA de 8 bits.}
 \end{figure}
@@ -565,7 +558,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.5]{alu8001sub.png}
+	    \includegraphics[scale=0.5]{imagens/alu8001sub.png}
 	\end{center}
 \caption{\label{alu001sub}Exemplo de uma operação SUB na ULA de 8 bits.}
 \end{figure}
@@ -575,7 +568,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.5]{alu8010xor.png}
+	    \includegraphics[scale=0.5]{imagens/alu8010xor.png}
 	\end{center}
 \caption{\label{alu8010xor}Exemplo de uma operação XOR na ULA de 8 bits.}
 \end{figure}
@@ -585,7 +578,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.5]{alu8011or.png}
+	    \includegraphics[scale=0.5]{imagens/alu8011or.png}
 	\end{center}
 \caption{\label{alu8011or}Exemplo de uma operação OR na ULA de 8 bits.}
 \end{figure}
@@ -595,7 +588,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.5]{alu8100and.png}
+	    \includegraphics[scale=0.5]{imagens/alu8100and.png}
 	\end{center}
 \caption{\label{alu8100and}Exemplo de uma operação AND na ULA de 8 bits.}
 \end{figure}
@@ -605,7 +598,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.5]{alu8101shl.png}
+	    \includegraphics[scale=0.5]{imagens/alu8101shl.png}
 	\end{center}
 \caption{\label{alu8101shl}Exemplo de uma operação SHL na ULA de 8 bits.}
 \end{figure}
@@ -615,7 +608,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.5]{alu8110shr.png}
+	    \includegraphics[scale=0.5]{imagens/alu8110shr.png}
 	\end{center}
 \caption{\label{alu8110shr}Exemplo de uma operação SHR na ULA de 8 bits.}
 \end{figure}
@@ -631,7 +624,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.55]{calc000add.png}
+	    \includegraphics[scale=0.55]{imagens/calc000add.png}
 	\end{center}
 \caption{\label{calc000add}Exemplo de uma operação ADD na calculadora.}
 \end{figure}
@@ -640,7 +633,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.55]{calc001sub.png}
+	    \includegraphics[scale=0.55]{imagens/calc001sub.png}
 	\end{center}
 \caption{\label{calc001sub}Exemplo de uma operação SUB na calculadora}
 \end{figure}
@@ -650,7 +643,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.55]{calc010xor.png}
+	    \includegraphics[scale=0.55]{imagens/calc010xor.png}
 	\end{center}
 \caption{\label{calc010xor}Exemplo de uma operação XOR na calculadora}
 \end{figure}
@@ -659,7 +652,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.55]{calc011or.png}
+	    \includegraphics[scale=0.50]{imagens/calc011or.png}
 	\end{center}
 \caption{\label{calc011or}Exemplo de uma operação OR na calculadora}
 \end{figure}
@@ -669,7 +662,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.55]{calc100and.png}
+	    \includegraphics[scale=0.55]{imagens/calc100and.png}
 	\end{center}
 \caption{\label{calc100and}Exemplo de uma operação AND na calculadora}
 \end{figure}
@@ -678,7 +671,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.55]{calc101shl.png}
+	    \includegraphics[scale=0.55]{imagens/calc101shl.png}
 	\end{center}
 \caption{\label{calc101shl}Exemplo de uma operação SHL na calculadora}
 \end{figure}
@@ -688,7 +681,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.55]{calc110shr.png}
+	    \includegraphics[scale=0.55]{imagens/calc110shr.png}
 	\end{center}
 \caption{\label{calc110shr}Exemplo de uma operação SHR na calculadora}
 \end{figure}
@@ -704,7 +697,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{ULA16Soma.png}
+	    \includegraphics[scale=0.55]{imagens/ULA16Soma.png}
 	\end{center}
 \caption{\label{ula16add}Exemplo de uma operação ADD na ULA DE 16 bits}
 \end{figure}
@@ -714,7 +707,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{ULA16SUB.png}
+	    \includegraphics[scale=0.55]{imagens/ULA16SUB.png}
 	\end{center}
 \caption{\label{ula16sub}Exemplo de uma operação SUB na ULA de 16 bits}
 \end{figure}
@@ -724,7 +717,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{ULA16XOR.png}
+	    \includegraphics[scale=0.55]{imagens/ULA16XOR.png}
 	\end{center}
 \caption{\label{ula16xor}Exemplo de uma operação XOR na ULA de 16 bits}
 \end{figure}
@@ -735,7 +728,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{ULA16OR.png}
+	    \includegraphics[scale=0.55]{imagens/ULA16OR.png}
 	\end{center}
 \caption{\label{ula16or}Exemplo de uma operação OR na ULA de 16 bits}
 \end{figure}
@@ -745,7 +738,7 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 
 \begin{figure}[H]
 	\begin{center}
-	    \includegraphics[scale=0.6]{ULA16AND.png}
+	    \includegraphics[scale=0.55]{imagens/ULA16AND.png}
 	\end{center}
 \caption{\label{ula16and}Exemplo de uma operação AND na ULA de 16 bits}
 \end{figure}
@@ -754,14 +747,14 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 \item{OP 101 - SHL}
 \begin{figure}[h]
 	\begin{center}
-	    \includegraphics[scale=0.6]{ULA16SHL.png}
+	    \includegraphics[scale=0.55]{imagens/ULA16SHL.png}
 	\end{center}
 \caption{\label{ula16shl}Exemplo de uma operação SHL na ULA de 16 bits}
 \end{figure}
 
 \begin{figure}[p]
 	\begin{center}
-	    \includegraphics[scale=0.6]{ULA16SHL_2.png}
+	    \includegraphics[scale=0.55]{imagens/ULA16SHL_2.png}
 	\end{center}
 \caption{\label{ula16shl2}Outro exemplo de uma operação SHL na ULA de 16 bits}
 \end{figure}
@@ -770,14 +763,14 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 \item{OP 110 - SHR}
 \begin{figure}[h]
 	\begin{center}
-	    \includegraphics[scale=0.6]{ULA16SHR.png}
+	    \includegraphics[scale=0.55]{imagens/ULA16SHR.png}
 	\end{center}
 \caption{\label{ula16shr}Exemplo de uma operação SHR na ULA de 16 bits}
 \end{figure}
 
 \begin{figure}[p]
 	\begin{center}
-	    \includegraphics[scale=0.6]{ULA16SHR_2.png}
+	    \includegraphics[scale=0.55]{imagens/ULA16SHR_2.png}
 	\end{center}
 \caption{\label{ula16shr2}Outro exemplo de uma operação SHR na ULA de 16 bits}
 \end{figure}
@@ -785,5 +778,6 @@ Este apêndice serve como repositório para os testes dos circuitos principais u
 \end{itemize}
 
 \end{apendicesenv}
+
 
 \end{document}
