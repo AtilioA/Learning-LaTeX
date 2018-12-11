@@ -1,19 +1,19 @@
 \documentclass[
 	% -- opções da classe memoir --
-	14pt,				% tamanho da fonte
-	% openright,			% capítulos começam em página ímpar (insere página vazia caso preciso)
-	twoside,			% para impressão em recto e verso. Oposto a oneside
-	a4paper,			% tamanho do papel.
+	14pt,				% Tamanho da fonte
+	% openright,			% Capítulos começam em página ímpar (insere página vazia caso preciso)
+	twoside,			% Para impressão em recto e verso. Oposto a oneside
+	a4paper,			% Tamanho do papel.
 	% -- opções da classe abntex2 --
-	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE,% títulos de sub-subseções convertidos em letras maiúsculas
+	%chapter=TITLE,		% Títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% Títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% Títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% Títulos de sub-subseções convertidos em letras maiúsculas
 	% -- opções do pacote babel --
-	english,			% idioma adicional para hifenização
-	french,				% idioma adicional para hifenização
-	spanish,			% idioma adicional para hifenização
-	brazil,				% o último idioma é o principal do documento
+	english,			% Idioma adicional para hifenização
+	french,				% Idioma adicional para hifenização
+	spanish,			% Idioma adicional para hifenização
+	brazil,				% O último idioma é o principal do documento
     ]{abntex2}
 
 
@@ -23,10 +23,11 @@
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{microtype} 			% Para melhorias de justificação
 
 % Em geral, pacotes para tornar a aparência mais próxima da original da apostila
 \usepackage{float}
+\usepackage{lipsum}
 \usepackage{mathabx}
 %\usepackage{amsmath}
 \usepackage[LGRgreek]{mathastext}
@@ -35,6 +36,7 @@
 \usepackage{lipsum}
 \usepackage[ampersand]{easylist}
 \usepackage{enumitem}
+\usepackage{scrextend}
 
 
 % Cria comando para repetir um caractere n vezes
@@ -82,15 +84,26 @@ fenômenos linguísticos, estes não serão aqui aprofundados. Faremos apenas al
 comentários para indicar a necessidade de construirmos uma linguagem artificial
 para o estudo da Lógica.
 
+Dada a íntima relação entre raciocínio e linguagem, impõe-se à Lógica o exame da linguagem.
+Mas cabe não nos esquecermos de que a linguagem natural é vaga, ambígua e imprecisa, sendo adequada para a poesia, literatura e o folclore, mas não para a ciência e a tecnologia.
+
+Embora haja autores que se sirvam da linguagem natural no estudo da Lógica --- por força das dificuldades de traduzir-se sentenças da linguagem corrente para uma linguagem artificial --- aqui não vamos seguir esta abordagem.
+
+Tentaremos contornar os obstáculos, cientes de que, linguagens simbólicas, até hoje elaboradas, não são instrumentos adequados para o tratamento de todas as formas que podem assumir o raciocínio humano.
+
 \newpage
 
-\lipsum[50]
+Chamamos de \emph{linguagem artificial} % remover
+toda linguagem deliberadamente construída para fins específicos, como as \textbf{linguagens de programação} e os diversos cálculos da Lógica e da Matemática.
+Não vamos aqui classificar as diversas linguagens, mas apenas apresentar linguagens artificias que sejam aptas ao estudo da Lógica e da Informática.
 
-\lipsum[50]
-
-\lipsum[50]
-
-\lipsum[50]
+A linguagem que surgiu na Grécia e evoluiu cada vez mais simbolicamente até o século XIX, considerada instrumento imprescindível para o tratamento da Matemática, não era, na verdade, suficientemente precisa para o tratamento das complexas questões que aparecem com a Matemática contemporânea.
+Mas ela se aprimorou, de início, com os trabalhos de Frege sobre sistemas formais.
+E, posteriormente, com o surgimento de paradoxos no âmbito da teoria dos conjuntos, houve a necessidade de uma reanálise e de uma retificação do aparato formal dos sistemas dedutivos convencionais.
+Tornou-se, assim, necessário introduzir uma linguagem precisa, definida por uma gramática explícita, gramática esta cujas regras não possuem exceções. Esta linguagem, chamada \emph{linguagem formal}, % remover
+será o objeto de estudo deste capítulo.
+Só estas linguagens são aptas para o tratamento da Matemática e da Informática;
+só com o emprego destes tipos de linguagens é possível construir e operar com os atuais computadores.
 
 \newpage
 
@@ -110,49 +123,77 @@ O exemplo abaixo mostra com toda clareza o que queremos dizer:
 \vspace{-1\baselineskip} % Diminui espaço entre linhas
 
 \begingroup
-% \leftskip=3cm \rightskip=3cm
-% \parfillskip=0.5cm plus 1fil
 
-\leftskip=3.3cm plus .fil \rightskip=3.3cm
-\parfillskip=0.5cm plus 1fil
-\noindent O produto de um número pela soma de dois outros é igual ao produto do primeiro pelo segundo somado ao produto do primeiro pelo terceiro.
+    \leftskip=3.3cm plus .fil \rightskip=3.3cm
+    \parfillskip=0.5cm plus 1fil
+    \noindent O produto de um número pela soma de dois outros é igual ao produto do primeiro pelo segundo somado ao produto do primeiro pelo terceiro.
 
-\vspace{-1\baselineskip} % Diminui espaço entre linhas
-\begin{center}
-    \noindent\texttt{\myrepeat{76}{-}}
-\end{center}
+    \vspace{-1\baselineskip} % Diminui espaço entre linhas
+    \begin{center}
+        \noindent\texttt{\myrepeat{76}{-}}
+    \end{center}
 
-% \leftskip=3.3cm plus .fil \rightskip=3.3cm
-% \parfillskip=0.5cm plus 1fil
 
-\centering simbolicamente
+    \centering simbolicamente
 
-\begin{center}
-    \noindent\texttt{\myrepeat{80}{-}}
-\end{center}
-\vspace{-1\baselineskip} % Diminui espaço entre linhas
+    \begin{center}
+        \noindent\texttt{\myrepeat{80}{-}}
+    \end{center}
+    \vspace{-1\baselineskip} % Diminui espaço entre linhas
 
-\leftskip=3.6cm plus .fil \rightskip=3cm
-\parfillskip=0.5cm plus 1fil
-\noindent \centering se $x$, $y$, $z$ são números arbitrários,\\
-$x \cdot (y + z) = x \cdot y + x \cdot z$
+    \leftskip=3.6cm plus .fil \rightskip=3cm
+    \parfillskip=0.5cm plus 1fil
+    \noindent \centering se $x$, $y$, $z$ são números arbitrários,\\
+    $x \cdot (y + z) = x \cdot y + x \cdot z$
 
-\vspace{-1\baselineskip} % Diminui espaço entre linhas
+    \vspace{-1\baselineskip} % Diminui espaço entre linhas
 
-\begin{center}
-    \noindent\texttt{\myrepeat{80}{-}}
-\end{center}
-
+    \begin{center}
+        \noindent\texttt{\myrepeat{80}{-}}
+    \end{center}
 
 \endgroup
 
 \newpage
 
-Este exemplo estabelece de modo inequívoco os dois seguintes resultados. Em primeiro lugar, o enunciado em linguagem portuguesa é menos claro e exato que aquele que foi expresso em linguagem simbólica.
+Este exemplo estabelece de modo inequívoco os dois seguintes resultados.
+Em primeiro lugar, o enunciado em linguagem portuguesa é menos claro e exato que aquele que foi expresso em linguagem simbólica.
 Em segundo lugar, um é muito mais conciso do que o outro.
 Mais tarde, veremos como precisar ainda mais a tradução acima pela introdução de símbolos lógicos.
 
+No desenvolvimento desse trabalho, mostraremos as vantagens da simbolização ao evidenciar a facilidade com que se realiza a análise de um termo, de uma sentença ou de uma demonstração, quando estes forem escritos em adequada notação simbólica.
+Veremos ainda que muitas vezes essa linguagem nos permite até deixar de considerar questões de conteúdo envolvidas pelos termos, sentenças e demonstrações.
+
+Para iniciar nossas considerações, admitamos um \textbf{alfabeto} formado por todos os símbolos matemáticos e letras dos alfabetos latino e grego.
+Por exemplo: a, $\alpha$, $+$, $\epsilon$, e outros.
+
+A partir dos símbolos do alfabeto e da noção intuitiva de concatenação horizontal, podemos formar as expressões mais arbitrárias possíveis.
+
+São exemplos de expressões:
+
+\vskip 1cm
+
+% Substituir uso de indentações
+\indent \indent $a + y$, $3 \in (3, 5, 7), +-xy$,\\
+\indent \indent Linguagem de Programação Fortran,\\
+\indent \indent $xy-$, $+xy$, e outros.
+
 \newpage
+
+Mas esta regra formadora irrestrita leva-nos inevitavelmente a expressões que não nos interessam.
+Por exemplo, \textit{abce} não é, até o momento, uma palavra da língua portuguesa; do mesmo modo, $+\,\, 3 \,=\,\,\, \in\, 7\,\, x$ nem se refere a um objeto, nem é uma sentença ou expressão da Matemática.
+Consideremos agora duas classes de expressões bem formadas que cabem ser devidamente destacadas.
+
+Por tentativa e erro, procuraremos distinguir, entre as expressões bem formadas, aquelas chamadas \textbf{TERMO} daquelas chamadas \textbf{ENUNCIADO}.
+
+\vskip 0.5cm
+
+\begin{addmargin}[2.0cm]{0cm}
+\textbf{Termo} é a expressão que nomeia ou descreve um objeto (termo fechado ou nome) ou é a expressão que resulta em um nome ou descrição de um objeto quando as variáveis que nela ocorrem são substituídas por nomes ou descrições de objetos (termo aberto ou pseudo-termo).
+\end{addmargin}
+
+\vskip 0.5cm
+
 
 \noindent São exemplos de termos:
 
@@ -170,12 +211,16 @@ Mais tarde, veremos como precisar ainda mais a tradução acima pela introduçã
     \item $5 \times 7$
     \item $x + y$
     \item $y!$
-    \item \dots
-    \item caramba
 
 \end{itemize}
 
+\vskip 0.5cm
+
+\begin{addmargin}[2.0cm]{0cm}
 \textbf{Enunciado} (ou proposição) é a expressão que correlaciona objetos ou descreve propriedades de objetos.
+\end{addmargin}
+
+\vskip 0.5cm
 
 \noindent São exemplos de termos:
 
@@ -193,6 +238,9 @@ Mais tarde, veremos como precisar ainda mais a tradução acima pela introduçã
     \item $x^2 - 5x + 6 = 0$
     \item pertence(México, América)
 \end{itemize}
+
+% Descobrir como fazer essa parte
+\textbf{Comentário:} As variáveis \lipsum[5]
 
 \newpage
 
