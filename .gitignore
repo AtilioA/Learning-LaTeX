@@ -287,5 +287,15 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Arquivos temporários de qualquer natureza
+*.tmp*/
+
+# Configurações do Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 # Arquivos do repositório
 sample/
