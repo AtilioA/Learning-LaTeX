@@ -28,8 +28,9 @@
 % Em geral, pacotes para tornar a aparência mais próxima da original da apostila
 \usepackage{float}
 \usepackage{lipsum}
-\usepackage{mathabx}
-%\usepackage{amsmath}
+\usepackage{amsmath}
+% Possui comandos interessantes e.g. '\implies' mas que são substituídos sem perda alguma
+% \usepackage{mathabx} % Conflita com amsmath
 \usepackage[LGRgreek]{mathastext}
 \usepackage{multicol}
 \usepackage{multirow}
@@ -37,7 +38,7 @@
 \usepackage[ampersand]{easylist}
 \usepackage{enumitem}
 \usepackage{scrextend}
-
+\usepackage{bm}
 
 % Cria comando para repetir um caractere n vezes
 \newcommand\myrepeat[2]{%
@@ -55,6 +56,13 @@
   \end{center}
 }
 \renewcommand{\baselinestretch}{1.5}
+
+% Ambiente para recuar texto (não está funcionando)
+\newenvironment{textorecuado}
+{
+    \hskip 3cm
+}
+
 
 % Tamanho do recuo do parágrafo
 \setlength\parindent{2cm}
@@ -173,10 +181,10 @@ São exemplos de expressões:
 
 \vskip 1cm
 
-% Substituir uso de indentações
-\indent \indent $a + y$, $3 \in (3, 5, 7), +-xy$,\\
-\indent \indent Linguagem de Programação Fortran,\\
-\indent \indent $xy-$, $+xy$, e outros.
+% Criar ambiente para \hskip
+\hskip 2.5cm $a + y$, $3 \in (3, 5, 7), +-xy$,\\
+\hskip 2.5cm Linguagem de Programação Fortran,\\
+\hskip 2.5cm $xy-$, $+xy$, e outros.
 
 \newpage
 
@@ -240,7 +248,60 @@ Por tentativa e erro, procuraremos distinguir, entre as expressões bem formadas
 \end{itemize}
 
 % Descobrir como fazer essa parte
-\textbf{Comentário:} As variáveis \lipsum[5]
+\textbf{Comentário:} As variáveis $\underline{x}$ e $\underline{y}$, que ocorrem nas expressões $\bm{x + y = 3}$ e $\bm{x^2 - 5x + 6 = 0}$, são variáveis livres em tais expressões.
+Tais variáveis atuam como nomes de elementos arbitrários do domínio de discurso.
+
+\noindent
+Cabe ter presente que não serão considerados enunciados as expressões sob a forma exclamativa, interrogativa ou imperativa.
+Em nossa acepção, um enunciado corresponde às expressões declarativas da linguagem natural.
+Um enunciado contendo variáveis livres é chamado de \textbf{enunciado aberto}.
+Caso contrário, será chamado de \textbf{enunciado fechado}.
+
+\bigskip
+
+\noindent
+Exemplos de enunciados abertos:
+
+\hskip 2.5cm soma(x, y) = 3
+
+\hskip 2.5cm maior(x, 7)
+
+\hskip 2.5cm professor(x, 2º grau)
+
+\bigskip
+
+\noindent
+Exemplos de enunciados fechados:
+
+\hskip 2.5cm professora(Maria, 2º grau)
+
+\hskip 2.5cm maior(3, 2)
+
+\hskip 2.5cm $\forall x(corredor(x) \rightarrow resistente(x))$
+
+Em resumo, as expressões bem formadas da linguagem simbólica assim se classificam:
+
+% Melhorar
+\[
+    \text{Expressões:}
+    \begin{cases}
+        Termos
+        \begin{cases}
+            \text{Termo fechado ou nome}\\
+            \text{Termo aberto ou pseudo-nome}\\
+        \end{cases}
+
+        \\
+        \\
+
+        Enunciados
+        \begin{cases}
+            \text{Enunciado fechado ou sentença}\\
+            \text{Enunciado aberto}\\
+        \end{cases}
+    \end{cases}
+\]
+
 
 \newpage
 
