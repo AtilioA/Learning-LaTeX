@@ -39,6 +39,8 @@
 \usepackage{enumitem}
 \usepackage{scrextend}
 \usepackage{bm}
+\usepackage{array}
+\usepackage{amssymb}
 
 % Cria comando para repetir um caractere n vezes
 \newcommand\myrepeat[2]{%
@@ -67,6 +69,10 @@
 % Tamanho do recuo do parágrafo
 \setlength\parindent{2cm}
 
+% Tamanho da separação das colunas e linhas em tabelas (array)
+\setlength{\tabcolsep}{12pt}
+\setlength\extrarowheight{12pt}
+
 
 % Fim do preâmbulo
 \begin{document}
@@ -78,7 +84,7 @@
 \pagestyle{plain}
 
 \chapter{Linguagem}
-\section{Linguagem Natural}
+\section{Linguagem natural}
 
 \thispagestyle{plain}
 
@@ -115,7 +121,7 @@ só com o emprego destes tipos de linguagens é possível construir e operar com
 
 \newpage
 
-\section{Linguagem Simbólica}
+\section{Linguagem simbólica}
 Por ser vaga e ambígua, a linguagem corrente ou natural não é inteiramente adequada para veicular os resultados oriundos da investigação científica, sobretudo no domínio das ciências formais (Matemática, Lógica, Computação, etc.).
 Por este motivo, para fixar os princípios, métodos e resultados de nossas investigações no plano da Lógica e da Computação, vamos aqui nos servir não de uma linguagem natural, mas de uma linguagem formal ou simbólica ou artificial.
 A introdução de linguagens artificiais com o objetivo de exprimir com correção e exatidão o pensamento e os resultados do conhecimento científico é apenas uma de suas vantagens.
@@ -305,6 +311,95 @@ Em resumo, as expressões bem formadas da linguagem simbólica assim se classifi
 
 \newpage
 
+\section{Símbolos lógicos}
 
+Se for considerado com atenção o vocabulário lógico, é fácil traçar uma distinção superficial entre as verdades lógicas e os enunciados verdadeiros de outras espécies (verdade factual).
+Um \textbf{enunciado logicamente verdadeiro} tem esta peculiaridade: partículas básicas como \textbf{não, e, ou, a menos que, se ... então, nem, algum, todo}, etc. ocorrem no enunciado de tal forma que o enunciado é verdadeiro independentemente de seus outros ingredientes.
+
+Um enunciado logicamente verdadeiro é aquele cuja verdade depende exclusivamente do arranjo de certas expressões, ditas vocábulos lógicos, e não de um teste empírico ou observacional.
+Esses vocábulos lógicos são: \textbf{não, e, ou, a menos que, se ... então, nem, algum, todo}, etc.
+Consideremos os clássicos exemplos:
+
+\bigskip
+\noindent
+\textbf{Ex. 1.} Sócrates é mortal ou Sócrates não é mortal.
+
+\bigskip
+\noindent
+A substituição (gramaticalmente adequada) de \textbf{Sócrates} e \textbf{mortal} no exemplo acima é incapaz de tornar esse enunciado falso.
+Assim, \textbf{Platão é grego ou Platão não é grego} é igualmente verdadeiro.
+
+\bigskip
+\noindent
+\textbf{Ex. 2.} Se todo homem é mortal e Sócrates é homem, então Sócrates é mortal.
+
+\bigskip
+\noindent
+Não somente esta sentença é verdadeira, como também ela é verdadeira independentemente dos constituintes \textbf{homem}, \textbf{mortal} e \textbf{Sócrates}; nenhuma alteração dessas palavras é capaz de transformar a sentença numa falsidade.
+\newpage
+
+\noindent Qualquer enunciado da forma:
+
+Se todo \textbf{A} é um \textbf{B} e \textbf{C} é um \textbf{A} então \textbf{C} é um \textbf{B}
+
+\noindent é igualmente verdadeiro, desde que as variáveis sejam corretamente substituídas.
+
+Uma palavra é dita \textbf{ocorrer essencialmente} num enunciado verdadeiro (resp. falso) se a troca dessa palavra por alguma outra for capaz de tornar esse enunciado falso (resp. verdadeiro).
+Quando este não for o caso, diz-se que a palavra \textbf{ocorre vacuamente}.
+Assim, as palavras 'Sócrates' e 'homem' ocorrem essencialmente no enunciado \textbf{Sócrates é um homem}, visto que o enunciado \textbf{Bucéfalo é um homem} ou \textbf{Sócrates é um cavalo} são falsas.
+Por outro lado, \textbf{Sócrates} e \textbf{mortal} ocorrem vacuamente no Ex. 1, e \textbf{Sócrates}, \textbf{homem} e \textbf{mortal} ocorrem vacuamente no Ex. 2.
+Mediante esta distinção, podemos agora definir o que entendemos por uma verdade lógica ou enunciado logicamente verdadeiro.
+
+Uma \textbf{verdade lógica} é aquela verdade em que apenas os vocábulos lógicos ocorrem essencialmente.
+
+\noindent \textbf{Ex. 3.} João foi aprovado ou João não foi aprovado
+
+O vocabulário da lógica é básico a todo discurso.
+Assim, se listarmos um número suficiente de enunciados (simples ou complexos) da Geologia, por exemplo, veremos que o vocabulário da Lógica aí se encontra.
+O mesmo pode ser dito de qualquer disciplina.
+As verdades da Lógica são verdades (triviais) da Geologia, Economia, etc.
+Isto justifica afirmação de que a Lógica tem uma abrangência universal, sendo o denominador comum das diversas ciências especiais.
+
+As partículas lógicas \textbf{e, ou, não, se ... então, todo} e \textbf{existe} desempenham importante papel no estabelecimento das disciplinas em geral, visto que a partir destas e dos enunciados simples podem ser formados \textbf{enunciados compostos}.
+
+As partículas lógicas são simbolizadas de diversas formas:
+
+\bigskip
+\begin{center}
+    \large
+    \begin{tabular}{l l l l}
+        não          & $\sim$   & $\neg$  & \textasciitilde \\ \hline
+        e            & $\wedge$ & \& & $\sqcap$ \\ \hline
+        ou           & $\vee$   & $\bigvee$  & $\sqcup$ \\ \hline
+        se ... então & $\rightarrow$ & $\implies$ & $\sqsubset$  \\ \hline
+        todo         & $\forall$  & \small( \small) & \LARGE{$\sqcap$} \\ \hline
+        existe       & $\exists$ & E & \LARGE{$\sqcup$}  \\ \hline
+    \end{tabular}
+\end{center}
+
+\bigskip \noindent
+São exemplos de enunciados simples:
+
+\hskip 2.6cm $x > 2$,
+
+\hskip 2.5cm $5 \in \mathbb{N}$,
+
+\hskip 2.5cm $ 3 = x + y$,
+
+\hskip 2.5cm André é programador
+
+\bigskip \noindent
+São exemplos de enunciados compostos:
+
+\hskip 2.5cm $\forall x(x > 9 \to x > 3)$,
+
+
+\hskip 2.5cm $2 \in \mathbb{N} \wedge x = y$,
+
+\hskip 2.5cm $\sim(5 > 2 \vee 7 < 8)$
+
+\newpage
+
+\subsection*{Linguagem natural x Linguagem simbólica}
 
 \end{document}
