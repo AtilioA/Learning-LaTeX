@@ -1,93 +1,5 @@
-\documentclass[
-	% -- opções da classe memoir --
-	14pt,				% Tamanho da fonte
-	% openright,			% Capítulos começam em página ímpar (insere página vazia caso preciso)
-	twoside,			% Para impressão em recto e verso. Oposto a oneside
-	a4paper,			% Tamanho do papel.
-	% -- opções da classe abntex2 --
-	%chapter=TITLE,		% Títulos de capítulos convertidos em letras maiúsculas
-	%section=TITLE,		% Títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% Títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE,% Títulos de sub-subseções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
-	english,			% Idioma adicional para hifenização
-	french,				% Idioma adicional para hifenização
-	spanish,			% Idioma adicional para hifenização
-	brazil,				% O último idioma é o principal do documento
-    ]{abntex2}
-
-
-\usepackage{lmodern}			% Usa a fonte Latin Modern
-\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
-\usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}				% Controle das cores
-\usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{microtype} 			% Para melhorias de justificação
-
-% Em geral, pacotes para tornar a aparência mais próxima da original da apostila
-\usepackage{float}
-\usepackage{lipsum}
-\usepackage{amsmath}
-% Possui comandos interessantes e.g. '\implies' mas que são substituídos sem perda alguma
-% \usepackage{mathabx} % Conflita com amsmath
-\usepackage[LGRgreek]{mathastext}
-\usepackage{multicol}
-\usepackage{multirow}
-\usepackage{lipsum}
-\usepackage[ampersand]{easylist}
-\usepackage{enumitem}
-\usepackage{scrextend}
-\usepackage{bm}
-\usepackage{array}
-\usepackage{amssymb}
-
-% Cria comando para repetir um caractere n vezes
-\newcommand\myrepeat[2]{%
-  \begingroup
-  \lccode`m=`#2\relax
-  \lowercase\expandafter{\romannumeral#1000}%
-  \endgroup
-}
-
-\newenvironment{tightcenter}{%
-  \setlength\topsep{0pt}
-  \setlength\parskip{0pt}
-  \begin{center}
-}{%
-  \end{center}
-}
-\renewcommand{\baselinestretch}{1.5}
-
-% Ambiente para recuar texto (não está funcionando)
-\newenvironment{textorecuado}
-{
-    \hskip 3cm
-}
-
-
-% Tamanho do recuo do parágrafo
-\setlength\parindent{2cm}
-
-% Tamanho da separação das colunas e linhas em tabelas (array)
-\setlength{\tabcolsep}{12pt}
-\setlength\extrarowheight{12pt}
-
-
-% Fim do preâmbulo
-\begin{document}
-
-% Estilo do documento
-\makepagestyle{memoir}
-\makeevenfoot{memoir}{}{}{\thepage}
-\makeoddfoot{memoir}{}{}{\thepage}
-\pagestyle{plain}
-
 \chapter{Linguagem}
 \section{Linguagem natural}
-
-\thispagestyle{plain}
-
 
 Linguagem natural é qualquer linguagem que os seres humanos aprendem em seu
 ambiente de vida e usam para a comunicação com outros seres humanos, como é o
@@ -393,7 +305,6 @@ São exemplos de enunciados compostos:
 
 \hskip 2.5cm $\forall x(x > 9 \to x > 3)$,
 
-
 \hskip 2.5cm $2 \in \mathbb{N} \wedge x = y$,
 
 \hskip 2.5cm $\sim(5 > 2 \vee 7 < 8)$
@@ -401,5 +312,3 @@ São exemplos de enunciados compostos:
 \newpage
 
 \subsection*{Linguagem natural x Linguagem simbólica}
-
-\end{document}
