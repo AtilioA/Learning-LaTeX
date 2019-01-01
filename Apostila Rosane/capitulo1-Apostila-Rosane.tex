@@ -1,3 +1,5 @@
+% Os módulos não têm preâmbulo e não precisam de \begin{document}, \end{document}. Basta escrever normalmente
+
 \chapter{Linguagem}
 \section{Linguagem natural}
 
@@ -311,4 +313,218 @@ São exemplos de enunciados compostos:
 
 \newpage
 
-\subsection*{Linguagem natural x Linguagem simbólica}
+% \begin{center} Centraliza seção como na apostila
+    \subsection*{Linguagem natural x Linguagem simbólica}
+% \end{center}
+
+A tarefa de traduzir expressões da linguagem natural para a linguagem simbólica (e vice-versa) requer certo cuidado, visto que não existem regras fixas e bem determinadas que nos permitam efetuar tais traduções.
+Muitas sentenças da linguagem corrente são ambíguas, dando margem a várias traduções.
+Escolher a interpretação adequada é tarefa muita vezes difícil, pois envolve informações não explícitas na sentença.
+
+A tradução em linguagem lógica clássica se realiza, usualmente, a menos de certas simplificações.
+Expressões no passado ou futuro são transformadas em sentenças no presente.
+Caso se deseje manter as características de passado ou futuro, teríamos que criar indicadores temporais que expressem esse fato.
+A tradução para Lógica de Predicados se mostrou adequada para a Matemática, mas pode não ser para outras áreas de conhecimento.
+Simplificações análogas são também consideradas no que se relaciona a plural, flexão de verbos, etc.
+Entretanto, neste trabalho apresentaremos, ocasionalmente, exemplos de construções envolvendo também passado, futuro, etc.
+
+\newpage
+
+Apresentaremos a seguir algumas alternativas de como traduzir expressões da Linguagem Natural para a Linguagem Simbólica da Lógica de Predicados.
+
+\bigskip
+\noindent
+\textbf{Ex. 1.} Jorge Amado é escritor.
+
+% Descobrir como inserir caracteres antes de item
+\begin{enumerate}[label=(\roman*)]
+    \item escritor(Jorge Amado)
+    \item $j \in E$; onde j: Jorge Amado, E: conjunto dos escritores
+    \item p; onde p: Jorge Amado é escritor
+\end{enumerate}
+
+\bigskip
+\noindent
+\textbf{Ex. 2.} João é professor de Pascal.
+
+\begin{enumerate}[label=(\roman*)]
+    \item professor(João, Pascal)
+    \item professor de Pascal (João)
+    \item $j \in Pa$; onde j: João, Pa: conjunto dos professores de Pascal
+\end{enumerate}
+
+\bigskip
+\noindent
+\textbf{Ex. 3.} Ricardo estuda Inteligência Artificial.
+
+\begin{enumerate}[label=(\roman*)]
+    \item estuda(Ricardo, Inteligência Artificial)
+    \item estuda Inteligência Artificial (Ricardo)
+    \item $r \in IA$ ; onde r: Ricardo, IA: conjuntos dos que estudam Inteligência Artificial.
+\end{enumerate}
+
+\bigskip
+\noindent
+\textbf{Ex. 4.} Maurício Gugelmin ganhou o campeonato e Nelson Piquet sofreu um acidente
+
+\begin{enumerate}[label=(\roman*)]
+    \item ganhou (Maurício Gugelmin, Campeonato) $\wedge$ sofreu (Nelson Piquet, acidente)
+    \item p $\wedge$ q; onde\\
+    p: Maurício Gugelmin ganhou o campeonato;\\
+    q: Nelson Piquet sofreu um acidente.
+    \item $m \in C \; \wedge n \in A$; onde\\
+    m: Maurício Gugelmin;\\
+    n: Nelson Piquet;\\
+    C: conjunto dos que ganharam o campeonato;\\
+    A: conjunto dos que sofreram um acidente.
+\end{enumerate}
+
+\bigskip
+\noindent
+\textbf{Ex. 5.} O Internacional perderá o campeonato se empatar ou perder para o Flamengo.
+
+\begin{enumerate}[label=(\roman*)]
+    \item empata(Internacional, Flamengo) $\vee$ perde(Internacional, Flamengo) $\to$ perde(Internacional, Campeonato)
+    \item p $\vee$ q $\to$ r, onde\\
+    p: Internacional empata com Flamengo;\\
+    q: Internacional perde para o Flamengo;\\
+    r: Internacional perde o Campeonato.
+\end{enumerate}
+
+\bigskip
+\noindent
+\textbf{Ex. 6.} Certos cursos de programação são interessantes.
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\exists$x (curso-de-programação(x) $\wedge$ interessante(x))
+    \item $\exists$x ($x \in C \; \wedge \; x \in I$), onde\\
+    C: conjunto dos cursos de programação;\\
+    I: conjunto das coisas interessantes.
+    \item $\exists$x (C(x) $\wedge$ I(x)), onde\\
+    C(x): x é curso de programação;\\
+    I(x): x é interessante.
+\end{enumerate}
+
+\bigskip
+\noindent
+\textbf{Ex. 7.} Todo professor que ensina Inteligência Artificial trabalha com linguagem natural.
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\forall$x (professor(x) $\wedge$ ensina(x, Inteligência Artificial) $\to$ trabalha(x, linguagem natural))
+    \item $\forall$x ($x \in P \; \wedge \; x \in I \to x \in T$), onde\\
+    P: conjunto dos professores;\\
+    I: conjunto das pessoas que ensinam Inteligência Artificial;\\
+    T: conjunto das pessoas que trabalham com linguagem natural.
+    \item $\forall$x (P(x) $\; \wedge \;$ Q(x, Inteligência Artificial) $\to$ T(x, linguagem natural)), onde\\
+    P(x): x é professor;\\
+    Q(x, Inteligência Artificial): x ensina Inteligência Artificial;\\
+    T(x, linguagme natural): x trabalha com linguagem natural.
+\end{enumerate}
+
+\bigskip
+\noindent
+\textbf{Ex. 8.} Nenhum motorista é imprudente.
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\sim \exists$x (motorista(x) $\wedge$ imprudente(x))
+    \item $\sim \exists$x (C(x) $\wedge$ P(x)), onde\\
+    C: ser motorista;\\
+    P: ser imprudente.
+\end{enumerate}
+
+\bigskip
+\noindent
+\textbf{Ex. 9.} Nem todo professor é mestre.
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\sim \forall$x (professor(x) $\to$ mestre(x))
+    \item $\sim \forall$x (P(x) $\to$ M(x)), onde\\
+    P(x): x é professor,
+    \\M(x): x é mestre.
+\end{enumerate}
+
+\bigskip
+\noindent
+\textbf{Ex. 10.} Não há um maior número natural.
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\sim \exists$x (natural(x) $\wedge \; \forall$y (natural(y) $\to$ maior(x, y)))
+    \item $\sim \exists$x (natural) ($x \in N \wedge \; \forall$y ($y \in N \to x > y$))
+    \item $\sim \exists$x (natural) (N(x) $\wedge \; \forall$y (N(y) $\to \;\; > (x, y)$)), onde\\
+    N(x): ser natural
+\end{enumerate}
+
+\bigskip
+\noindent
+\textbf{Ex. 11.} Há no máximo um natural negativo.
+
+\begin{enumerate}[label=(\roman*)]
+    \item \underline{$\exists$}x (natural(x) $\wedge$ negativo(x))
+    \item \underline{$\exists$}x (N(x) $\wedge$ menor(x, 0)), onde N: ser natural
+    \item \underline{$\exists$}x ($x \in \mathbb{N} \wedge x < 0$)
+\end{enumerate}
+
+\bigskip
+\noindent
+\textbf{Ex. 12.} Há no mínimo uma universidade federal.
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\exists$ x (universidade(x) $\wedge$ federal(x))
+    \item $\exists$ x (U(x) $\wedge$ F(x)), onde\\
+    U: ser universidade;\\
+    I: ser federal.
+    \item $\exists$ x ($x \in U \wedge x \in I$)
+    \item $\exists$ x (universidade federal(x))
+\end{enumerate}
+
+\bigskip
+\noindent
+\textbf{Ex. 13.} Existe um único corredor de Fórmula 1 tricampeão do mundo.
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\exists!x$ (corredor-fórmula-1(x) $\wedge$ tricampeão do mundo(x))
+    \item $\exists!x$ (C(x) $\wedge$ T(x)), onde\\
+    C: ser corredor de Fórmula 1;\\
+    T: ser tricampeão do mundo.
+\end{enumerate}
+
+\bigskip
+\noindent
+\textbf{Ex. 14.} A coleção dos alunos do 2º grau.
+
+\begin{enumerate}[label=(\roman*)]
+    \item \{x / aluno x(2º grau)\}
+    \item \{x / aluno do 2º grau(x)\}
+    \item \{x / A(x)\}; onde A(x): x é aluno do 2º grau
+    \item \{x / $x \in C$\}, onde\\
+    C: coleção dos alunos do 2º grau
+    \item C
+\end{enumerate}
+
+\bigskip
+\noindent
+\textbf{Ex. 15.} O número natural que é par e primo.
+
+% Não consigo fazer esse símbolo de trabalho (tau) (???)
+\begin{enumerate}[label=(\roman*)]
+    \item x (nº natural(x) $\wedge$ par(x) $\wedge$ primo(x))
+    \item x (N(x) $\wedge$ P(x) $\wedge$ Pr(x)), onde\\
+    B: ser natural;\\
+    P: ser par;\\
+    Pr: ser primo.
+    \item x ($x \in \mathbb{N} \wedge x \in \mathbb{P} \wedge x \in \mathbb{P} r$)
+\end{enumerate}
+
+\bigskip
+\noindent
+\textbf{Ex. 16.} O aluno da turma 1002.
+
+\begin{enumerate}[label=(\roman*)]
+    \item \lipsum[1]
+\end{enumerate}
+
+No presente texto, será dada preferência às simbolizações indicadas por *, visto que essas são mais adequadas para o tratamento da Informática.
+
+\newpage
+
+\section{Gramática}
