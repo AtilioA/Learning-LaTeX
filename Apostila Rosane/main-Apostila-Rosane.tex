@@ -1,6 +1,11 @@
 % O arquivo main irá conter todas as especificações do documento.
 % Essas especificações serão passadas automaticamente para os módulos introduzidos.
 
+%% A FAZER %%
+% Trocar \bigskip e \vskip por configuração de espaçamento entre parágrafos
+% Criar ambiente\grupo para textos mais recuados \hskip
+% Criar ambiente\grupo para os exemplos
+
 \documentclass[
 	% -- opções da classe memoir --
 	14pt,				% Tamanho da fonte
@@ -19,7 +24,6 @@
 	brazil,				% O último idioma é o principal do documento
     ]{abntex2}
 
-
 \usepackage{lmodern}			% Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
@@ -32,8 +36,7 @@
 \usepackage{float}
 \usepackage{lipsum}
 \usepackage{amsmath}
-% Possui comandos interessantes e.g. '\implies' mas que são substituídos sem perda alguma
-% \usepackage{mathabx} % Conflita com amsmath
+% \usepackage{mathabx} % Conflita com amsmath mas tem símbolos melhores
 \usepackage[LGRgreek]{mathastext}
 \usepackage{multicol}
 \usepackage{multirow}
@@ -45,6 +48,17 @@
 \usepackage{array}
 \usepackage{amssymb}
 \usepackage{upgreek}
+\usepackage{titlesec}
+\usepackage{parskip}
+
+% Altera estilo do título do capítulo (não sei se fica bom)
+\titleformat{\chapter}
+  {\normalfont\Large\bfseries}
+  {\thechapter}
+  {.5em}
+  {\MakeUppercase}
+  [\vspace{.5ex}\titlerule]
+
 
 % Cria comando para repetir um caractere n vezes
 \newcommand\myrepeat[2]{%
@@ -69,8 +83,9 @@
     \hskip 3cm
 }
 
-% Tamanho do recuo do parágrafo
+% Tamanho do recuo e do parágrafo e espaçamento entre eles, respectivamente
 \setlength\parindent{2cm}
+% \setlength{\parskip}{10pt}
 
 % Tamanho da separação das colunas e linhas em tabelas (array)
 \setlength{\tabcolsep}{12pt}
@@ -87,8 +102,9 @@
 \pagestyle{plain}
 \thispagestyle{plain}
 
-%\input ou \include para adicionar os capítulos
+%\input ou para adicionar os módulos dos capítulos
 \input{capitulo1-Apostila-Rosane.tex}
 \input{capitulo2-Apostila-Rosane.tex}
+\input{capitulo3-Apostila-Rosane.tex}
 
 \end{document}
