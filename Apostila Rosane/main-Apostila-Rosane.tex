@@ -3,8 +3,8 @@
 
 %% A FAZER %%
 % Trocar \bigskip e \vskip por configuração de espaçamento entre parágrafos
-% Criar ambiente\grupo para textos mais recuados \hskip
-% Criar ambiente\grupo para os exemplos
+% Criar ambiente para textos mais recuados \hskip
+%--- Criar ambiente (theorem) para os exemplos
 
 \documentclass[
 	% -- opções da classe memoir --
@@ -36,13 +36,12 @@
 \usepackage{float}
 \usepackage{lipsum}
 \usepackage{amsmath}
-% \usepackage{mathabx} % Conflita com amsmath mas tem símbolos melhores
+% \usepackage{mathabx} % Conflita com amsmath
 \usepackage[LGRgreek]{mathastext}
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{lipsum}
 \usepackage[ampersand]{easylist}
-\usepackage{enumitem}
 \usepackage{scrextend}
 \usepackage{bm}
 \usepackage{array}
@@ -50,6 +49,11 @@
 \usepackage{upgreek}
 \usepackage{titlesec}
 \usepackage{parskip}
+\usepackage{amsthm}
+\usepackage{enumitem}
+
+\theoremstyle{definition} % Tira itálico do texto do exemplo
+\newtheorem{exemplo}{Exemplo} % Precisa reiniciar os contadores a cada seção
 
 % Altera estilo do título do capítulo (não sei se fica bom)
 \titleformat{\chapter}

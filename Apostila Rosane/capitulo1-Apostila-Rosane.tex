@@ -235,8 +235,8 @@ Esses vocábulos lógicos são: \textbf{não, e, ou, a menos que, se ... então,
 Consideremos os clássicos exemplos:
 
 \bigskip
-\noindent
-\textbf{Ex. 1.} Sócrates é mortal ou Sócrates não é mortal.
+\begin{exemplo} Sócrates é mortal ou Sócrates não é mortal.
+\end{exemplo}
 
 \bigskip
 \noindent
@@ -244,8 +244,8 @@ A substituição (gramaticalmente adequada) de \textbf{Sócrates} e \textbf{mort
 Assim, \textbf{Platão é grego ou Platão não é grego} é igualmente verdadeiro.
 
 \bigskip
-\noindent
-\textbf{Ex. 2.} Se todo homem é mortal e Sócrates é homem, então Sócrates é mortal.
+\begin{exemplo} Se todo homem é mortal e Sócrates é homem, então Sócrates é mortal.
+\end{exemplo}
 
 \bigskip
 \noindent
@@ -277,7 +277,6 @@ Isto justifica afirmação de que a Lógica tem uma abrangência universal, send
 As partículas lógicas \textbf{e, ou, não, se ... então, todo} e \textbf{existe} desempenham importante papel no estabelecimento das disciplinas em geral, visto que a partir destas e dos enunciados simples podem ser formados \textbf{enunciados compostos}.
 
 As partículas lógicas são simbolizadas de diversas formas:
-
 \bigskip
 \begin{center}
     \large
@@ -332,9 +331,11 @@ Entretanto, neste trabalho apresentaremos, ocasionalmente, exemplos de construç
 
 Apresentaremos a seguir algumas alternativas de como traduzir expressões da Linguagem Natural para a Linguagem Simbólica da Lógica de Predicados.
 
+\setcounter{exemplo}{0} % melhorar isso pelo amor de deus
+
 \bigskip
-\noindent
-\textbf{Ex. 1.} Jorge Amado é escritor.
+\begin{exemplo} Jorge Amado é escritor.
+\end{exemplo}
 
 % Descobrir como inserir caracteres antes de item
 \begin{enumerate}[label=(\roman*)]
@@ -344,8 +345,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{enumerate}
 
 \bigskip
-\noindent
-\textbf{Ex. 2.} João é professor de Pascal.
+\begin{exemplo} João é professor de Pascal.
+\end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
     \item professor(João, Pascal)
@@ -354,8 +355,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{enumerate}
 
 \bigskip
-\noindent
-\textbf{Ex. 3.} Ricardo estuda Inteligência Artificial.
+\begin{exemplo} Ricardo estuda Inteligência Artificial.
+ \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
     \item estuda(Ricardo, Inteligência Artificial)
@@ -364,8 +365,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{enumerate}
 
 \bigskip
-\noindent
-\textbf{Ex. 4.} Maurício Gugelmin ganhou o campeonato e Nelson Piquet sofreu um acidente
+\begin{exemplo} Maurício Gugelmin ganhou o campeonato e Nelson Piquet sofreu um acidente.
+\end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
     \item ganhou (Maurício Gugelmin, Campeonato) $\wedge$ sofreu (Nelson Piquet, acidente)
@@ -380,8 +381,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{enumerate}
 
 \bigskip
-\noindent
-\textbf{Ex. 5.} O Internacional perderá o campeonato se empatar ou perder para o Flamengo.
+\begin{exemplo} O Internacional perderá o campeonato se empatar ou perder para o Flamengo.
+\end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
     \item empata(Internacional, Flamengo) $\vee$ perde(Internacional, Flamengo) $\to$ perde(Internacional, Campeonato)
@@ -392,8 +393,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{enumerate}
 
 \bigskip
-\noindent
-\textbf{Ex. 6.} Certos cursos de programação são interessantes.
+\begin{exemplo} Certos cursos de programação são interessantes.
+\end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
     \item $\exists$x (curso-de-programação(x) $\wedge$ interessante(x))
@@ -406,8 +407,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{enumerate}
 
 \bigskip
-\noindent
-\textbf{Ex. 7.} Todo professor que ensina Inteligência Artificial trabalha com linguagem natural.
+\begin{exemplo} Todo professor que ensina Inteligência Artificial trabalha com linguagem natural.
+\end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
     \item $\forall$x (professor(x) $\wedge$ ensina(x, Inteligência Artificial) $\to$ trabalha(x, linguagem natural))
@@ -418,12 +419,12 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
     \item $\forall$x (P(x) $\; \wedge \;$ Q(x, Inteligência Artificial) $\to$ T(x, linguagem natural)), onde\\
     P(x): x é professor;\\
     Q(x, Inteligência Artificial): x ensina Inteligência Artificial;\\
-    T(x, linguagme natural): x trabalha com linguagem natural.
+    T(x, linguagem natural): x trabalha com linguagem natural.
 \end{enumerate}
 
 \bigskip
-\noindent
-\textbf{Ex. 8.} Nenhum motorista é imprudente.
+\begin{exemplo} Nenhum motorista é imprudente.
+\end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
     \item $\sim \exists$x (motorista(x) $\wedge$ imprudente(x))
@@ -433,8 +434,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{enumerate}
 
 \bigskip
-\noindent
-\textbf{Ex. 9.} Nem todo professor é mestre.
+\begin{exemplo} Nem todo professor é mestre.
+\end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
     \item $\sim \forall$x (professor(x) $\to$ mestre(x))
@@ -444,8 +445,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{enumerate}
 
 \bigskip
-\noindent
-\textbf{Ex. 10.} Não há um maior número natural.
+\begin{exemplo} Não há um maior número natural.
+\end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
     \item $\sim \exists$x (natural(x) $\wedge \; \forall$y (natural(y) $\to$ maior(x, y)))
@@ -455,8 +456,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{enumerate}
 
 \bigskip
-\noindent
-\textbf{Ex. 11.} Há no máximo um natural negativo.
+\begin{exemplo} Há no máximo um natural negativo.
+\end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
     \item \underline{$\exists$}x (natural(x) $\wedge$ negativo(x))
@@ -465,8 +466,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{enumerate}
 
 \bigskip
-\noindent
-\textbf{Ex. 12.} Há no mínimo uma universidade federal.
+\begin{exemplo} Há no mínimo uma universidade federal.
+ \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
     \item $\exists$ x (universidade(x) $\wedge$ federal(x))
@@ -478,8 +479,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{enumerate}
 
 \bigskip
-\noindent
-\textbf{Ex. 13.} Existe um único corredor de Fórmula 1 tricampeão do mundo.
+\begin{exemplo} Existe um único corredor de Fórmula 1 tricampeão do mundo.
+\end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
     \item $\exists!x$ (corredor-fórmula-1(x) $\wedge$ tricampeão do mundo(x))
@@ -489,8 +490,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{enumerate}
 
 \bigskip
-\noindent
-\textbf{Ex. 14.} A coleção dos alunos do 2º grau.
+\begin{exemplo} A coleção dos alunos do 2º grau.
+\end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
     \item \{x / aluno x(2º grau)\}
@@ -502,10 +503,10 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{enumerate}
 
 \bigskip
-\noindent
-\textbf{Ex. 15.} O número natural que é par e primo.
+\begin{exemplo} O número natural que é par e primo.
+\end{exemplo}
 
-% Não consigo fazer esse símbolo de trabalho (tau) (???)
+% Não consigo fazer esse símbolo (acho que é tau) (???)
 \begin{enumerate}[label=(\roman*)]
     \item x (nº natural(x) $\wedge$ par(x) $\wedge$ primo(x))
     \item x (N(x) $\wedge$ P(x) $\wedge$ Pr(x)), onde\\
@@ -516,11 +517,15 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{enumerate}
 
 \bigskip
-\noindent
-\textbf{Ex. 16.} O aluno da turma 1002.
+
+\begin{exemplo} O aluno da turma 1002.
+\end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item \lipsum[1]
+    \item $\zeta$x (aluno da turma 1002(x))
+    \item $\zeta$x (A(x)); onde\\
+    A(x): x é aluno da turma 1002.
+    \item $\zeta$x (aluno(x, turma 1002))
 \end{enumerate}
 
 No presente texto, será dada preferência às simbolizações indicadas por *, visto que essas são mais adequadas para o tratamento da Informática.
@@ -528,3 +533,76 @@ No presente texto, será dada preferência às simbolizações indicadas por *, 
 \newpage
 
 \section{Gramática}
+\setcounter{exemplo}{0}
+
+Uma linguagem lógica L tem sua gramática determinada desde que sejam especificados o \textbf{alfabeto} de L e as \textbf{regras de formação} de L.
+O alfabeto de L encerra todos os símbolos elementares ou partículas fundamentais ou morfemas de L.
+
+Normalmente, esses símbolos elementares ou morfemas são introduzidos no início ou à medida em que se tornam necessários para a construção de nossa linguagem artificial.
+Tal como na linguagem corrente, eles se classificam em categorias gramaticais.
+As categorias gramaticais das linguagens lógicas são: \textbf{variáveis, constantes, funtores, predicadores, juntores, quantificadores} e \textbf{qualificadores}.
+
+Note que os quantificadores e qualificadores são também chamados de \textbf{operadores}.
+
+As categorias gramaticais de nossa linguagem lógica usuais são:
+
+\begin{enumerate}
+    \item \textbf{variáveis};
+    \item \textbf{constantes};
+    \item \textbf{funtores};
+    \item \textbf{predicadores};
+    \item \textbf{juntores}: $\sim, \wedge, \vee, \to, \iff, \downarrow, \uparrow$;
+    \item \textbf{quantificadores}: $\exists, \forall, \underline{\exists}, \exists!$;
+    \item \textbf{qualificadores}: $(\;\;)$ (a coleção de), $\tau$ (o artigo definido), $\lambda$ (operador lambda).
+\end{enumerate}
+
+Cabe agora investigar a função que essas partículas exercem na linguagem.
+
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variáveis} são morfemas que designam objetos de forma genérica ou inespecífica.
+    Em princípio, a toda variável é coerente associar um \textbf{domínio} com pelo menos um elemento (não vazio), que encerra seus \textbf{valores}.
+    Assim sendo, pode-se dizer que toda variável varia sobre um domínio (não vazio) no qual ela toma seus valores.;
+
+    \item \textbf{Constantes} são morfemas que designam objetos específicos e determinados de um certo domínio ou universo de discurso;
+
+    \item \textbf{Funtores} são morfemas que formam termos a partir de termos.
+    Importa notar que a cada funtor associaremos um peso, ou aridade, que indica o número de (ocorrência de) termos necessários à formação de novos termos.
+    Assim: \textbf{sucessor é um funtor de peso 1}, \textbf{soma é um funtor de peso 2}, \textbf{integral definida é um funtor de peso 3}.
+
+    % O certo seria indentar os próximos exemplos
+    \begin{exemplo}
+            sucessor(2)
+    \end{exemplo}
+    \begin{exemplo}
+            2 + 3 ou +(2, 3)
+    \end{exemplo}
+    \begin{exemplo}
+            fatorial(4)
+    \end{exemplo}
+    \begin{exemplo}
+            soma(2, 3)
+    \end{exemplo}
+    \begin{exemplo}
+            1 * 5
+    \end{exemplo}
+
+    \item \textbf{Predicadores} são símbolos que formam enunciados a partir de termos.
+    Por exemplo: \textbf{maior que}, \textbf{pertence a}, \textbf{ser homem}, \textbf{estar entre}, \textbf{estar contido} são predicadores.
+    A cada predicador está associado um peso ou aridade que indica o número de termos necessários à formação do enunciado.
+    Assim: \textbf{ser homem é um predicador de peso 1}, \textbf{ser maior é um predicador de peso 2}, \textbf{estar entre é um predicador de peso 3}.
+
+    \begin{exemplo}
+        Kant é homem.
+    \end{exemplo}
+    \begin{exemplo}
+        2 é maior que 3.
+    \end{exemplo}
+    \begin{exemplo}
+        \textit{a} está entre \textit{b} e \textit{c}.
+    \end{exemplo}
+
+
+    \item \textbf{Juntores}:
+    \item \textbf{Quantificadores}:
+    \item \textbf{Qualificadores}:
+\end{enumerate}
