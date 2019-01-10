@@ -21,7 +21,7 @@ Tentaremos contornar os obstáculos, cientes de que, linguagens simbólicas, at�
 
 \newpage
 
-Chamamos de \emph{linguagem artificial} % remover
+Chamamos de \emph{linguagem artificial}
 toda linguagem deliberadamente construída para fins específicos, como as \textbf{linguagens de programação} e os diversos cálculos da Lógica e da Matemática.
 Não vamos aqui classificar as diversas linguagens, mas apenas apresentar linguagens artificias que sejam aptas ao estudo da Lógica e da Informática.
 
@@ -168,7 +168,7 @@ Por tentativa e erro, procuraremos distinguir, entre as expressões bem formadas
 \end{itemize}
 
 % Descobrir como fazer essa parte
-\textbf{Comentário:} As variáveis $\underline{x}$ e $\underline{y}$, que ocorrem nas expressões $\bm{x + y = 3}$ e $\bm{x^2 - 5x + 6 = 0}$, são variáveis livres em tais expressões.
+\noindent \textbf{Comentário:} As variáveis $\underline{x}$ e $\underline{y}$, que ocorrem nas expressões $\bm{x + y = 3}$ e $\bm{x^2 - 5x + 6 = 0}$, são variáveis livres em tais expressões.
 Tais variáveis atuam como nomes de elementos arbitrários do domínio de discurso.
 
 \noindent
@@ -567,7 +567,7 @@ Cabe agora investigar a função que essas partículas exercem na linguagem.
 
     \item \textbf{Funtores} são morfemas que formam termos a partir de termos.
     Importa notar que a cada funtor associaremos um peso, ou aridade, que indica o número de (ocorrência de) termos necessários à formação de novos termos.
-    Assim: \textbf{sucessor é um funtor de peso 1}, \textbf{soma é um funtor de peso 2}, \textbf{integral definida é um funtor de peso 3}.
+    Assim: \textbf{\textit{sucessor} é um funtor de peso 1}, \textbf{\textit{soma} é um funtor de peso 2}, \textbf{\textit{integral definida} é um funtor de peso 3}.
 
     % O certo seria indentar os próximos exemplos
     \begin{exemplo}
@@ -589,7 +589,7 @@ Cabe agora investigar a função que essas partículas exercem na linguagem.
     \item \textbf{Predicadores} são símbolos que formam enunciados a partir de termos.
     Por exemplo: \textbf{maior que}, \textbf{pertence a}, \textbf{ser homem}, \textbf{estar entre}, \textbf{estar contido} são predicadores.
     A cada predicador está associado um peso ou aridade que indica o número de termos necessários à formação do enunciado.
-    Assim: \textbf{ser homem é um predicador de peso 1}, \textbf{ser maior é um predicador de peso 2}, \textbf{estar entre é um predicador de peso 3}.
+    Assim: \textbf{\textit{ser homem} é um predicador de peso 1}, \textbf{\textit{ser maior} é um predicador de peso 2}, \textbf{\textit{estar entre} é um predicador de peso 3}.
 
     \begin{exemplo}
         Kant é homem.
@@ -601,8 +601,88 @@ Cabe agora investigar a função que essas partículas exercem na linguagem.
         \textit{a} está entre \textit{b} e \textit{c}.
     \end{exemplo}
 
+    Através dos predicadores formamos os enunciados mais simples de uma teoria: os \textbf{enunciados atômicos}.
+    Tal é o que se dá em teoria dos conjuntos com os predicadores: \textbf{pertence} e \textbf{igual}.
+    Aí, qualquer outro predicador pode ser definido usando esses predicadores.
+    Aqui, vamos prefixar os predicadores.
 
-    \item \textbf{Juntores}:
-    \item \textbf{Quantificadores}:
-    \item \textbf{Qualificadores}:
+    \setcounter{exemplo}{0}
+    \begin{exemplo}
+        Homem(Kant)
+    \end{exemplo}
+    \begin{exemplo}
+        maior(2,3)
+    \end{exemplo}
+    \begin{exemplo}
+        entre(a, b, c)
+    \end{exemplo}
+
+    Finalmente, importa notar que as propriedades e relações que um objeto possa eventualmente possuir são expressas mediante predicadores.
+    Assim, expressar fatos através de predicadores é tarefa fundamental para qualquer área do conhecimento.
+
+    Note que predicado é aquilo que afeta um objeto, enquanto que um predicador é uma expressão que designa um predicado.
+
+    A partir daqui não faremos distinção entre predicado e predicador.
+
+    \item \textbf{Juntores} são símbolos que formam enunciados a partir de enunciados. São juntores: \textbf{não, e, ou, se... então, se e somente se, nem, nor}. Os juntores também se classificam quanto ao peso (ou aridade). Assim: \textbf{\textit{não} é um juntor de peso 1}, \textbf{\textit{se... então} é um juntor de peso 2}.
+
+    \setcounter{exemplo}{0}
+        \begin{exemplo}
+            \textbf{não}(carioca(João)) - peso 1 %\hspace*{\fill}- peso 1
+        \end{exemplo}
+
+        \begin{exemplo}
+            \textbf{se} sobe(dólar) \textbf{então} sobe(ouro) - peso 2 %\hspace*{\fill}- peso 2
+        \end{exemplo}
+    \item \textbf{Operadores} são morfemas cuja principal função é transformar expressões abertas em fechadas. Os operadores se subdividem em \textbf{qualificadores} e \textbf{quantificadores}.
+
+    Os principais qualificadores são: o artigo definido, a coleção e o operador de abstração.
+
+    \begin{enumerate}[label={\textbf{--}}]
+        \item \textbf{o artigo definido} forma termo a partir de uma variável e de um enunciado. Por exemplo, a partir do enunciado \textbf{x é autor dos Lusíadas} temos \textbf{$\zeta$x: x é autor dos Lusíadas} - isto é, outra indicação de Camões. A partir do enunciado \textbf{$x = 2$} temos $\zeta x: x = 2$ - isto é, outra forma de indicador o nº 2. Note que este operador é também chamado de descritor.
+
+        \item \textbf{o operador de abstração} $\lambda$ (de Church) forma termo a partir de uma variável e de um termo. Este operador é usado para formar nomes de funções.
+
+        \setcounter{exemplo}{0}
+        \begin{exemplo}
+            $\lambda x: x.x$
+        \end{exemplo}
+
+        \item \textbf{a coleção de elementos $\{ \}$} forma termos a partir de uma letra argumento (variável) e de um enunciado.
+        Note que o operador $\{ \}$ (a coleção de elementos) é o principal operador da Teoria dos Conjuntos.
+
+        A partir do enunciado p(x) formamos \bm{$\{ x / p(x) \}$}, i.e., a coleção dos objetos que satisfazem ao enunciado \textbf{p(x)}. %! este parágrafo deveria estar mais recuado
+    \end{enumerate}
+
+    \textbf{Quantificadores} são operadores que formam enunciados a partir de enunciados e letras argumentos (variáveis). São exemplos de quantificadores: \textbf{qualquer que seja}, \textbf{existe}, \textbf{no máximo um}, \textbf{existe um único}.
+
+    Eis alguns exemplos de enunciados quantificados:
+
+    \begin{enumerate}[label=\arabic*)]
+        \item $\forall$x (aluno-informática(x) $\to$ gosta(x, programação))
+        \item $\forall$x (computador(x) $\to$ funciona(x))
+        \item $\exists$x (professor (x) $\wedge$ ensina(x, Inteligência Artificial))
+    \end{enumerate}
+
+    \noindent \textbf{* Convenções:}
+    \begin{enumerate}[label=\roman*)]
+        \item As letras \textbf{p}, \textbf{q}, \textbf{r}, \textbf{s}, afetadas ou não de índices, serão utilizadas como enunciados simples ou como representantes de tais enunciados, para facilitar as discussões. Tais letras serão chamadas \textbf{letras proposicionais}.
+
+        \item As letras $\alpha, \beta, \gamma, \delta$, afetadas ou não de índices, serão utilizadas para referência a quaisquer enunciados (simples ou compostos). Nestes casos elas serão chamadas \textbf{metavariáveis}.
+
+        \item As letras \textbf{T} e \textbf{t}, afetadas ou não de índices, serão utilizadas para referência a termos, ou, ocasionalmente, para representá-los.
+
+        \item As letras \textbf{x}, \textbf{y}, \textbf{z}, afetadas ou não de índices, serão utilizadas para referência a variáveis ou ocasionalmente para representá-los.
+    \end{enumerate}
+
+    \noindent \textbf{Comentário:} As categorias gramaticais dos juntores e operadores (quantificadores e qualificadores) fornecem os símbolos lógicos.
 \end{enumerate}
+
+
+\subsection{Regras de Formação}
+\setcounter{exemplo}{0}
+
+Em um sistema lógico, as regras de formação determinarão as expressões que serão chamadas de \emph{expressões bem formadas}.
+De modo intuitivo, as regras de formação de uma linguagem L formam suas expressões (termos ou enunciados) a partir de seu alfabeto.
+Essas regras são, em geral, regras recursivas, isto é, regras que partem de expressões previamente explicitadas e de procedimentos que permitem, a partir destas, formar todas as demais.
+Como já dissemos, as expressões da linguagem são termos ou enunciados (fórmulas).

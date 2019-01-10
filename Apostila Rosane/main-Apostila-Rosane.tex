@@ -36,7 +36,7 @@
 \usepackage{float}
 \usepackage{lipsum}
 \usepackage{amsmath}
-% \usepackage{mathabx} % Conflita com amsmath
+% \usepackage{mathabx} % Conflita com amsmath mas se parece mais com a apostila
 \usepackage[LGRgreek]{mathastext}
 \usepackage{multicol}
 \usepackage{multirow}
@@ -72,7 +72,7 @@
   \endgroup
 }
 
-\newenvironment{tightcenter}{%
+\newenvironment{tightcenter}{% <- Este % impede que o espaço em branco seguinte seja utilizado no comando
   \setlength\topsep{0pt}
   \setlength\parskip{0pt}
   \begin{center}
@@ -81,7 +81,7 @@
 }
 \renewcommand{\baselinestretch}{1.5}
 
-% Ambiente para recuar texto (não está funcionando)
+% Ambiente para recuar texto (ainda não está funcionando)
 \newenvironment{textorecuado}
 {
     \hskip 3cm
@@ -91,7 +91,7 @@
 \setlength\parindent{2cm}
 % \setlength{\parskip}{10pt}
 
-% Tamanho da separação das colunas e linhas em tabelas (array)
+% Tamanho da separação das colunas e linhas em tabelas (pacote array)
 \setlength{\tabcolsep}{12pt}
 \setlength\extrarowheight{12pt}
 
@@ -99,14 +99,14 @@
 % Fim do preâmbulo
 \begin{document}
 
-% Estilo das páginas do documento (deve ficar abaixo do \begin{document} por algum motivo)
+% Estilo das páginas do documento (não sei por que deve ficar abaixo do \begin{document})
 \makepagestyle{memoir}
 \makeevenfoot{memoir}{}{}{\thepage}
 \makeoddfoot{memoir}{}{}{\thepage}
 \pagestyle{plain}
 \thispagestyle{plain}
 
-%\input ou para adicionar os módulos dos capítulos
+% \input para adicionar os módulos dos capítulos
 \input{capitulo1-Apostila-Rosane.tex}
 \input{capitulo2-Apostila-Rosane.tex}
 \input{capitulo3-Apostila-Rosane.tex}
