@@ -686,3 +686,76 @@ Em um sistema lógico, as regras de formação determinarão as expressões que 
 De modo intuitivo, as regras de formação de uma linguagem L formam suas expressões (termos ou enunciados) a partir de seu alfabeto.
 Essas regras são, em geral, regras recursivas, isto é, regras que partem de expressões previamente explicitadas e de procedimentos que permitem, a partir destas, formar todas as demais.
 Como já dissemos, as expressões da linguagem são termos ou enunciados (fórmulas).
+
+\bigskip
+\noindent Definição de \textbf{termo} e \textbf{fórmula}
+
+\begin{enumerate}[label=\roman*)]
+    \item variáveis são termos;
+    \item constantes são termos;
+    \item se f é um funtor de peso n e $t_1, \dots, t_n$ são termos, então $f(t_1, \dots, t_n)$ é um termo;
+    \item se P é um predicador de peso n e $t_1, \dots, t_n$ são termos, então P($t_1, \dots, t_n$) é uma fórmula (chamada \textbf{átomo} ou \textbf{fórmula atômica});
+    \item letras proposicionais são fórmulas;
+    \item se $\alpha$, $\beta$ são fórmulas, então $\sim \alpha,\ \alpha \wedge \beta,\ \alpha \vee \beta,\ \alpha \to \beta,\ \alpha \iff \beta$ são fórmulas;
+    \item se x é variável e $\alpha$ uma fórmula, então $\forall x \, \alpha,\ \exists x \, \alpha$ são fórmulas;
+    \item se $\alpha$ é uma fórmula e x uma variável, então $\zeta x \colon \alpha(x)$ é um termo e $\{ x \colon \alpha(x)\}$ é um termo;
+    \item se T é um termo e x uma variável, então $\lambda x \colon T(x)$ é um termo;
+    \item só serão considerados termos ou fórmulas dessa construção aquelas expressões obtidas por um número finito de aplicações de i, ii, iii, iv, v, vi vii, viii, ix.
+\end{enumerate}
+
+As fórmulas, como vemos, ou são \textbf{atômicas} (def. iv e v) ou são \textbf{compostas} (def. vi, vii).
+
+\section{Gramática}
+
+\begin{enumerate}[label=\arabic*)]
+    \item Dadas as fórmulas abaixo, identifique os predicados, sua aridade e especifique seus argumentos.
+    \begin{enumerate}[label=\alph*)]
+        \item Paulo ensina Matemática.
+        \item Pedro joga vôlei e pratica natação.
+        \item b está entre a e c.
+        \item Maria é programadora.
+        \item Paulo leciona Aspectos Formais da Computação.
+    \end{enumerate}
+
+    \item Sabendo-se que uma linguagem tem sua gramática determinada desde que sejam especificados o seu alfabeto e as regras de formação de suas expressões, faça o que se pede:
+    \begin{enumerate}[label=\alph*)]
+        \item Observando o alfabeto e as regras gramaticais de uma certa linguagem L, identifique, dentre as expressões listadas abaixo, aquelas que foram construídas segundo as regras de L:
+
+        \item[] Alfabeto de $L \colon \{\ [\ \, ,\ ]\ \}$
+        \item[] Regras de L:
+        \begin{enumerate}[label=R{\arabic*.}]
+            \item $[$ e $]$ são expressões bem formadas de L.
+            \item Se $\alpha$ é uma expressão bem formada de L, então $[ \alpha$ é uma expressão bem formada de L.
+            \item Se $\alpha$ é uma expressão bem formada de L, então $\alpha ]$ é uma expressão bem formada de L.
+            \item Só serão consideradas expressões bem formadas de L aquelas construídas através de um número finito de aplicações de R1 a R3.
+        \end{enumerate}
+
+        % https://tex.stackexchange.com/questions/194426/split-itemize-into-multiple-columns
+        \begin{multicols}{2}
+            \begin{enumerate}[label=(\alph*)]
+                \item $[\ [\ ]$
+                \item $[\ [\ ]\ [$
+                \item $]\ ]\ [\ ]$
+                \item $]$
+                \item $[\ [\ ]\ [\ ]$
+                \item $]\ [$
+            \end{enumerate}
+        \end{multicols}
+
+        \item Dada a linguagem K cujo alfabeto é $\{a,\ b,\ c\}$ e cujas regras de formação de expressões são:
+        \begin{enumerate}[label=R{\arabic*}.]
+            \item a, b e c são ebf de K.
+            \item Se a é ebf de K, então aab e aa são ebf de K.
+            \item Só serão consideradas ebf de K as expressões obtidas por um número finito de aplicações de R1 e R2.
+        \end{enumerate}
+
+        \item[] Faça o que se pede:
+        \begin{enumerate}[label=\roman*)]
+            \item Dê exemplos de ebf de K.
+            \item aba é ebf de K?
+        \end{enumerate}
+
+        \item Dado o alfabeto $\{ a,\ b,\ +,\ (,\ -,\ )\}$, construa uma gramática de modo que a expressão $((-\ (a) + (b)) + (a))$ seja uma ebf.
+
+    \end{enumerate}
+\end{enumerate}
