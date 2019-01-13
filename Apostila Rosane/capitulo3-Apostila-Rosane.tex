@@ -9,13 +9,101 @@ Antes, porém, cabe explicitar a gramática que permite definir suas fórmulas.
 Uma vez fixados, pela intermediação da gramática, as expressões desse cálculo, resta mostrar os procedimentos que permitem interpretá-las.
 
 No Cálculo Proposicional, o alfabeto consiste das duas seguintes classes de símbolos: i) \textbf{as letras proposicionais}; e ii) \textbf{os juntores}.
-Conforme foi mencionado, usaremos as letras \textbf{p}, \textbf{q}, \textbf{r}, \textbf{s}, afetadas ou não de índices como letras proposicionais; e empregaremos os sinais $\sim, \wedge, \vee, \to, \iff$ como juntores.
+Conforme foi mencionado, usaremos as letras \textbf{p}, \textbf{q}, \textbf{r}, \textbf{s}, afetadas ou não de índices como letras proposicionais; e empregaremos os sinais $\sim, \land, \lor, \to, \iff$ como juntores.
 Com este alfabeto e com as regras de formação do Cálculo Proposicional, torna-se possível caracterizarmos, de modo rigoroso, as fórmulas bem formadas do Cálculo Proposicional.
 
 \subsection*{Regras de formação}
 
-\noindent i) As letras proposicionais são fórmulas bem formadas (ditas fórmulas primas ou fórmulas atômicas).
+\begin{enumerate}[label={\roman*})]
+    \item As letras proposicionais são fórmulas bem formadas (ditas fórmulas primas ou fórmulas atômicas).
+
+    \item Se $\alpha$ e $\beta$ são fórmulas bem formadas, então ($\alpha \; \land \; \beta), (\alpha \; \lor \; \beta), (\alpha \to \beta), (\alpha \iff \beta), (\alpha \downarrow \beta), (\alpha \uparrow \beta), (\sim\alpha),$ são fórmulas bem formadas (ditas fórmulas compostas).
+
+    \item As únicas fórmulas bem formadas do Cálculo Proposicional são as obtidas por um número finito de aplicações de i, ii.
+\end{enumerate}
+
+Daqui por diante, por mera questão de comodidade, usaremos apenas a palavra \textbf{fórmula}, em lugar da expressão \textbf{fórmula bem formada}.
+
+
+\begin{exemplo}
+    \bm{$((p \land q) \to (p \lor r))$} é uma fórmula bem formada do Cálculo Proposicional construída da seguinte forma:
+\end{exemplo}
+
+Como p, q, r  são fórmulas por i, segue-se daí e de ii que $(p \land q)$ e $(p \lor r)$ são fórmulas.
+Logo, daí e de ii, tem-se que $((p \land q) \to (p \lor r))$ é fórmula bem formada.
 
 \bigskip
 
-\noindent ii) Se $\alpha$ e $\beta$ são fórmulas bem formadas, então ($\alpha \; \land \; \beta), (\alpha \; \vee \; \beta), (\alpha \to \beta), (\alpha \iff \beta), (\alpha \downarrow \beta), (\alpha \uparrow \beta), (\sim\alpha),$ são fórmulas bem formadas (ditas fórmulas compostas).
+\noindent \textbf{Comentário:} Por comodidade, omitiremos parênteses sempre que isto não causar ambiguidade. Assim, no caso acima, optaremos pela fórmula
+
+% \begin{center}
+%     $(p \land q) \to (p \lor r)$
+% \end{center}
+
+\centerline{$(p \land q) \to (p \lor r)$}
+
+\section{Semântica}
+No que vem a seguir, faremos um estudo intuitivo do que se costuma chamar a \textbf{Semântica do Cálculo Proposicional}.
+Falaremos, então, em significado, interpretação, etc, comumente de modo um tanto vago.
+
+O significado das fórmulas de um cálculo lógico é dado pela interpretação dessas fórmulas, isto é, pela atribuição apropriada de valores lógicos (V, F).
+Assim, a semântica do Cálculo Proposicional consiste na interpretação de suas fórmulas.
+
+Seja $\alpha$ uma fórmula. Uma interpretação de $\alpha$ consiste na atribuição de valores lógicos V  ou F às fórmulas atômicas componentes de $\alpha$, levando-se em consideração a interpretação de $\land,\ \lor,\ \to,\ \iff$, dadas pelas tabelas de verdade.
+
+% Mudar isso depois
+\begin{exemplo}
+    Uma interpretação para a fórmula \bm{$p \to (q \lor r)$}
+\end{exemplo}
+\noindent consiste em atribuir valores lógicos a seus componentes atômicos p, q e r.
+Isto se faz, esquematicamente, do seguinte modo:
+
+% Falta centralizar os elementos da tabela
+\begin{center}
+    \begin{tabular}{l l l l}
+        p & q & r & $p \to (q \lor r)$ \\ \hline
+        V & F & F & F
+    \end{tabular}
+\end{center}
+
+Esta fórmula é considerada então falsa segundo essa interpretação. Mas ela poderia ser verdadeiro segundo outra interpretação, por exemplo,
+
+\begin{center}
+    \begin{tabular}{l l l l}
+        p & q & r & $p \to (q \lor r)$ \\ \hline
+        F & V & F & V
+    \end{tabular}
+\end{center}
+
+\begin{exemplo}
+    Seja a fórmula \bm{$(p \lor q) \to (p \land q)$}
+\end{exemplo}
+\noindent que encerra dois componentes atômicos p e q; portanto, esta fórmula admite quatro interpretações, como indica a tabela a seguir:
+
+\begin{center}
+    % \large
+    \begin{tabular}{l l l l l l}
+                        & p & q & $p \lor q$ & $p \land q$ & $(p \lor q) \to (p \land q)$ \\ \hline
+        interpretação 1 & V & V & V          & V            & V \\
+        interpretação 2 & V & F & V          & F            & F \\
+        interpretação 3 & F & V & V          & F            & F \\
+        interpretação 4 & F & F & F          & F            & V
+    \end{tabular}
+\end{center}
+
+De modo geral, se uma fórmula tiver n componentes atômicos distintos, esta fórmula admitirá $2^n$ interpretações.
+
+\bigskip
+\noindent \textbf{Convenção:} Para facilitar a leitura, vamos convencionar daqui em diante que uma interpretação será abreviada pela letra I afetada ou não de indices.
+
+
+De um ponto de vista semântico, as noções de verdade, satisfatibilidade e validade são noções fundamentais.
+A  seguir, passaremos ao  estudo dessas noções no  âmbito do  Cálculo Proposicional.
+
+\bigskip
+\textbf{Def.:} Admitamos que uma fórmula $\alpha$ tenha o valor V numa certa interpretação I. Neste caso, diz-se então que $\alpha$ é verdadeira nesta interpretação.
+
+Assim, a fórmula $(p \lor q) \to (p \land q)$, do exemplo anterior, é verdadeira segundo a primeira interpretação.
+
+\bigskip
+\noindent \textbf{Comentário:} Note que se $\alpha$ e $\beta$ são fórmulas, então $\alpha \land \beta$ é \textbf{verdadeira} segundo uma interpretação se e somente se $\alpha$ e $\beta$ são ambas verdadeiras segundo esta interpretação.
