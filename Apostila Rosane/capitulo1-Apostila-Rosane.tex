@@ -282,8 +282,8 @@ As partículas lógicas são simbolizadas de diversas formas:
     \large
     \begin{tabular}{l l l l}
         não          & $\sim$   & $\neg$  & \textasciitilde \\ \hline
-        e            & $\wedge$ & \& & $\sqcap$ \\ \hline
-        ou           & $\vee$   & $\bigvee$  & $\sqcup$ \\ \hline
+        e            & $\land$ & \& & $\sqcap$ \\ \hline
+        ou           & $\lor$   & $\bigvee$  & $\sqcup$ \\ \hline
         se ... então & $\rightarrow$ & $\implies$ & $\sqsubset$  \\ \hline
         todo         & $\forall$  & \small( \small) & \LARGE{$\sqcap$} \\ \hline
         existe       & $\exists$ & E & \LARGE{$\sqcup$}  \\ \hline
@@ -306,9 +306,9 @@ São exemplos de enunciados compostos:
 
 \hskip 2.5cm $\forall x(x > 9 \to x > 3)$,
 
-\hskip 2.5cm $2 \in \mathbb{N} \wedge x = y$,
+\hskip 2.5cm $2 \in \mathbb{N} \land x = y$,
 
-\hskip 2.5cm $\sim(5 > 2 \vee 7 < 8)$
+\hskip 2.5cm $\sim(5 > 2 \lor 7 < 8)$
 
 \newpage
 
@@ -369,11 +369,11 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item ganhou (Maurício Gugelmin, Campeonato) $\wedge$ sofreu (Nelson Piquet, acidente)
-    \item p $\wedge$ q; onde\\
+    \item ganhou (Maurício Gugelmin, Campeonato) $\land$ sofreu (Nelson Piquet, acidente)
+    \item p $\land$ q; onde\\
     p: Maurício Gugelmin ganhou o campeonato;\\
     q: Nelson Piquet sofreu um acidente.
-    \item $m \in C \; \wedge n \in A$; onde\\
+    \item $m \in C \; \land n \in A$; onde\\
     m: Maurício Gugelmin;\\
     n: Nelson Piquet;\\
     C: conjunto dos que ganharam o campeonato;\\
@@ -385,8 +385,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item empata(Internacional, Flamengo) $\vee$ perde(Internacional, Flamengo) $\to$ perde(Internacional, Campeonato)
-    \item p $\vee$ q $\to$ r, onde\\
+    \item empata(Internacional, Flamengo) $\lor$ perde(Internacional, Flamengo) $\to$ perde(Internacional, Campeonato)
+    \item p $\lor$ q $\to$ r, onde\\
     p: Internacional empata com Flamengo;\\
     q: Internacional perde para o Flamengo;\\
     r: Internacional perde o Campeonato.
@@ -397,11 +397,11 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item $\exists$x (curso-de-programação(x) $\wedge$ interessante(x))
-    \item $\exists$x ($x \in C \; \wedge \; x \in I$), onde\\
+    \item $\exists$x (curso-de-programação(x) $\land$ interessante(x))
+    \item $\exists$x ($x \in C \; \land \; x \in I$), onde\\
     C: conjunto dos cursos de programação;\\
     I: conjunto das coisas interessantes.
-    \item $\exists$x (C(x) $\wedge$ I(x)), onde\\
+    \item $\exists$x (C(x) $\land$ I(x)), onde\\
     C(x): x é curso de programação;\\
     I(x): x é interessante.
 \end{enumerate}
@@ -411,12 +411,12 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item $\forall$x (professor(x) $\wedge$ ensina(x, Inteligência Artificial) $\to$ trabalha(x, linguagem natural))
-    \item $\forall$x ($x \in P \; \wedge \; x \in I \to x \in T$), onde\\
+    \item $\forall$x (professor(x) $\land$ ensina(x, Inteligência Artificial) $\to$ trabalha(x, linguagem natural))
+    \item $\forall$x ($x \in P \; \land \; x \in I \to x \in T$), onde\\
     P: conjunto dos professores;\\
     I: conjunto das pessoas que ensinam Inteligência Artificial;\\
     T: conjunto das pessoas que trabalham com linguagem natural.
-    \item $\forall$x (P(x) $\; \wedge \;$ Q(x, Inteligência Artificial) $\to$ T(x, linguagem natural)), onde\\
+    \item $\forall$x (P(x) $\; \land \;$ Q(x, Inteligência Artificial) $\to$ T(x, linguagem natural)), onde\\
     P(x): x é professor;\\
     Q(x, Inteligência Artificial): x ensina Inteligência Artificial;\\
     T(x, linguagem natural): x trabalha com linguagem natural.
@@ -427,8 +427,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item $\sim \exists$x (motorista(x) $\wedge$ imprudente(x))
-    \item $\sim \exists$x (C(x) $\wedge$ P(x)), onde\\
+    \item $\sim \exists$x (motorista(x) $\land$ imprudente(x))
+    \item $\sim \exists$x (C(x) $\land$ P(x)), onde\\
     C: ser motorista;\\
     P: ser imprudente.
 \end{enumerate}
@@ -449,9 +449,9 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item $\sim \exists$x (natural(x) $\wedge \; \forall$y (natural(y) $\to$ maior(x, y)))
-    \item $\sim \exists$x (natural) ($x \in N \wedge \; \forall$y ($y \in N \to x > y$))
-    \item $\sim \exists$x (natural) (N(x) $\wedge \; \forall$y (N(y) $\to \;\; > (x, y)$)), onde\\
+    \item $\sim \exists$x (natural(x) $\land \; \forall$y (natural(y) $\to$ maior(x, y)))
+    \item $\sim \exists$x (natural) ($x \in N \land \; \forall$y ($y \in N \to x > y$))
+    \item $\sim \exists$x (natural) (N(x) $\land \; \forall$y (N(y) $\to \;\; > (x, y)$)), onde\\
     N(x): ser natural
 \end{enumerate}
 
@@ -460,9 +460,9 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item \underline{$\exists$}x (natural(x) $\wedge$ negativo(x))
-    \item \underline{$\exists$}x (N(x) $\wedge$ menor(x, 0)), onde N: ser natural
-    \item \underline{$\exists$}x ($x \in \mathbb{N} \wedge x < 0$)
+    \item \underline{$\exists$}x (natural(x) $\land$ negativo(x))
+    \item \underline{$\exists$}x (N(x) $\land$ menor(x, 0)), onde N: ser natural
+    \item \underline{$\exists$}x ($x \in \mathbb{N} \land x < 0$)
 \end{enumerate}
 
 \bigskip
@@ -470,11 +470,11 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
  \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item $\exists$ x (universidade(x) $\wedge$ federal(x))
-    \item $\exists$ x (U(x) $\wedge$ F(x)), onde\\
+    \item $\exists$ x (universidade(x) $\land$ federal(x))
+    \item $\exists$ x (U(x) $\land$ F(x)), onde\\
     U: ser universidade;\\
     I: ser federal.
-    \item $\exists$ x ($x \in U \wedge x \in I$)
+    \item $\exists$ x ($x \in U \land x \in I$)
     \item $\exists$ x (universidade federal(x))
 \end{enumerate}
 
@@ -483,8 +483,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item $\exists!x$ (corredor-fórmula-1(x) $\wedge$ tricampeão do mundo(x))
-    \item $\exists!x$ (C(x) $\wedge$ T(x)), onde\\
+    \item $\exists!x$ (corredor-fórmula-1(x) $\land$ tricampeão do mundo(x))
+    \item $\exists!x$ (C(x) $\land$ T(x)), onde\\
     C: ser corredor de Fórmula 1;\\
     T: ser tricampeão do mundo.
 \end{enumerate}
@@ -508,12 +508,12 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 
 % Não consigo fazer esse símbolo (acho que é tau) (???)
 \begin{enumerate}[label=(\roman*)]
-    \item x (nº natural(x) $\wedge$ par(x) $\wedge$ primo(x))
-    \item x (N(x) $\wedge$ P(x) $\wedge$ Pr(x)), onde\\
+    \item x (nº natural(x) $\land$ par(x) $\land$ primo(x))
+    \item x (N(x) $\land$ P(x) $\land$ Pr(x)), onde\\
     B: ser natural;\\
     P: ser par;\\
     Pr: ser primo.
-    \item x ($x \in \mathbb{N} \wedge x \in \mathbb{P} \wedge x \in \mathbb{P} r$)
+    \item x ($x \in \mathbb{N} \land x \in \mathbb{P} \land x \in \mathbb{P} r$)
 \end{enumerate}
 
 \bigskip
@@ -551,7 +551,7 @@ As categorias gramaticais de nossa linguagem lógica usuais são:
     \item \textbf{constantes};
     \item \textbf{funtores};
     \item \textbf{predicadores};
-    \item \textbf{juntores}: $\sim, \wedge, \vee, \to, \iff, \downarrow, \uparrow$;
+    \item \textbf{juntores}: $\sim, \land, \lor, \to, \iff, \downarrow, \uparrow$;
     \item \textbf{quantificadores}: $\exists, \forall, \underline{\exists}, \exists!$;
     \item \textbf{qualificadores}: $(\;\;)$ (a coleção de), $\tau$ (o artigo definido), $\lambda$ (operador lambda).
 \end{enumerate}
@@ -661,7 +661,7 @@ Cabe agora investigar a função que essas partículas exercem na linguagem.
     \begin{enumerate}[label=\arabic*)]
         \item $\forall$x (aluno-informática(x) $\to$ gosta(x, programação))
         \item $\forall$x (computador(x) $\to$ funciona(x))
-        \item $\exists$x (professor (x) $\wedge$ ensina(x, Inteligência Artificial))
+        \item $\exists$x (professor (x) $\land$ ensina(x, Inteligência Artificial))
     \end{enumerate}
 
     \noindent \textbf{* Convenções:}
@@ -696,7 +696,7 @@ Como já dissemos, as expressões da linguagem são termos ou enunciados (fórmu
     \item se f é um funtor de peso n e $t_1, \dots, t_n$ são termos, então $f(t_1, \dots, t_n)$ é um termo;
     \item se P é um predicador de peso n e $t_1, \dots, t_n$ são termos, então P($t_1, \dots, t_n$) é uma fórmula (chamada \textbf{átomo} ou \textbf{fórmula atômica});
     \item letras proposicionais são fórmulas;
-    \item se $\alpha$, $\beta$ são fórmulas, então $\sim \alpha,\ \alpha \wedge \beta,\ \alpha \vee \beta,\ \alpha \to \beta,\ \alpha \iff \beta$ são fórmulas;
+    \item se $\alpha$, $\beta$ são fórmulas, então $\sim \alpha,\ \alpha \land \beta,\ \alpha \lor \beta,\ \alpha \to \beta,\ \alpha \iff \beta$ são fórmulas;
     \item se x é variável e $\alpha$ uma fórmula, então $\forall x \, \alpha,\ \exists x \, \alpha$ são fórmulas;
     \item se $\alpha$ é uma fórmula e x uma variável, então $\zeta x \colon \alpha(x)$ é um termo e $\{ x \colon \alpha(x)\}$ é um termo;
     \item se T é um termo e x uma variável, então $\lambda x \colon T(x)$ é um termo;
