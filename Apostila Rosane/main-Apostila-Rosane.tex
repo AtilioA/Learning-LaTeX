@@ -5,17 +5,18 @@
 % Capítulo 1: totalmente transcrito, mas ainda precisa de correções
 % Trocar \bigskip e \vskip por configuração de espaçamento entre parágrafos
 % Criar ambiente para textos mais recuados \hskip
-% Criar ambiente para "Comentário" e para "def.:"
+% Criar ambiente para "Comentário" e para "Def.:"
 % Decidir se elementos de uma lista começam em minúscula e terminam em ponto e vírgula
 % Centralizar elementos das tabelas do capítulo 3
+%% FEITO %%
 %--- Criar ambiente (theorem) para os exemplos
 
 
 \documentclass[
 	% -- opções da classe memoir --
 	14pt,				% Tamanho da fonte
-	% openright,			% Capítulos começam em página ímpar (insere página vazia caso preciso)
-	twoside,			% Para impressão em recto e verso. Oposto a oneside
+	openany,			% Capítulos começam em qualquer página (diferente de openright)
+	oneside,			% Para impressão em única folha. Oposto a twoside
 	a4paper,			% Tamanho do papel.
 	% -- opções da classe abntex2 --
 	%chapter=TITLE,		% Títulos de capítulos convertidos em letras maiúsculas
@@ -41,7 +42,9 @@
 \usepackage{float}
 \usepackage{lipsum}
 \usepackage{amsmath}
-% \usepackage{mathabx} % Conflita com amsmath mas se parece mais com a apostila
+\usepackage{amsthm}
+\usepackage{amssymb}
+% \usepackage{mathabx} % Conflita com amsmath mas se parece mais com a apostila (não produz erro fatal no Overleaf)
 \usepackage[LGRgreek]{mathastext}
 \usepackage{multicol}
 \usepackage{multirow}
@@ -50,11 +53,9 @@
 \usepackage{scrextend}
 \usepackage{bm}
 \usepackage{array}
-\usepackage{amssymb}
 \usepackage{upgreek}
 \usepackage{titlesec}
 \usepackage{parskip}
-\usepackage{amsthm}
 \usepackage{enumitem}
 
 \theoremstyle{definition} % Tira itálico do texto do exemplo

@@ -43,6 +43,7 @@ Logo, daí e de ii, tem-se que $((p \land q) \to (p \lor r))$ é fórmula bem fo
 \centerline{$(p \land q) \to (p \lor r)$}
 
 \section{Semântica}
+\setcounter{exemplo}{0}
 No que vem a seguir, faremos um estudo intuitivo do que se costuma chamar a \textbf{Semântica do Cálculo Proposicional}.
 Falaremos, então, em significado, interpretação, etc, comumente de modo um tanto vago.
 
@@ -94,16 +95,137 @@ Esta fórmula é considerada então falsa segundo essa interpretação. Mas ela 
 De modo geral, se uma fórmula tiver n componentes atômicos distintos, esta fórmula admitirá $2^n$ interpretações.
 
 \bigskip
-\noindent \textbf{Convenção:} Para facilitar a leitura, vamos convencionar daqui em diante que uma interpretação será abreviada pela letra I afetada ou não de indices.
-
+\noindent
+\textbf{Convenção:} Para facilitar a leitura, vamos convencionar daqui em diante que uma interpretação será abreviada pela letra I afetada ou não de indices.
 
 De um ponto de vista semântico, as noções de verdade, satisfatibilidade e validade são noções fundamentais.
 A  seguir, passaremos ao  estudo dessas noções no  âmbito do  Cálculo Proposicional.
 
 \bigskip
-\textbf{Def.:} Admitamos que uma fórmula $\alpha$ tenha o valor V numa certa interpretação I. Neste caso, diz-se então que $\alpha$ é verdadeira nesta interpretação.
+\noindent
+\textbf{Def.:} Admitamos que uma fórmula $\alpha$ tenha o valor V numa certa interpretação I.
+Neste caso, diz-se então que $\alpha$ é verdadeira nesta interpretação.
 
 Assim, a fórmula $(p \lor q) \to (p \land q)$, do exemplo anterior, é verdadeira segundo a primeira interpretação.
 
 \bigskip
-\noindent \textbf{Comentário:} Note que se $\alpha$ e $\beta$ são fórmulas, então $\alpha \land \beta$ é \textbf{verdadeira} segundo uma interpretação se e somente se $\alpha$ e $\beta$ são ambas verdadeiras segundo esta interpretação.
+\noindent
+\textbf{Comentário:} Note que se $\alpha$ e $\beta$ são fórmulas, então $\alpha \land \beta$ é \textbf{verdadeira} segundo uma interpretação se e somente se $\alpha$ e $\beta$ são ambas verdadeiras segundo esta interpretação.
+
+\bigskip
+\noindent
+\textbf{Def.:} Admitamos que uma fórmula $\alpha$ seja verdadeira segundo alguma interpretação.
+Neste caso, diz-se que $\alpha$ é \textbf{satisfatível} ou \textbf{consistente}.
+
+A fórmula $p \to (q \lor r)$ do exemplo anterior é satisfatível.
+
+
+\bigskip
+\noindent
+\textbf{Def.:} Uma fórmula $\alpha$ é \textbf{válida} quando é verdadeira em todas as suas interpretações.
+
+\bigskip
+\noindent
+\textbf{Comentário:} As formulas válidas do  Cálculo Proposicional são também chamadas de \textbf{tautologias}.
+
+Note-se que no Cálculo Proposicional uma fórmula é \textbf{válida} ou \textbf{tautológica} se for verdadeira em todas as possíveis atribuições de valores lógicos a suas fórmulas atômicas.
+Além disso, se $\alpha$ e $\beta$ são fórmulas, então $\alpha \land \beta$ é válida somente se e $\alpha$ e $\beta$ são ambas válidas.
+
+\begin{exemplo}
+    Seja a fórmula $(p \land (q \to p)) \to p$
+\end{exemplo}
+\noindent cuja tabela verdade é
+
+\begin{center}
+    % \large
+    \begin{tabular}{l l l l l l}
+        p & q & $q \to p$ & $p \land (q \to p)$ & $(p \land (q \to p)) \to p$ \\ \hline
+        V & V & V         & V                   & \textbf{V} \\
+        V & F & V         & V                   & \textbf{V} \\
+        F & V & F         & F                   & \textbf{V} \\
+        F & F & V         & F                   & \textbf{V}
+    \end{tabular}
+\end{center}
+
+\noindent Vemos que a fórmula acima é válida \textbf{--} sendo portanto uma tautologia \textbf{--} já que é verdadeira em todas as interpretações.
+
+\bigskip
+\noindent
+\textbf{Def.:} Admitamos que uma fórmula $\alpha$ tenha valor \textbf{F} numa interpretação I.
+Neste caso, diz-se então que $\alpha$ é falsa segundo I.
+
+\noindent Assim, a fórmula
+
+\centerline{$(p \lor q) \to (p \land q)$}
+
+\noindent é falsa de acordo com a segunda interpretação (vide Exemplo 1).
+
+\bigskip
+\noindent
+\textbf{Comentário:} Note-se que se $\alpha$ e $\beta$ são fórmulas, então $\alpha \lor \beta$ é \textbf{falsa} segundo uma interpretação se e somente se $\alpha$ e $\beta$ são ambas falsas segundo esta interpretação.
+
+
+\bigskip
+\noindent
+\textbf{Def.:} Uma fórmula $\alpha$ é \textbf{insatisfatível} ou \textbf{inconsistente}  quando for falsa segundo qualquer interpretação.
+
+\bigskip
+\noindent
+\textbf{Comentário:} As formulas insatisfatíveis do  Cálculo Proposicional são também chamadas de \textbf{contradições}.
+Note que uma contradição é a negação de uma tautologia.
+
+\begin{exemplo}
+    Seja a fórmula $p\ \land \sim p$
+\end{exemplo}
+\noindent cuja tabela verdade é
+
+\begin{center}
+    % \large
+    \begin{tabular}{l l l}
+        p & q & $p\ \land ~p$ \\ \hline
+        V & F & F \\
+        F & V & F
+    \end{tabular}
+\end{center}
+
+\noindent é insatisfatível, pois é falsa segundo todas as interpretações.
+
+\bigskip
+\noindent
+\textbf{Comentário:} Note-se que se $\alpha$ e $\beta$ são fórmulas, então $\alpha\ \lor\ \beta$ é \textbf{insatisfatível} se e somente se $\alpha$ e $\beta$ são simultaneamente insatisfatíveis.
+
+\bigskip
+\noindent
+\textbf{Def.:} Uma fórmula $\alpha$ será \textbf{inválida} quando for falsa segundo alguma interpretação.
+
+\begin{exemplo}
+    Seja a fórmula $p \to q$
+\end{exemplo}
+\noindent cuja tabela verdade é
+
+\begin{center}
+    % \large
+    \begin{tabular}{l l l}
+        p & q & $p\ \to ~q$ \\ \hline
+        V & V & V \\
+        V & F & F \\
+        F & V & V \\
+        F & F & V
+    \end{tabular}
+\end{center}
+
+\noindent é inválida, pois é falsa com respeito à segunda interpretação.
+
+\bigskip
+Das definições apresentadas, chegamos às seguintes conclusões:
+
+\begin{enumerate}[label=\textbf{{\arabic*}.}]
+    \item Uma fórmula é \textbf{válida} se e somente se sua negação for \textbf{insatisfatível}.
+    \item Uma fórmula é \textbf{insatisfatível} ou \textbf{inconsistente} se e somente se sua negação for \textbf{válida}.
+    \item Uma fórmula é \textbf{inválida} se e somente se existir pelo menos uma \textbf{interpretação} em que ela é falsa.
+    \item Uma fórmula é \textbf{satisfatível} ou \textbf{consistente} se e somente se existir pelo menos uma \textbf{interpretação} segundo a qual ela é verdadeira.
+    \item Se uma fórmula for \textbf{válida}, então é \textbf{satisfatível}.
+    \item Se uma fórmula for \textbf{insatisfatível}, então é \textbf{inválida}.
+\end{enumerate}
+
+No Cálculo Proposicional, as fórmulas que não são tautologias e nem contradições são comumente chamadas de \textbf{contingentes}.
