@@ -59,9 +59,8 @@ Seja $\alpha$ uma fórmula. Uma interpretação de $\alpha$ consiste na atribui�
 \noindent consiste em atribuir valores lógicos a seus componentes atômicos p, q e r.
 Isto se faz, esquematicamente, do seguinte modo:
 
-% Falta centralizar os elementos da tabela
 \begin{center}
-    \begin{tabular}{l l l l}
+    \begin{tabular}{c c c c}
         p & q & r & $p \to (q \lor r)$ \\ \hline
         V & F & F & F
     \end{tabular}
@@ -70,7 +69,7 @@ Isto se faz, esquematicamente, do seguinte modo:
 Esta fórmula é considerada então falsa segundo essa interpretação. Mas ela poderia ser verdadeiro segundo outra interpretação, por exemplo,
 
 \begin{center}
-    \begin{tabular}{l l l l}
+    \begin{tabular}{c c c c}
         p & q & r & $p \to (q \lor r)$ \\ \hline
         F & V & F & V
     \end{tabular}
@@ -83,7 +82,7 @@ Esta fórmula é considerada então falsa segundo essa interpretação. Mas ela 
 
 \begin{center}
     % \large
-    \begin{tabular}{l l l l l l}
+    \begin{tabular}{c c c c c c}
                         & p & q & $p \lor q$ & $p \land q$ & $(p \lor q) \to (p \land q)$ \\ \hline
         interpretação 1 & V & V & V          & V            & V \\
         interpretação 2 & V & F & V          & F            & F \\
@@ -138,7 +137,7 @@ Além disso, se $\alpha$ e $\beta$ são fórmulas, então $\alpha \land \beta$ �
 
 \begin{center}
     % \large
-    \begin{tabular}{l l l l l l}
+    \begin{tabular}{c c c c c c}
         p & q & $q \to p$ & $p \land (q \to p)$ & $(p \land (q \to p)) \to p$ \\ \hline
         V & V & V         & V                   & \textbf{V} \\
         V & F & V         & V                   & \textbf{V} \\
@@ -146,8 +145,7 @@ Além disso, se $\alpha$ e $\beta$ são fórmulas, então $\alpha \land \beta$ �
         F & F & V         & F                   & \textbf{V}
     \end{tabular}
 \end{center}
-
-\noindent Vemos que a fórmula acima é válida \textbf{--} sendo portanto uma tautologia \textbf{--} já que é verdadeira em todas as interpretações.
+Vemos que a fórmula acima é válida \textbf{--} sendo portanto uma tautologia \textbf{--} já que é verdadeira em todas as interpretações.
 
 \bigskip
 \noindent
@@ -180,15 +178,13 @@ Note que uma contradição é a negação de uma tautologia.
 \noindent cuja tabela verdade é
 
 \begin{center}
-    % \large
-    \begin{tabular}{l l l}
+    \begin{tabular}{c c c}
         p & q & $p\ \land ~p$ \\ \hline
         V & F & F \\
         F & V & F
     \end{tabular}
 \end{center}
-
-\noindent é insatisfatível, pois é falsa segundo todas as interpretações.
+é insatisfatível, pois é falsa segundo todas as interpretações.
 
 \bigskip
 \noindent
@@ -204,8 +200,7 @@ Note que uma contradição é a negação de uma tautologia.
 \noindent cuja tabela verdade é
 
 \begin{center}
-    % \large
-    \begin{tabular}{l l l}
+    \begin{tabular}{c c c}
         p & q & $p\ \to ~q$ \\ \hline
         V & V & V \\
         V & F & F \\
@@ -229,3 +224,140 @@ Das definições apresentadas, chegamos às seguintes conclusões:
 \end{enumerate}
 
 No Cálculo Proposicional, as fórmulas que não são tautologias e nem contradições são comumente chamadas de \textbf{contingentes}.
+
+A título de ilustração, sejam os seguintes exemplos:
+
+\begin{center}
+    \begin{tabular}{c c c}
+        \textbf{TAUTOLÓGICAS} & \textbf{CONTINGENTES} & \textbf{CONTRADIÇÕES}\\
+        $p\ \lor \sim p$ & $p$ & $\sim(p \to p \lor q)$\\
+        $p \to p$ & $p \land q \to r$ & $\sim(p\ \lor \sim p)$\\
+        $p \to\ p \lor q$ & $p \to q$ & $p\ \land \sim p$\\
+        $p \land q \to q$ & $p \to\ \sim q$ & $\sim(p \to p)$
+    \end{tabular}
+\end{center}
+
+\bigskip
+\noindent
+\textbf{Def.:} Sejam $\beta_1,\ \beta_2,\ \alpha$ fórmulas. Dizemos que $\alpha$ é \textbf{consequência lógica}  de $\beta_1,\ \beta_2$, quando cada interpretação I que torna $\beta_1,\ \beta_2$ verdadeira, torna $\alpha$ verdadeira.
+
+\bigskip
+\noindent
+\textbf{Comentário:} Se $\alpha$ é consequência lógica de $\beta_1,\ \beta_2$, então diz-se também que $\alpha$ segue-se logicamente de $\beta_1,\ \beta_2$. Simbolicamente, indica-se que $\alpha$ é consequência lógica de $\beta_1,\ \beta_2$ mediante a seguinte notação:
+
+\centerline{$\beta_1,\ \beta_2\ \vDash \alpha$} % \models
+
+\begin{exemplo}
+    Vemos que $\sim p$ é consequência lógica de $p \to q$ e de $p \to\ \sim q$, pois, através da tabela verdade, temos
+\end{exemplo}
+
+\begin{center}
+    \begin{tabular}{c c c c c c c}
+              & p & q & $\sim p$ & $\sim q$ & $p \to q$ & $p \to\ \sim q$ \\ \hline
+        $I_1$ & V & V & F        & F        & V         & F \\
+        $I_2$ & V & F & F        & V        & F         & V \\
+        $I_3$ & F & V & V        & F        & V         & V \\
+        $I_4$ & F & F & V        & V        & V         & V \\
+    \end{tabular}
+\end{center}
+que para as interpretações $I_3$ e $I_4$ em que \bm{$p \to q$} e \bm{$p \to \sim q$} são verdadeiras, $\sim p$ é também verdadeira.
+
+\bigskip
+\noindent
+\textbf{Def.:} Sejam $\beta_1,\ \dots, \beta_n,\ \alpha$ fórmulas. Dizemos que $\alpha$ é consequência lógica de $\beta_1,\dots, \beta_n$ quando cada interpretação de I que torna cada $\beta_j\ (1 \leq j \leq n)$ simultaneamente verdadeira torna $\alpha$ verdadeira.
+
+\bigskip
+\noindent
+\textbf{Comentário:} Se $\alpha$ é consequência lógica de $\beta_1,\dots, \beta_n$, então diz-se também que $\alpha$ segue-se logicamente de $\beta_1,\dots, \beta_n$. Simbolicamente, indica-se que $\alpha$ é consequência lógica de $\beta_1,\dots, \beta_n$ mediante a seguinte notação:
+
+\centerline{$\beta_1,\dots, \beta_n \vDash \alpha$}
+
+\bigskip
+\noindent
+\textbf{Comentário:} Simbolicamente, indica-se que $\alpha$ é uma fórmula válida mediante a seguinte notação:
+
+\centerline{$\vDash \alpha$}
+
+Da definição de consequência lógica, obtemos o enunciado a seguir, que pode ser visto como definição alternativa para consequência lógica:
+
+\begin{center}
+    $\alpha$ é consequência lógica de $\beta_1,\dots, \beta_n$ se e somente se $\beta_1, \land \dots, \land\ \beta_n \to \alpha$ é uma tautologia.
+\end{center}
+
+\textbf{Simbolicamente}:
+
+$\beta_1,\dots, \beta_n \vDash \alpha\ \iff\ \beta_1, \land \dots, \land\ \beta_n\footnote{Como na Lógica Proposicional o juntor $\land$ é associativo, usaremos $\alpha_1 \land \alpha_2 \land \alpha_3$ em vez de $(\alpha_1 \land \alpha_2) \land \alpha_3$.} \to \alpha$ é uma tautologia.
+
+\bigskip
+\noindent Assim, $\sim p$ é consequência lógica de
+
+\centerline{\bm{$p \to q$} e \bm{$p \to \sim q$}}
+\noindent pois
+
+\centerline{($p \to q) \land (p \to\ \sim q) \to\ \sim q$ é uma tautologia}
+
+\newpage
+Tal fato pode ser constatado mediante a tabela de verdade que se segue:
+\begin{center}
+    \begin{tabular}{c c c c c c c c}
+        p & q & $\sim p$ & $\sim q$ & $p \to q$ & $p \to\ \sim q$ & $(p \to q) \land (p \to\ \sim q)$ \\ \hline
+        V & V & F        & F        & V         & F               & F \\
+        F & V & V        & F        & V         & V               & V \\
+        V & F & F        & V        & F         & V               & V \\
+        F & F & V        & V        & V         & V               & V \\
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{c}
+        $(p \to q) \land (p \to\ \sim q) \to\ \sim p$ \\ \hline
+        V \\
+        V \\
+        V \\
+        V \\
+    \end{tabular}
+\end{center}
+
+\bigskip
+\noindent
+\textbf{Def.:}  Dizemos que uma fórmula $\alpha$ é \textbf{logicamente} (ou semanticamente) \textbf{equivalente} a uma fórmula $\beta$ quando $\alpha$ é \textbf{consequência lógica} de $\beta$ e $\beta$ é consequência lógica de $\alpha$.
+
+\bigskip
+\noindent
+\textbf{Obs.:}  Uma fórmula $\alpha$ é \textbf{logicamente equivalente} a uma fórmula $\beta$ se e somente se a fórmula $\alpha \iff \beta$ for \textbf{válida} (i.e., $\vDash \alpha \iff \beta$).  Por comodidade, escrevemos
+
+\centerline{$\alpha \equiv \beta$}
+\noindent para indicar que $\alpha$ é logicamente (ou semanticamente) equivalente a $\beta$; logo,
+
+$\alpha \equiv \beta$ se e somente se $\alpha \iff \beta$ é uma tautologia.
+
+\bigskip
+A seguir, apresentamos algumas equivalências lógicas importantes. Notemos que todas estas fórmulas são tautologias.
+
+\begin{enumerate}[label={\arabic*}.]
+    \item $\alpha \equiv\ \sim \sim \alpha$
+    \item $\alpha \land \beta \equiv \beta \land \alpha$
+    \item $\alpha \lor \beta \equiv \beta \lor \alpha$
+    \item $(\alpha \iff \beta) \equiv (\alpha \to \beta\ \land\ \beta \to \alpha)$
+    \item $\alpha \to \beta \equiv\ \sim \alpha \lor \beta$
+    \item $\sim (\alpha \land \beta) \equiv\ \sim \alpha\ \lor \sim \beta$
+    \item $\sim (\alpha \lor \beta) \equiv\ \sim \alpha\ \land \sim \beta$
+    \item $\alpha \lor (\beta \land \delta) \equiv (\alpha \lor \beta) \land (\alpha \lor \delta)$
+    \item $\alpha \land (\beta \lor \delta) \equiv (\alpha \land \beta) \lor (\alpha \land \delta)$
+    \item $(\alpha \to \beta \land \delta) \equiv (\alpha \to \beta) \land (\alpha \to \delta)$
+    \item $(\alpha \lor \beta \to \delta) \equiv (\alpha \to \delta) \land (\beta \to \delta)$
+    \item $\alpha \to (\beta \to \delta) \equiv (\alpha \land \beta) \to \delta$
+    \item $(\alpha \to \beta) \to \delta \equiv (\alpha \lor \delta) \lor (\beta \to \delta)$
+    \item $(\alpha\ \land \sim \beta) \to \delta \equiv \alpha \to (\beta \lor \delta)$
+\end{enumerate}
+
+\newpage
+
+\section{Formas Normais}
+Para o estudo de formas clausais, conceito básico para as linguagens lógicas de programação, é importante a noção de forma normal. Aqui, desenvolveremos, de modo informal, os conceitos de forma conjuntiva normal e forma disjuntiva normal.
+
+\bigskip
+\noindent
+\textbf{Def.:}  Literais são formas atômicas ou negações de fórmulas atômicas.
+
+\subsection{Forma Normal Conjuntiva (FNC)}
