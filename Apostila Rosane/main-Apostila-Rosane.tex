@@ -5,11 +5,12 @@
 % Capítulo 1: totalmente transcrito, mas ainda precisa de correções
 % Trocar \bigskip e \vskip por configuração de espaçamento entre parágrafos
 % Criar ambiente para textos mais recuados \hskip
-% Criar ambiente para "Comentário" e para "Def.:"
+% Criar ambiente para "Comentário"
 % Decidir se elementos de uma lista começam em minúscula e terminam em ponto e vírgula
 % Centralizar elementos das tabelas do capítulo 3
 %% FEITO %%
 %--- Criar ambiente (theorem) para os exemplos
+%--- Criar ambiente para "Def.:" e "Obs.:" (ainda precisa ajeitar o de comentário)
 
 
 \documentclass[
@@ -57,6 +58,51 @@
 \usepackage{titlesec}
 \usepackage{parskip}
 \usepackage{enumitem}
+\usepackage{etoolbox}
+
+
+\newlength\thmsep
+\setlength\thmsep{3.5em}
+
+\newlength\thmsepComent
+\setlength\thmsepComent{3.5em}
+
+\newtheoremstyle{fixedwidthindented}
+  {\topsep}
+  {\topsep}
+  {\normalfont}
+  {0pt}
+  {\bfseries\sffamily}
+  {}
+  {0em}
+  {\llap{\makebox[\thmsep][l]{%
+    \thmname{#1}~\thmnumber{#2}\if\relax\detokenize{#3}\relax\fi}}%
+    \thmnote{~{\normalfont(#3).}}}
+
+\makeatletter
+\patchcmd{\@thm}{\trivlist}{\list{}{\leftmargin=\thmsep}}{}{}
+\patchcmd{\@endtheorem}{\endtrivlist}{\endlist}{}{}
+\makeatother
+
+\newtheoremstyle{fixedwidthindentedComent}
+  {\topsep}
+  {\topsep}
+  {\normalfont}
+  {0pt}
+  {\bfseries\sffamily}
+  {}
+  {3.5em}
+  {\llap{\makebox[\thmsepComent][l]{%
+    \thmname{#1}~\thmnumber{#2}\if\relax\detokenize{#3}\relax\fi}}%
+    \thmnote{~{\normalfont(#3).}}}
+
+\theoremstyle{fixedwidthindented}
+\newtheorem{thm}{Thm}[section]
+\newtheorem*{defi}{Def.:}
+\newtheorem*{obs}{Obs.:}
+\theoremstyle{fixedwidthindentedComent}
+\newtheorem*{coment}{Comentário:}
+
 
 \theoremstyle{definition} % Tira itálico do texto do exemplo
 \newtheorem{exemplo}{Exemplo} % Precisa reiniciar os contadores a cada seção
@@ -69,16 +115,15 @@
   {\MakeUppercase}
   [\vspace{.5ex}\titlerule]
 
-
 % Cria comando para repetir um caractere n vezes
-\newcommand\myrepeat[2]{%
+\newcommand\myrepeat[2]{% <- Este % impede que o espaço em branco seguinte seja utilizado no comando
   \begingroup
   \lccode`m=`#2\relax
   \lowercase\expandafter{\romannumeral#1000}%
   \endgroup
 }
 
-\newenvironment{tightcenter}{% <- Este % impede que o espaço em branco seguinte seja utilizado no comando
+\newenvironment{tightcenter}{%
   \setlength\topsep{0pt}
   \setlength\parskip{0pt}
   \begin{center}
