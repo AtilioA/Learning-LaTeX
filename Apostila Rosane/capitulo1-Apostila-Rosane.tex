@@ -130,8 +130,8 @@ Por tentativa e erro, procuraremos distinguir, entre as expressões bem formadas
     \item $x$
     \item recursividade
     \item PROLOG
-    \item  O autor de Mar Morto
-    \item  A linguagem de programação baseada na linguagem ALGOL
+    \item O autor de Mar Morto
+    \item A linguagem de programação baseada na linguagem ALGOL
     \item $A \cap B$
     \item Maria
     \item 3
@@ -157,7 +157,7 @@ Por tentativa e erro, procuraremos distinguir, entre as expressões bem formadas
     \item PASCAL é uma linguagem de programação de alto nível
     \item $x + y = 3$
     \item  = (3, + (x,y))
-    \item  maior(3, 2)
+    \item maior(3, 2)
     \item professor(Ivo, Matemática)
     \item ensina(Ivo, João)
     \item Piquet é campeão do mundo
@@ -522,10 +522,10 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item $\zeta$x (aluno da turma 1002(x))
-    \item $\zeta$x (A(x)); onde\\
+    \item $\uptau\ x$ (aluno da turma 1002(x))
+    \item $\uptau\ x$ (A(x)); onde\\
     A(x): x é aluno da turma 1002.
-    \item $\zeta$x (aluno(x, turma 1002))
+    \item $\uptau\ x$ (aluno(x, turma 1002))
 \end{enumerate}
 
 No presente texto, será dada preferência às simbolizações indicadas por *, visto que essas são mais adequadas para o tratamento da Informática.
@@ -553,7 +553,7 @@ As categorias gramaticais de nossa linguagem lógica usuais são:
     \item \textbf{predicadores};
     \item \textbf{juntores}: $\sim, \land, \lor, \to, \iff, \downarrow, \uparrow$;
     \item \textbf{quantificadores}: $\exists, \forall, \underline{\exists}, \exists!$;
-    \item \textbf{qualificadores}: $(\;\;)$ (a coleção de), $\tau$ (o artigo definido), $\lambda$ (operador lambda).
+    \item \textbf{qualificadores}: $(\;\;)$ (a coleção de), $\uptau$ (o artigo definido), $\lambda$ (operador lambda).
 \end{enumerate}
 
 Cabe agora investigar a função que essas partículas exercem na linguagem.
@@ -639,16 +639,16 @@ Cabe agora investigar a função que essas partículas exercem na linguagem.
     Os principais qualificadores são: o artigo definido, a coleção e o operador de abstração.
 
     \begin{enumerate}[label={\textbf{--}}]
-        \item \textbf{o artigo definido} forma termo a partir de uma variável e de um enunciado. Por exemplo, a partir do enunciado \textbf{x é autor dos Lusíadas} temos \textbf{$\zeta$x: x é autor dos Lusíadas} - isto é, outra indicação de Camões. A partir do enunciado \textbf{$x = 2$} temos $\zeta x: x = 2$ - isto é, outra forma de indicador o nº 2. Note que este operador é também chamado de descritor.
+        \item \textbf{O artigo definido} forma termo a partir de uma variável e de um enunciado. Por exemplo, a partir do enunciado \textbf{x é autor dos Lusíadas} temos \textbf{$\uptau$x: x é autor dos Lusíadas} - isto é, outra indicação de Camões. A partir do enunciado \textbf{$x = 2$} temos $\uptau x: x = 2$ - isto é, outra forma de indicador o nº 2. Note que este operador é também chamado de descritor.
 
-        \item \textbf{o operador de abstração} $\lambda$ (de Church) forma termo a partir de uma variável e de um termo. Este operador é usado para formar nomes de funções.
+        \item \textbf{O operador de abstração} $\lambda$ (de Church) forma termo a partir de uma variável e de um termo. Este operador é usado para formar nomes de funções.
 
         \setcounter{exemplo}{0}
         \begin{exemplo}
             $\lambda x: x.x$
         \end{exemplo}
 
-        \item \textbf{a coleção de elementos $\{ \}$} forma termos a partir de uma letra argumento (variável) e de um enunciado.
+        \item \textbf{A coleção de elementos $\{ \}$} forma termos a partir de uma letra argumento (variável) e de um enunciado.
         Note que o operador $\{ \}$ (a coleção de elementos) é o principal operador da Teoria dos Conjuntos.
 
         A partir do enunciado p(x) formamos \bm{$\{ x / p(x) \}$}, i.e., a coleção dos objetos que satisfazem ao enunciado \textbf{p(x)}. %! este parágrafo deveria estar mais recuado
@@ -691,16 +691,16 @@ Como já dissemos, as expressões da linguagem são termos ou enunciados (fórmu
 \noindent Definição de \textbf{termo} e \textbf{fórmula}
 
 \begin{enumerate}[label=\roman*)]
-    \item variáveis são termos;
-    \item constantes são termos;
-    \item se f é um funtor de peso n e $t_1, \dots, t_n$ são termos, então $f(t_1, \dots, t_n)$ é um termo;
-    \item se P é um predicador de peso n e $t_1, \dots, t_n$ são termos, então P($t_1, \dots, t_n$) é uma fórmula (chamada \textbf{átomo} ou \textbf{fórmula atômica});
-    \item letras proposicionais são fórmulas;
-    \item se $\alpha$, $\beta$ são fórmulas, então $\sim \alpha,\ \alpha \land \beta,\ \alpha \lor \beta,\ \alpha \to \beta,\ \alpha \iff \beta$ são fórmulas;
-    \item se x é variável e $\alpha$ uma fórmula, então $\forall x \, \alpha,\ \exists x \, \alpha$ são fórmulas;
-    \item se $\alpha$ é uma fórmula e x uma variável, então $\zeta x \colon \alpha(x)$ é um termo e $\{ x \colon \alpha(x)\}$ é um termo;
-    \item se T é um termo e x uma variável, então $\lambda x \colon T(x)$ é um termo;
-    \item só serão considerados termos ou fórmulas dessa construção aquelas expressões obtidas por um número finito de aplicações de i, ii, iii, iv, v, vi vii, viii, ix.
+    \item Variáveis são termos.
+    \item Constantes são termos.
+    \item Se f é um funtor de peso n e $t_1, \dots, t_n$ são termos, então $f(t_1, \dots, t_n)$ é um termo.
+    \item Se P é um predicador de peso n e $t_1, \dots, t_n$ são termos, então P($t_1, \dots, t_n$) é uma fórmula (chamada \textbf{átomo} ou \textbf{fórmula atômica}).
+    \item Letras proposicionais são fórmulas.
+    \item Se $\alpha$, $\beta$ são fórmulas, então $\sim \alpha,\ \alpha \land \beta,\ \alpha \lor \beta,\ \alpha \to \beta,\ \alpha \iff \beta$ são fórmulas.
+    \item Se x é variável e $\alpha$ uma fórmula, então $\forall x \, \alpha,\ \exists x \, \alpha$ são fórmulas.
+    \item Se $\alpha$ é uma fórmula e x uma variável, então $\uptau x \colon \alpha(x)$ é um termo e $\{ x \colon \alpha(x)\}$ é um termo.
+    \item Se T é um termo e x uma variável, então $\lambda x \colon T(x)$ é um termo.
+    \item Só serão considerados termos ou fórmulas dessa construção aquelas expressões obtidas por um número finito de aplicações de i, ii, iii, iv, v, vi vii, viii, ix.
 \end{enumerate}
 
 As fórmulas, como vemos, ou são \textbf{atômicas} (def. iv e v) ou são \textbf{compostas} (def. vi, vii).
