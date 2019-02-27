@@ -8,7 +8,8 @@ ambiente de vida e usam para a comunicação com outros seres humanos, como é o
 caso do português.
 
 Embora seja interessante o estudo de todas as formas de linguagem e dos diversos
-fenômenos linguísticos, estes não serão aqui aprofundados. Faremos apenas alguns
+fenômenos linguísticos, estes não serão aqui aprofundados.
+Faremos apenas alguns
 comentários para indicar a necessidade de construirmos uma linguagem artificial
 para o estudo da Lógica.
 
@@ -19,7 +20,7 @@ Embora haja autores que se sirvam da linguagem natural no estudo da Lógica --- 
 
 Tentaremos contornar os obstáculos, cientes de que, linguagens simbólicas, até hoje elaboradas, não são instrumentos adequados para o tratamento de todas as formas que podem assumir o raciocínio humano.
 
-\newpage
+\pagebreak
 
 Chamamos de \emph{linguagem artificial}
 toda linguagem deliberadamente construída para fins específicos, como as \textbf{linguagens de programação} e os diversos cálculos da Lógica e da Matemática.
@@ -28,7 +29,8 @@ Não vamos aqui classificar as diversas linguagens, mas apenas apresentar lingua
 A linguagem que surgiu na Grécia e evoluiu cada vez mais simbolicamente até o século XIX, considerada instrumento imprescindível para o tratamento da Matemática, não era, na verdade, suficientemente precisa para o tratamento das complexas questões que aparecem com a Matemática contemporânea.
 Mas ela se aprimorou, de início, com os trabalhos de Frege sobre sistemas formais.
 E, posteriormente, com o surgimento de paradoxos no âmbito da teoria dos conjuntos, houve a necessidade de uma reanálise e de uma retificação do aparato formal dos sistemas dedutivos convencionais.
-Tornou-se, assim, necessário introduzir uma linguagem precisa, definida por uma gramática explícita, gramática esta cujas regras não possuem exceções. Esta linguagem, chamada \emph{linguagem formal}, % remover
+Tornou-se, assim, necessário introduzir uma linguagem precisa, definida por uma gramática explícita, gramática esta cujas regras não possuem exceções.
+Esta linguagem, chamada \emph{linguagem formal}, % remover
 será o objeto de estudo deste capítulo.
 Só estas linguagens são aptas para o tratamento da Matemática e da Informática;
 só com o emprego destes tipos de linguagens é possível construir e operar com os atuais computadores.
@@ -569,7 +571,6 @@ Cabe agora investigar a função que essas partículas exercem na linguagem.
     Importa notar que a cada funtor associaremos um peso, ou aridade, que indica o número de (ocorrência de) termos necessários à formação de novos termos.
     Assim: \textbf{\textit{sucessor} é um funtor de peso 1}, \textbf{\textit{soma} é um funtor de peso 2}, \textbf{\textit{integral definida} é um funtor de peso 3}.
 
-    % O certo seria indentar os próximos exemplos
     \begin{exemplo}
             sucessor(2)
     \end{exemplo}
@@ -624,7 +625,10 @@ Cabe agora investigar a função que essas partículas exercem na linguagem.
 
     A partir daqui não faremos distinção entre predicado e predicador.
 
-    \item \textbf{Juntores} são símbolos que formam enunciados a partir de enunciados. São juntores: \textbf{não, e, ou, se... então, se e somente se, nem, nor}. Os juntores também se classificam quanto ao peso (ou aridade). Assim: \textbf{\textit{não} é um juntor de peso 1}, \textbf{\textit{se... então} é um juntor de peso 2}.
+    \item \textbf{Juntores} são símbolos que formam enunciados a partir de enunciados.
+    São juntores: \textbf{não, e, ou, se... então, se e somente se, nem, nor}.
+    Os juntores também se classificam quanto ao peso (ou aridade).
+    Assim: \textbf{\textit{não} é um juntor de peso 1}, \textbf{\textit{se... então} é um juntor de peso 2}.
 
     \setcounter{exemplo}{0}
         \begin{exemplo}
@@ -634,14 +638,19 @@ Cabe agora investigar a função que essas partículas exercem na linguagem.
         \begin{exemplo}
             \textbf{se} sobe(dólar) \textbf{então} sobe(ouro) - peso 2 %\hspace*{\fill}- peso 2
         \end{exemplo}
-    \item \textbf{Operadores} são morfemas cuja principal função é transformar expressões abertas em fechadas. Os operadores se subdividem em \textbf{qualificadores} e \textbf{quantificadores}.
+    \item \textbf{Operadores} são morfemas cuja principal função é transformar expressões abertas em fechadas.
+    Os operadores se subdividem em \textbf{qualificadores} e \textbf{quantificadores}.
 
     Os principais qualificadores são: o artigo definido, a coleção e o operador de abstração.
 
     \begin{enumerate}[label={\textbf{--}}]
-        \item \textbf{O artigo definido} forma termo a partir de uma variável e de um enunciado. Por exemplo, a partir do enunciado \textbf{x é autor dos Lusíadas} temos \textbf{$\uptau$x: x é autor dos Lusíadas} - isto é, outra indicação de Camões. A partir do enunciado \textbf{$x = 2$} temos $\uptau x: x = 2$ - isto é, outra forma de indicador o nº 2. Note que este operador é também chamado de descritor.
+        \item \textbf{O artigo definido} forma termo a partir de uma variável e de um enunciado.
+        Por exemplo, a partir do enunciado \textbf{x é autor dos Lusíadas} temos \textbf{$\uptau$x: x é autor dos Lusíadas} - isto é, outra indicação de Camões.
+        A partir do enunciado \textbf{$x = 2$} temos $\uptau x: x = 2$ - isto é, outra forma de indicador o nº 2.
+        Note que este operador é também chamado de descritor.
 
-        \item \textbf{O operador de abstração} $\lambda$ (de Church) forma termo a partir de uma variável e de um termo. Este operador é usado para formar nomes de funções.
+        \item \textbf{O operador de abstração} $\lambda$ (de Church) forma termo a partir de uma variável e de um termo.
+        Este operador é usado para formar nomes de funções.
 
         \setcounter{exemplo}{0}
         \begin{exemplo}
@@ -654,7 +663,8 @@ Cabe agora investigar a função que essas partículas exercem na linguagem.
         A partir do enunciado p(x) formamos \bm{$\{ x / p(x) \}$}, i.e., a coleção dos objetos que satisfazem ao enunciado \textbf{p(x)}. %! este parágrafo deveria estar mais recuado
     \end{enumerate}
 
-    \textbf{Quantificadores} são operadores que formam enunciados a partir de enunciados e letras argumentos (variáveis). São exemplos de quantificadores: \textbf{qualquer que seja}, \textbf{existe}, \textbf{no máximo um}, \textbf{existe um único}.
+    \textbf{Quantificadores} são operadores que formam enunciados a partir de enunciados e letras argumentos (variáveis).
+    São exemplos de quantificadores: \textbf{qualquer que seja}, \textbf{existe}, \textbf{no máximo um}, \textbf{existe um único}.
 
     Eis alguns exemplos de enunciados quantificados:
 
@@ -666,9 +676,11 @@ Cabe agora investigar a função que essas partículas exercem na linguagem.
 
     \noindent \textbf{* Convenções:}
     \begin{enumerate}[label=\roman*)]
-        \item As letras \textbf{p}, \textbf{q}, \textbf{r}, \textbf{s}, afetadas ou não de índices, serão utilizadas como enunciados simples ou como representantes de tais enunciados, para facilitar as discussões. Tais letras serão chamadas \textbf{letras proposicionais}.
+        \item As letras \textbf{p}, \textbf{q}, \textbf{r}, \textbf{s}, afetadas ou não de índices, serão utilizadas como enunciados simples ou como representantes de tais enunciados, para facilitar as discussões.
+        Tais letras serão chamadas \textbf{letras proposicionais}.
 
-        \item As letras $\alpha, \beta, \gamma, \delta$, afetadas ou não de índices, serão utilizadas para referência a quaisquer enunciados (simples ou compostos). Nestes casos elas serão chamadas \textbf{metavariáveis}.
+        \item As letras $\alpha, \beta, \gamma, \delta$, afetadas ou não de índices, serão utilizadas para referência a quaisquer enunciados (simples ou compostos).
+        Nestes casos elas serão chamadas \textbf{metavariáveis}.
 
         \item As letras \textbf{T} e \textbf{t}, afetadas ou não de índices, serão utilizadas para referência a termos, ou, ocasionalmente, para representá-los.
 
