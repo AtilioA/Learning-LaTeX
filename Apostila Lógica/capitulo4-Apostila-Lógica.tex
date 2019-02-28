@@ -1,0 +1,139 @@
+\chapter{Quantificadores}
+
+\section{Uso intuitivo dos quantificadores}
+
+Quantificadores são operadores que, em geral, transformam enunciados abertos em  enunciados fechados.
+Como vimos na Gramática, os quantificadores formam enunciados(fechados) a partir de  letras argumentos e  de  enunciados.
+Por exemplo, seja o seguinte enunciado aberto \textit{x gosta de programar}, que pode ser assim representado
+
+\begin{align*}
+    \textbf{gosta(x, programar)} \tag{1} \label{xGostaProgramar}
+\end{align*}
+
+Aqui, a letra x ocorre livre e assim sendo o enunciado \ref{xGostaProgramar} é um enunciado aberto.
+Mas se prefixamos o quantificador existencial associado a letra argumento x, teremos
+
+$$\exists x \colon gosta(x, programar)$$
+
+\noindent que é um enunciado fechado e como tal verdadeiro ou falso.
+A variável x que ocorre no enunciado \ref{xGostaProgramar} está associada a um universo de discurso.
+No  exemplo acima, este universo pode ser, digamos, o conjunto dos alunos do curso de PROLOG.
+
+De início, vamos apresentar, de forma intuitiva e natural, o uso dos quantificadores.
+Para tanto, fixemos um certo conjunto, A, que tenha pelo menos um  elemento no  qual as variáveis vão tomar seus valores \textbf{--} i.e,
+
+$$A = \left\{ 0, 2, 4, 6\right\}$$
+
+Sejam ainda os seguintes enunciados:
+\begin{enumerate}[label=\textbf{\alph*(x)} $\colon$]
+    \setcounter{enumi}{15}
+    \item x é número par
+    \item x é múltiplo de 3
+    \item x é divisor de 2
+    \item x é maior ou igual a 15
+    \item 2 é primo
+\end{enumerate}
+
+\noindent Consideremos o enunciado p(x); isto é,
+
+\centerline{x é número par}
+
+\noindent Este é um enunciado aberto.
+
+Podemos a partir deste obter os seguintes enunciados fechados usando os quantificadores:
+
+\begin{align*}
+    \exists x\ & (\text{x é número par}) \\
+    \forall x\ & (\text{x é número par}) \\
+    \sim \exists x\ & (\text{x é número par}) \\
+    \sim \forall x\ & (\text{x é número par})
+\end{align*}
+
+aqui a variável x toma valores no conjunto A.
+
+\noindent Consideremos agora o enunciado t(x), i.e.:
+
+\centerline{2 é primo}
+
+\noindent Nele não ocorre a variável x, mas, apesar disso, admite-se prefixar a t(x) tanto $\exists$ quanto $\forall$, obtendo-se
+
+\begin{align*}
+    \exists x\ & (\text{2 é primo}) \\
+    \forall x\ & (\text{2 é primo})
+\end{align*}
+
+\noindent Esses dois enunciados não só são considerados equivalentes entre si, como também são equivalentes a
+
+\centerline{2 é primo}
+
+Assim, se x não ocorre em p, então $\exists$x é equivalente a p.
+Do mesmo modo, se x não ocorre em p, $\forall$x p é também equivalente ao próprio p.
+Neste caso os quantificadores não desempenham qualquer função.
+
+Considerando o  conjunto A do  exemplo anterior como universo de discurso, cabe fazer as seguintes afirmações:
+
+\begin{enumerate}[label=(\roman*)]
+    \item Todo elemento de A satisfaz a p(x).
+    \item Existe pelo menos um elemento de A que satisfaz a q(x).
+    \item Existe um só elemento de A que satisfaz a r(x).
+    \item Não existe elemento de A que satisfaz a s(x).
+\end{enumerate}
+
+A primeira expressão é usualmente simbolizada assim:
+
+$$\forall x\ (x \in A \to p(x))$$
+
+Verifica-se, substituindo-se x pelos (nomes dos) elementos do universo A, que essa expressão é um enunciado verdadeiro.
+
+Costuma-se, com frequência, abreviar o enunciado acima nada dizendo sobre o universo de discurso A, sempre que isto não causar equívocos.
+
+\begin{align*}
+    \forall x\ & p(x) \\
+    \forall x\ & (\text{x é número par})
+\end{align*}
+
+Em resumo, as expressões acima podem ser assim simbolizadas:
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\forall x\ (x \in A \to p(x))$
+
+    (que assim pode ser lida: qualquer que seja x, x pertence a A,
+    então p(x))
+    \item $\exists x\ (x \in A \land q(x))$
+
+    (que assim pode ser lida: existe x, tal que x pertence a A e q(x))
+    \item $\exists!\ x\ (x \in A \land r(x))$
+
+    (que assim pode ser lida: existe um único x, tal que x pertence a A e r(x))
+    \item $\sim \exists x\ (x \in A \land s(x))$
+
+    (que assim pode ser lida: não existe x, tal que x pertence a A e s(x))
+\end{enumerate}
+
+É importante não esquecer que a informação de que não existe ou de que existe apenas um elemento que satisfaz a uma propriedade p pode ser dada através do quantificador \textbf{existe no máximo um}, que é assim simbolizado: \underline{$\exists$} e é lido: existe no máximo um elemento.
+Portanto, $\underline{\exists} x \colon p(x)$ é lido do seguinte modo: existe no máximo um elemento x que satisfaz à propriedade p.
+
+\begin{exemplo}
+    Para afirmar que existe no máximo um número par e primo, basta escrever:
+
+    $$\underline{\exists}x\ (par(x) \land primo(x))$$
+\end{exemplo}
+
+\noindent O universo de discurso não indicado explicitamente foi até aqui o conjunto dos números naturais.
+
+\noindent \textbf{Comentário:} O quantificador existencial ($\exists$) não afirma que apenas um único objeto do universo de discurso possua uma certa propriedade.
+Assim, quando enunciamos
+
+$$\exists x\ (aluno(x) \land programador(x))$$
+
+\noindent pode ocorrer que mais de um aluno seja programador.
+Mas, por vezes, estamos interessados em verificar se existe um único objeto dotado de uma certa propriedade p, i.e., simbolicamente,
+
+$$\exists! x\ p(x)$$
+
+De modo geral, podemos caracterizar esse quantificador da seguinte forma:
+
+$$\exists! x\ p(x) \leftrightharpoons \exists x\ p(x) \land \underline{\exists}x\ p(x)$$
+
+Dos exemplos acima, observamos que em se tratando de quantificadores, tanto os predicados envolvidos quanto o universo de discurso tem papel decisivo na determinação dos valores de verdade das fórmulas.
+Vejamos o exemplo:
