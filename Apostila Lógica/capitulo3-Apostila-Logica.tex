@@ -510,11 +510,14 @@ Temos que
 \end{tabular}
 
 \bigskip
-Pela tabela de verdade vemos que três são as interpretações ($I_1$, $I_3$ e $I_4$) que tornam $\alpha$ verdadeira. Para se determinar a FND de $\alpha$, faremos a disjunção das conjunções obtidas da seguinte maneira: para a interpretação $I_1$, tomamos p e q e obtemos p $\land$ q, para $I_3$, tomamos $\sim$p e q e obtemos $\sim p \land q$, e para a interpretação $I_4$ tomamos $\sim p \sim q$ e obtemos $\sim p\ \land \sim q$. Assim, a FND de $\alpha$ é
+Pela tabela de verdade vemos que três são as interpretações ($I_1$, $I_3$ e $I_4$) que tornam $\alpha$ verdadeira. Para se determinar a FND de $\alpha$, faremos a disjunção das conjunções obtidas da seguinte maneira: para a interpretação $I_1$, tomamos p e q e obtemos p $\land$ q, para $I_3$, tomamos $\sim$p e q e obtemos $\sim p \land q$, e para a interpretação $I_4$ tomamos $\sim p \sim q$ e obtemos $\sim p\ \land \sim q$.
+Assim, a FND de $\alpha$ é
 
 $$(p \land q) \lor (\sim p \land q) \lor (\sim p \land \sim q)$$
 
-De modo geral, para uma fórmula não-contraditória $\alpha$ procuramos na tabela de verdade de $\alpha$ as interpretações $I_1, \cdots, I_k$ que tornam esta fórmula verdadeira. Em cada uma dessas interpretações $I_i$ $(1 \leq i \leq k)$, constrói-se a disjunção da seguinte maneira: se o valor do componente primo p de $\alpha$ com respeito a $I_i$ for V, toma-se p, e se for F, toma-se $\sim$p. Em seguida, determina-se a disjunção das conjunções obtidas em cada uma das interpretações de $I_i$.
+De modo geral, para uma fórmula não-contraditória $\alpha$ procuramos na tabela de verdade de $\alpha$ as interpretações $I_1, \cdots, I_k$ que tornam esta fórmula verdadeira.
+Em cada uma dessas interpretações $I_i$ $(1 \leq i \leq k)$, constrói-se a disjunção da seguinte maneira: se o valor do componente primo p de $\alpha$ com respeito a $I_i$ for V, toma-se p, e se for F, toma-se $\sim$p.
+Em seguida, determina-se a disjunção das conjunções obtidas em cada uma das interpretações de $I_i$.
 
 
 \begin{exemplo}
@@ -565,7 +568,7 @@ $$\sim \sim \alpha\ \equiv\ \sim FND(\sim \alpha)$$
 
 Como $\sim \sim \alpha \equiv \alpha$, tem-se
 
-\begin{equation}\label{alphaFNCalpha}
+\begin{equation}\label{alpha_FNC_alpha}
     \alpha\ \equiv\ \sim FND(\sim \alpha) \tag{1}
 \end{equation}
 
@@ -575,7 +578,7 @@ Por outro lado, toda fórmula equivale a sua forma normal conjuntiva, logo,
     \alpha \equiv FNC(\alpha)
 \end{equation*}
 
-Daí e de (\ref{alphaFNCalpha}), tem-se:
+Daí e de (\ref{alpha_FNC_alpha}), tem-se:
 
 \begin{equation*}
     FNC(\alpha)\ \equiv\ \sim FND(\sim \alpha)
