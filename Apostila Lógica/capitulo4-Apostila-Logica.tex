@@ -137,3 +137,176 @@ $$\exists! x\ p(x) \leftrightharpoons \exists x\ p(x) \land \underline{\exists}x
 
 Dos exemplos acima, observamos que em se tratando de quantificadores, tanto os predicados envolvidos quanto o universo de discurso tem papel decisivo na determinação dos valores de verdade das fórmulas.
 Vejamos o exemplo:
+
+\begin{equation}\label{para_todo_pertence_fruta}
+    \forall x\ (pertence(x, U) \to fruta (x)) \tag{1}
+\end{equation}
+
+\noindent onde $U = \{pêra, laranja, maçã, banana, uva\}$.
+Levando em conta o universo e o predicado ser fruta, o enunciado (\ref{para_todo_pertence_fruta}) é verdadeiro.
+Mas, se mudarmos o predicado \textit{ser fruta} pelo predicado \textit{ser legume}, o enunciado (\ref{para_todo_pertence_fruta}) torna-se falso.
+Por outro lado, se o universo fosse o conjunto
+
+$$U = \{pera, maçã, banana, uva, batata\},$$
+
+\noindent o enunciado (\ref{para_todo_pertence_fruta}) seria falso, porém, o enunciado
+$$\exists x (pertence(x, U) \land fruta(x))$$
+
+\noindent é verdadeiro.
+
+Estabeleceremos agora algumas das principais equivalências de enunciados quantificados.
+Cabe aqui ressaltar que tais equivalências são muitas vezes utilizadas como formas alternativas de traduzir expressões da linguagem natural para a linguagem lógica.
+
+\bigskip
+Pode-se facilmente observar que:
+
+\begin{enumerate}[label=(\roman*)]
+    \item Todos os computadores funcionam
+
+    equivale a
+
+    \centerline{Não há computador que não funcione}
+
+    simbolicamente
+
+    $$\forall x\ (computador(x) \to funciona(x))$$
+
+    equivale a
+
+    $$\sim \exists x\ (computador(x)\ \land \sim funciona(x))$$
+
+    \bigskip
+    Também podemos observar que:
+
+    \item Existe linguagem de programação declarativa
+
+    que simbolicamente é equivalente a:
+
+    $$\exists x\ (linguagem-programação(x) \land declarativa(x))$$
+
+    equivale a
+
+    $$\sim \forall x\ (linguagem-programação \to \sim declarativa(x))$$
+
+    \bigskip
+    Note-se que:
+    \item Não existe máquina de fazer dinheiro
+
+    equivale a
+
+    \centerline{Toda máquina não faz dinheiro}
+
+    simbolicamente
+
+    $$\sim \exists x\ (máquina(x) \land faz(x, dinheiro))$$
+
+    é equivalente a
+
+    $$\forall x\ (máquina(x) \to \sim faz(x, dinheiro))$$
+
+    \bigskip
+    Finalmente:
+    \item Nem toda máquina supera o homem
+
+    equivale a
+
+    \centerline{Existe máquina que não supera o homem}
+
+    simbolicamente
+
+    $$\sim \forall x\ (máquina(x) \to supera(x, homem))$$
+
+    é equivalente a
+
+    $$\exists x\ (máquina(x)\ \land \sim supera(x, homem))$$
+
+\end{enumerate}
+
+Em resumo, temos:
+
+\begin{align*}
+    \forall x\ \alpha (x) & \iff \sim \exists x \sim \alpha (x) \\
+    \exists x\ \alpha (x) & \iff \sim \forall x \sim \alpha (x) \\
+    \sim \forall x\ \alpha (x) & \iff \exists x \sim \alpha (x) \\
+    \sim \exists x\ \alpha (x) & \iff \forall x \sim \alpha (x)
+\end{align*}
+
+Diferentemente do Cálculo dos Juntores, o  Cálculo de Predicados não possui, para toda sua extensão, um  processo efetivo, como as tabelas de verdade, para verificar a validade de certos enunciados.
+Mais adiante vamos apresentar formas (obviamente, não efetivas) de verificar a validade dos enunciados do Cálculo de Predicados.
+
+\noindent \textbf{Comentário:} os enunciados onde aparecem quantificadores são ditos enunciados quantificados.
+O valor lógico de tais enunciados será determinado em função do universo de discurso associado a estes.
+
+
+\section{Variáveis livres e ligadas}
+Com frequência, em uma teoria ocorrem expressões (termos ou  enunciados) com variáveis, como $\forall x (x \in \mathbb{N}) \to  x z \in \mathbb{Z}$, $x < 2$ e $x + 3$.
+
+Na  lista acima, a primeira e a segunda expressões são enunciados, ditos \textbf{enunciados abertos}.
+Não lhe atribuímos um valor lógico.
+A última expressão é um \textbf{termo}, dito termo aberto.
+Não é um nome.
+
+Os operadores são, como vimos, aplicados a  expressões abertas para formar, em  geral, expressões fechadas (termos ou enunciados).
+Assim, uma expressão aberta torna-se fechada, caso tenha suas variáveis instanciadas ou se a elas aplicarmos os operadores devidos.
+Assim, dizemos que na expressão
+
+$$x < 2$$
+a variável x é livre, uma vez que ela pode ser instanciada por qualquer elemento do domínio de discurso.
+Mas cabe não esquecer-se de que alguns desses valores transformam o  enunciado aberto em um enunciado verdadeiro, enquanto que outros o converterão em um enunciado falso.
+Por exemplo, $1 < 2$ e $3 < 2$, respectivamente.
+
+Questões também relacionadas a variáveis livres e ligadas são os conceitos de escopo de um  operador, ocorrência de expressões, início de uma expressão, etc.
+Tais conceitos não são fáceis de serem caracterizados.
+
+Aqui faremos apenas um  estudo intuitivo e  elementar destas noções.
+
+Sejam os operadores $\forall, \exists, \uptau\ \text{e} (\ )$ e as letras x, y, z com ou sem índices.
+De forma genérica, os operadores são aplicados a expressões para formar novas expressões.
+Assim, aplicando-se quantificadores a expressão
+
+\begin{equation}\label{3y}
+    x \in \mathbb{Z}\ \land y \in \mathbb{Z} \to x + y = z \tag{1}
+\end{equation}
+
+obtemos
+
+\begin{equation}\label{3x}
+    \exists z\ \forall x\ \forall y\ (x \in \mathbb{Z}\ \land y \in \mathbb{Z} \to x + y = z) \tag{2}
+\end{equation}
+
+Em (\ref{3x}) temos três ocorrências da letra x e em (\ref{3y}) duas ocorrências; temos ainda em (\ref{3y}) três ocorrências de y e duas ocorrências de z.
+Observe-se ainda que x é a letra argumento do quantificador $\forall$; y é a letra argumento do quantificador $\forall$ e z é a letra argumento do quantificador $\exists$ em (\ref{3x}).
+
+Em (\ref{3y}) todas as ocorrências de x são livres (i.e, não estão em  conexão com nenhum operador); em (\ref{3x}) as três ocorrências de x são ligadas.
+Na expressão (\ref{3x}), o escopo da 1ª ocorrência do quantificador $\forall$ e $\forall y\ (x \in \mathbb{Z} \land y \in \mathbb{Z} \to x + y = z)$, enquanto que o escopo da 2ª ocorrência do quantificador $\forall$ é
+
+$$x \in \mathbb{Z} \land y \in \mathbb{Z} \to x + y = z$$
+
+Na fórmula
+\begin{equation}\label{1z}
+    \forall x\ \exists y\ (x + y = z) \tag{3}
+\end{equation}
+as duas ocorrências de x são ligadas e a única ocorrência de z é livre.
+
+Na expressão (\ref{3x}) anterior, o escopo do operador $\exists$ é a expressão
+
+$$\forall x\ \forall y\ (x \in \mathbb{Z} \land y \in \mathbb{Z} \to x + y = z)$$
+enquanto que na expressão (\ref{1z}), o escopo do operador $\forall$ é a expressão
+
+$$\exists y\ (x + y = z)$$
+
+Na expressão (\ref{3x}) há duas ocorrências do quantificador $\forall$.
+O escopo do quantificador $\forall$.
+O escopo do quantificador $\forall$ com respeito a x é
+
+$$\forall y\ (x \in \mathbb{Z}\ \land\ y \in \mathbb{Z}\ \to\ x + y = z)$$
+
+Note-se que uma variável pode ocorrer livre e ligada em uma expressão.
+Por exemplo:
+
+\begin{equation}\label{x_livre_ligado}
+    x \in \mathbb{Z}\ \to\ \exists y\ \forall x \colon x < y \tag{4}
+\end{equation}
+a primeira ocorrência de x em \ref{x_livre_ligado} é livre, mas a segunda e terceira são ligadas.
+
+Toda ocorrência de uma variável ou é livre ou é ligada.
