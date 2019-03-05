@@ -1,19 +1,25 @@
 \chapter{ARGUMENTOS NA LÓGICA DE PREDICADOS}
 
+\setcounter{exemplo}{0}
+
 \section{Instanciação Universal (I.U.)}
 Seja P(x) uma fórmula e \textit{a} um termo do universo em questão:
 \[
 \boxed{\frac{\forall x P(x)}{P(a)}}
 \]
 
-\noindent \textit{\textbf{Exemplo}}:
+% \noindent \textit{\textbf{Exemplo}}:
+\begin{exemplo}
+    \leavevmode
 
-TODOS OS HOMENS SÃO PECADORES
+    TODOS OS HOMENS SÃO PECADORES
 
-TODOS OS PECADORES SERÃO PUNIDOS POR DEUS
+    TODOS OS PECADORES SERÃO PUNIDOS POR DEUS
 
-SÓCRATES É HOMEM.
+    SÓCRATES É HOMEM.
 
+    LOGO, SÓCRATES SERÁ PUNIDO POR DEUS
+\end{exemplo}
 
 \noindent Mostre que o argumento acima é valido.
 
@@ -23,20 +29,22 @@ Seja P(x) uma fórmula e \textit{a} um termo do universo em questão:
 \boxed{\frac{P(a)}{\exists x P(x)}}
 \]
 
-\noindent \textit{\textbf{Exemplo}}:
+\begin{exemplo}
+    \leavevmode
 
-SÓCRATES É FELIZ E FAMOSO
+    SÓCRATES É FELIZ E FAMOSO
 
-SE ALGUÉM É FAMOSO OU ELEGANTE, ENTÃO É RENOMADO
+    SE ALGUÉM É FAMOSO OU ELEGANTE, ENTÃO É RENOMADO
 
-PORTANTO, EXISTE ALGUÉM FELIZ E RENOMADO
+    PORTANTO, EXISTE ALGUÉM FELIZ E RENOMADO
+\end{exemplo}
 
 \noindent Mostre que o argumento acima é válido.
 
 \section{INSTANCIAÇÃO EXISTENCIAL (I.E.)}
 
 \[
-\boxed{\frac{\exists x P(x)}{\exists P(a)}}
+    \boxed{\frac{\exists x P(x)}{P(a)}}
 \]
 
 \begin{itemize}
@@ -48,7 +56,7 @@ Por exemplo, considere os casos abaixo:
 \begin{alignat*}{12}
     \text{a) } & \text{pr}       & \text{1 - } & \exists x P(x) &\\
                & \text{pr}       & \text{2 - } & Q(a) &\\
-    \bullet\;  & \text{1, I.E. } & \text{3 - } & P(a) &\\
+               \bullet\;  & \text{1, I.E. } & \text{3 - } & P(a) &\\
                & \text{2, 3, C } & \text{4 - } & P(a) \land Q(a) &\\
                & \text{4, G.E. } & \text{5 - } & \exists x (P(x)\ \land Q(x)) &\\
                & & & &\\ % Linha em branco
@@ -58,18 +66,19 @@ Por exemplo, considere os casos abaixo:
     \bullet\;  & \text{2, I.E. } & \text{4 - } & \sim Q(a) &\\
                & \text{3, 4, C } & \text{5 - } & Q(a)\ \land \sim Q(a) &\\
                & \text{5, G.E. } & \text{6 - } & \exists x (Q(x)\ \land \sim Q(x)) &\\
-\end{alignat*}
-% \enlargethispage*{\baselineskip}
+            \end{alignat*}
+
 $\bullet$ INCORRETO
-\pagebreak
 
-\noindent \textit{\textbf{Exemplo}}:
+\begin{exemplo}
+    \leavevmode
 
-ALGUNS ESTUDANTES SÃO DISCIPLINADOS
+    ALGUNS ESTUDANTES SÃO DISCIPLINADOS
 
-UM ESTUDANTE DISCIPLINADO RESPEITA SEU MESTRE
+    UM ESTUDANTE DISCIPLINADO RESPEITA SEU MESTRE
 
-LOGO, ALGUNS ESTUDANTES RESPEITAM SEU MESTRE
+    LOGO, ALGUNS ESTUDANTES RESPEITAM SEU MESTRE
+\end{exemplo}
 
 \noindent Mostre que o argumento acima é valido.
 
@@ -86,13 +95,15 @@ Seja P(x) uma fórmula e \textit{z} um termo arbitrário do universo em questão
     \item Não se deve aplicar a G.U a constantes introduzidas pela regra I.E., porque estas também se referem a particulares objetos do domínio.
 \end{itemize}
 
-\noindent \textit{\textbf{Exemplo}}:
+\begin{exemplo}
+    \leavevmode
 
-TODO MUNDO É MARXISTA OU CAPITALISTA
+    TODO MUNDO É MARXISTA OU CAPITALISTA
 
-NENHUM ÁRABE É MARXISTA
+    NENHUM ÁRABE É MARXISTA
 
-LOGO, TODOS OS ÁRABES SÃO CAPITALISTAS
+    LOGO, TODOS OS ÁRABES SÃO CAPITALISTAS
+\end{exemplo}
 
 \noindent Mostre que o argumento acima é válido.
 
@@ -101,7 +112,7 @@ LOGO, TODOS OS ÁRABES SÃO CAPITALISTAS
 \begin{enumerate}[label=\arabic*)]
     \item Use as regras de inferência para mostrar a validade dos argumentos abaixo:
     \begin{enumerate}[label=\alph*)]
-        \item Todos os membros da Associação vivem na cidade. Quem é presidente  da sociedade é membro da Associação. Sra. Farias é presidente da Sociedade. Logo, Sra. Farias vive na cidade.
+        \item Todos os membros da Associação vivem na cidade. Quem é presidente da sociedade é membro da Associação. Sra. Farias é presidente da Sociedade. Logo, Sra. Farias vive na cidade.
         \item Todas as linguagens de programação são importantes. Nenhuma linguagem de programação importante será dispensada. PROLOG é uma linguagem de programação. Logo, há linguagens de programação que não são dispensadas.
         \item Todas as vítimas são inocentes. Todos os inocentes serão absolvidos pela justiça. Maria é vítima, logo Maria será absolvida pela justiça.
         \item Paulo é estudioso e simpático. Se alguém é simpático ou inteligente, então é popular. Portanto, existe alguém estudioso e popular.
