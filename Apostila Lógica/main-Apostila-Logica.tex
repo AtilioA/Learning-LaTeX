@@ -1,28 +1,6 @@
 % O arquivo main irá conter todas as especificações do documento.
 % Essas especificações serão passadas automaticamente para os módulos introduzidos.
 
-%% A FAZER %%
-% Revisar capítulos:
-%- Capítulo 1
-%- Capítulo 2
-%- Capítulo 3
-% Criar ambiente para "Comentário"
-
-%% FEITO %%
-%--- Capítulos revisados:
-%--- Capítulo 4
-%--- Capítulo 5
-%--- Capítulo 6
-%--- Um diagrama de um exemplo do capítulo 5
-%--- Todo o capítulo 4
-%--- Terminar o capítulo 3
-%--- Capítulo 2
-%--- "Capítulo 6" (ARGUMENTOS NA LÓGICA DE PREDICADOS)
-%--- Capítulo 1
-%--- Centralizar elementos das tabelas do capítulo 3
-%--- Criar ambiente para os exemplos
-%--- Criar ambiente para "Def.:" e "Obs.:" (ainda precisa ajeitar o de comentário)
-
 \documentclass[
 	% -- opções da classe memoir --
 	14pt,				% Tamanho da fonte
@@ -40,7 +18,7 @@
     ]{abntex2}
 
 \usepackage{lmodern}			% Usa a fonte Latin Modern
-\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte
 \usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
@@ -49,15 +27,12 @@
 
 % Em geral, pacotes para tornar a aparência mais próxima da original da apostila
 \usepackage{float}
-\usepackage{lipsum}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
 % \usepackage{mathabx} % Conflita com amsmath mas se parece mais com a apostila (não produz erro fatal no Overleaf)
 \usepackage[LGRgreek]{mathastext}
 \usepackage{multicol}
-\usepackage{multirow}
-\usepackage{lipsum}
 \usepackage[ampersand]{easylist}
 \usepackage{scrextend}
 \usepackage{bm}
@@ -67,16 +42,17 @@
 \usepackage{parskip}
 \usepackage{enumitem}
 \usepackage{etoolbox}
-\usepackage[linguistics]{forest}
-\usepackage{mdframed}
+% \usepackage[linguistics]{forest} % Seria utilizado para os diagramas do capítulo 5
 
 
+% Espaçamento para os ambientes personalizados
 \newlength\thmsep
 \setlength\thmsep{3.5em}
 
 \newlength\thmsepComent
 \setlength\thmsepComent{3.5em}
 
+% Criação de ambientes personalizados
 \newtheoremstyle{fixedwidthindented}
   {\topsep}
   {\topsep}
@@ -120,7 +96,7 @@
 % Altera estilo do título do capítulo (não sei se fica bom)
 \titleformat{\chapter}
   {\normalfont\Large\bfseries}
-  {\thechapter}
+  {\thechapter:}
   {.5em}
   {\MakeUppercase}
   [\vspace{.5ex}\titlerule]
@@ -141,12 +117,6 @@
   \end{center}
 }
 \renewcommand{\baselinestretch}{1.5}
-
-% Ambiente para recuar texto (ainda não está funcionando)
-\newenvironment{textorecuado}
-{
-    \hskip 3cm
-}
 
 % Tamanho do recuo e do parágrafo e espaçamento entre eles, respectivamente
 \setlength\parindent{2cm}
@@ -169,7 +139,7 @@
 % Fim do preâmbulo
 \begin{document}
 
-% Estilo das páginas do documento (não sei p or que deve ficar após o preâmbulo)
+% Estilo das páginas do documento (não sei por que deve ficar após o preâmbulo)
 \makepagestyle{memoir}
 \makeevenfoot{memoir}{}{}{\thepage}
 \makeoddfoot{memoir}{}{}{\thepage}

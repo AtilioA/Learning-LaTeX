@@ -8,27 +8,27 @@ Uma vez fixados, pela intermediação da gramática, as expressões desse cálcu
 
 No Cálculo Proposicional, o alfabeto consiste das duas seguintes classes de símbolos: i) \textbf{as letras proposicionais}; e ii) \textbf{os juntores}.
 Conforme foi mencionado, usaremos as letras \textbf{p}, \textbf{q}, \textbf{r}, \textbf{s}, afetadas ou não de índices como letras proposicionais; e empregaremos os sinais $\sim, \land, \lor, \to, \iff$ como juntores.
+
 Com este alfabeto e com as regras de formação do Cálculo Proposicional, torna-se possível caracterizarmos, de modo rigoroso, as fórmulas bem formadas do Cálculo Proposicional.
 
 \subsection*{Regras de formação}
 
 \begin{enumerate}[label={\roman*})]
-    \item As letras proposicionais são fórmulas bem formadas (ditas fórmulas primas ou fórmulas atômicas).
+    \item As letras proposicionais são fórmulas bem formadas (ditas fórmulas primas ou fórmulas atômicas). \label{letras-proposicionais-fbf}
 
-    \item Se $\alpha$ e $\beta$ são fórmulas bem formadas, então ($\alpha \; \land \; \beta), (\alpha \; \lor \; \beta), (\alpha \to \beta), (\alpha \iff \beta), (\alpha \downarrow \beta), (\alpha \uparrow \beta), (\sim\alpha),$ são fórmulas bem formadas (ditas fórmulas compostas).
+    \item Se $\alpha$ e $\beta$ são fórmulas bem formadas, então ($\alpha \; \land \; \beta), (\alpha \; \lor \; \beta), (\alpha \to \beta), (\alpha \iff \beta), (\alpha \downarrow \beta), (\alpha \uparrow \beta), (\sim\alpha),$ são fórmulas bem formadas (ditas fórmulas compostas). \label{formulas-compostas}
 
-    \item As únicas fórmulas bem formadas do Cálculo Proposicional são as obtidas por um número finito de aplicações de i, ii.
+    \item As únicas fórmulas bem formadas do Cálculo Proposicional são as obtidas por um número finito de aplicações de \ref{letras-proposicionais-fbf}, \ref{formulas-compostas}.
 \end{enumerate}
 
 Daqui por diante, por mera questão de comodidade, usaremos apenas a palavra \textbf{fórmula}, em lugar da expressão \textbf{fórmula bem formada}.
-
 
 \begin{exemplo}
     \bm{$((p \land q) \to (p \lor r))$} é uma fórmula bem formada do Cálculo Proposicional construída da seguinte forma:
 \end{exemplo}
 
-Como p, q, r são fórmulas por i, segue-se daí e de ii que $(p \land q)$ e $(p \lor r)$ são fórmulas.
-Logo, daí e de ii, tem-se que $((p \land q) \to (p \lor r))$ é fórmula bem formada.
+Como p, q, r são fórmulas por \ref{letras-proposicionais-fbf}, segue-se daí e de \ref{formulas-compostas} que $(p \land q)$ e $(p \lor r)$ são fórmulas.
+Logo, daí e de \ref{formulas-compostas}, tem-se que $((p \land q) \to (p \lor r))$ é fórmula bem formada.
 
 \bigskip
 
@@ -52,11 +52,10 @@ Assim, a semântica do Cálculo Proposicional consiste na interpretação de sua
 Seja $\alpha$ uma fórmula.
 Uma interpretação de $\alpha$ consiste na atribuição de valores lógicos V ou F às fórmulas atômicas componentes de $\alpha$, levando-se em consideração a interpretação de $\land,\ \lor,\ \to,\ \iff$, dadas pelas tabelas de verdade.
 
-% Mudar isso depois
 \begin{exemplo}
-    Uma interpretação para a fórmula \bm{$p \to (q \lor r)$}
+    Uma interpretação para a fórmula \bm{$p \to (q \lor r)$} consiste em atribuir valores lógicos a seus componentes atômicos p, q e r.
 \end{exemplo}
-\noindent consiste em atribuir valores lógicos a seus componentes atômicos p, q e r.
+\noindent
 Isto se faz, esquematicamente, do seguinte modo:
 
 \begin{center}
@@ -76,7 +75,7 @@ Mas ela poderia ser verdadeiro segundo outra interpretação, por exemplo,
     \end{tabular}
 \end{center}
 
-\begin{exemplo}
+\begin{exemplo} \label{cap3-exemplo2}
     Seja a fórmula \bm{$(p \lor q) \to (p \land q)$}
 \end{exemplo}
 \noindent que encerra dois componentes atômicos p e q; portanto, esta fórmula admite quatro interpretações, como indica a tabela a seguir:
@@ -101,28 +100,27 @@ De modo geral, se uma fórmula tiver n componentes atômicos distintos, esta fó
 De um ponto de vista semântico, as noções de verdade, satisfatibilidade e validade são noções fundamentais.
 A seguir, passaremos ao estudo dessas noções no  âmbito do Cálculo Proposicional.
 
-\bigskip
-\noindent
-\textbf{Def.:} Admitamos que uma fórmula $\alpha$ tenha o valor V numa certa interpretação I.
-Neste caso, diz-se então que $\alpha$ é verdadeira nesta interpretação.
+\begin{defi}
+    Admitamos que uma fórmula $\alpha$ tenha o valor V numa certa interpretação I.
+    Neste caso, diz-se então que $\alpha$ é verdadeira nesta interpretação.
+\end{defi}
 
 Assim, a fórmula $(p \lor q) \to (p \land q)$, do exemplo anterior, é verdadeira segundo a primeira interpretação.
 
 \bigskip
 \noindent
-\textbf{Comentário:} Note que se $\alpha$ e $\beta$ são fórmulas, então $\alpha \land \beta$ é \textbf{verdadeira} segundo uma interpretação se e somente se $\alpha$ e $\beta$ são ambas verdadeiras segundo esta interpretação.
+\textbf{Comentário:} Note que se $\alpha$ e $\beta$ são fórmulas, então $\alpha\ \land\ \beta$ é \textbf{verdadeira} segundo uma interpretação se e somente se $\alpha$ e $\beta$ são ambas verdadeiras segundo esta interpretação.
 
-\bigskip
-\noindent
-\textbf{Def.:} Admitamos que uma fórmula $\alpha$ seja verdadeira segundo alguma interpretação.
-Neste caso, diz-se que $\alpha$ é \textbf{satisfatível} ou \textbf{consistente}.
+\begin{defi}
+    Admitamos que uma fórmula $\alpha$ seja verdadeira segundo alguma interpretação.
+    Neste caso, diz-se que $\alpha$ é \textbf{satisfatível} ou \textbf{consistente}.
+\end{defi}
 
 A fórmula $p \to (q \lor r)$ do exemplo anterior é satisfatível.
 
-
-\bigskip
-\noindent
-\textbf{Def.:} Uma fórmula $\alpha$ é \textbf{válida} quando é verdadeira em todas as suas interpretações.
+\begin{defi}
+    Uma fórmula $\alpha$ é \textbf{válida} quando é verdadeira em todas as suas interpretações.
+\end{defi}
 
 \bigskip
 \noindent
@@ -148,25 +146,24 @@ Além disso, se $\alpha$ e $\beta$ são fórmulas, então $\alpha \land \beta$ �
 \end{center}
 Vemos que a fórmula acima é válida \textbf{--} sendo portanto uma tautologia \textbf{--} já que é verdadeira em todas as interpretações.
 
-\bigskip
-\noindent
-\textbf{Def.:} Admitamos que uma fórmula $\alpha$ tenha valor \textbf{F} numa interpretação I.
-Neste caso, diz-se então que $\alpha$ é falsa segundo I.
+\begin{defi}
+    Admitamos que uma fórmula $\alpha$ tenha valor \textbf{F} numa interpretação I.
+    Neste caso, diz-se então que $\alpha$ é falsa segundo I.
+\end{defi}
 
 \noindent Assim, a fórmula
 
 \centerline{$(p \lor q) \to (p \land q)$}
 
-\noindent é falsa de acordo com a segunda interpretação (vide Exemplo 1).
+\noindent é falsa de acordo com a segunda interpretação (vide Exemplo \ref{cap3-exemplo2}).
 
 \bigskip
 \noindent
-\textbf{Comentário:} Note-se que se $\alpha$ e $\beta$ são fórmulas, então $\alpha \lor \beta$ é \textbf{falsa} segundo uma interpretação se e somente se $\alpha$ e $\beta$ são ambas falsas segundo esta interpretação.
+\textbf{Comentário:} Note-se que se $\alpha$ e $\beta$ são fórmulas, então $\alpha\ \lor\ \beta$ é \textbf{falsa} segundo uma interpretação se e somente se $\alpha$ e $\beta$ são ambas falsas nesta interpretação.
 
-
-\bigskip
-\noindent
-\textbf{Def.:} Uma fórmula $\alpha$ é \textbf{insatisfatível} ou \textbf{inconsistente} quando for falsa segundo qualquer interpretação.
+\begin{defi}
+    Uma fórmula $\alpha$ é \textbf{insatisfatível} ou \textbf{inconsistente} quando for falsa segundo qualquer interpretação.
+\end{defi}
 
 \bigskip
 \noindent
@@ -180,7 +177,7 @@ Note que uma contradição é a negação de uma tautologia.
 
 \begin{center}
     \begin{tabular}{c c c}
-        p & q & $p\ \land ~p$ \\ \hline
+        p & q & $p\ \land \sim p$ \\ \hline
         V & F & F \\
         F & V & F
     \end{tabular}
@@ -191,9 +188,9 @@ Note que uma contradição é a negação de uma tautologia.
 \noindent
 \textbf{Comentário:} Note-se que se $\alpha$ e $\beta$ são fórmulas, então $\alpha\ \lor\ \beta$ é \textbf{insatisfatível} se e somente se $\alpha$ e $\beta$ são simultaneamente insatisfatíveis.
 
-\bigskip
-\noindent
-\textbf{Def.:} Uma fórmula $\alpha$ será \textbf{inválida} quando for falsa segundo alguma interpretação.
+\begin{defi}
+    Uma fórmula $\alpha$ será \textbf{inválida} quando for falsa segundo alguma interpretação.
+\end{defi}
 
 \begin{exemplo}
     Seja a fórmula $p \to q$
@@ -238,10 +235,10 @@ A título de ilustração, sejam os seguintes exemplos:
     \end{tabular}
 \end{center}
 
-\bigskip
-\noindent
-\textbf{Def.:} Sejam $\beta_1,\ \beta_2,\ \alpha$ fórmulas.
-Dizemos que $\alpha$ é \textbf{consequência lógica} de $\beta_1,\ \beta_2$, quando cada interpretação I que torna $\beta_1,\ \beta_2$ verdadeira, torna $\alpha$ verdadeira.
+\begin{defi}
+    Sejam $\beta_1,\ \beta_2,\ \alpha$ fórmulas.
+    Dizemos que $\alpha$ é \textbf{consequência lógica} de $\beta_1,\ \beta_2$, quando cada interpretação I que torna $\beta_1,\ \beta_2$ verdadeira, torna $\alpha$ verdadeira.
+\end{defi}
 
 \bigskip
 \noindent
@@ -263,16 +260,17 @@ Simbolicamente, indica-se que $\alpha$ é consequência lógica de $\beta_1,\ \b
         $I_4$ & F & F & V        & V        & V         & V \\
     \end{tabular}
 \end{center}
-que para as interpretações $I_3$ e $I_4$ em que \bm{$p \to q$} e \bm{$p \to \sim q$} são verdadeiras, $\sim p$ é também verdadeira.
+que para as interpretações $I_3$ e $I_4$ em que \bm{$p \to q$} e \bm{$p \to \sim q$} são verdadeiras, \bm{$\sim p$} é também verdadeira.
 
-\bigskip
-\noindent
-\textbf{Def.:} Sejam $\beta_1,\ \dots, \beta_n,\ \alpha$ fórmulas.
-Dizemos que $\alpha$ é consequência lógica de $\beta_1,\dots, \beta_n$ quando cada interpretação de I que torna cada $\beta_j\ (1 \leq j \leq n)$ simultaneamente verdadeira torna $\alpha$ verdadeira.
+\begin{defi}
+    Sejam $\beta_1, \dots, \beta_n,\, \alpha$ fórmulas.
+    Dizemos que $\alpha$ é consequência lógica de $\beta_1,\dots, \beta_n$ quando cada interpretação de I que torna cada $\beta_j\ (1 \leq j \leq n)$ simultaneamente verdadeira, torna $\alpha$ verdadeira.
+\end{defi}
 
 \bigskip
 \noindent
 \textbf{Comentário:} Se $\alpha$ é consequência lógica de $\beta_1,\dots, \beta_n$, então diz-se também que $\alpha$ segue-se logicamente de $\beta_1,\dots, \beta_n$.
+
 Simbolicamente, indica-se que $\alpha$ é consequência lógica de $\beta_1,\dots, \beta_n$ mediante a seguinte notação:
 
 \centerline{$\beta_1,\dots, \beta_n \vDash \alpha$}
@@ -286,12 +284,12 @@ Simbolicamente, indica-se que $\alpha$ é consequência lógica de $\beta_1,\dot
 Da definição de consequência lógica, obtemos o enunciado a seguir, que pode ser visto como definição alternativa para consequência lógica:
 
 \begin{center}
-    $\alpha$ é consequência lógica de $\beta_1,\dots, \beta_n$ se e somente se $\beta_1, \land \dots, \land\ \beta_n \to \alpha$ é uma tautologia.
+    $\alpha$ é consequência lógica de $\beta_1,\dots, \beta_n$ se e somente se $\beta_1 \land \dots \land \beta_n \to \alpha$ é uma tautologia.
 \end{center}
 
 \textbf{Simbolicamente}:
 
-$\beta_1,\dots, \beta_n \vDash \alpha\ \iff\ \beta_1, \land \dots, \land\ \beta_n\footnote{Como na Lógica Proposicional o juntor $\land$ é associativo, usaremos $\alpha_1 \land \alpha_2 \land \alpha_3$ em vez de $(\alpha_1 \land \alpha_2) \land \alpha_3$.} \to \alpha$ é uma tautologia.
+$\beta_1,\dots, \beta_n \vDash \alpha\ \iff\ \beta_1 \land \dots \land \beta_n\footnote{Como na Lógica Proposicional o juntor $\land$ é associativo, usaremos $\alpha_1 \land \alpha_2 \land \alpha_3$ em vez de $(\alpha_1 \land \alpha_2) \land \alpha_3$.} \to \alpha$ é uma tautologia.
 
 \bigskip
 \noindent Assim, $\sim p$ é consequência lógica de
@@ -299,7 +297,7 @@ $\beta_1,\dots, \beta_n \vDash \alpha\ \iff\ \beta_1, \land \dots, \land\ \beta_
 \centerline{\bm{$p \to q$} e \bm{$p \to \sim q$}}
 \noindent pois
 
-\centerline{($p \to q) \land (p \to\ \sim q) \to\ \sim q$ é uma tautologia}
+\centerline{($p \to q) \land (p \to\ \sim q) \to\ \sim p$ é uma tautologia}
 
 \newpage
 Tal fato pode ser constatado mediante a tabela de verdade que se segue:
@@ -323,21 +321,24 @@ Tal fato pode ser constatado mediante a tabela de verdade que se segue:
     \end{tabular}
 \end{center}
 
-\bigskip
-\noindent
-\textbf{Def.:} Dizemos que uma fórmula $\alpha$ é \textbf{logicamente} (ou semanticamente) \textbf{equivalente} a uma fórmula $\beta$ quando $\alpha$ é \textbf{consequência lógica} de $\beta$ e $\beta$ é consequência lógica de $\alpha$.
+\begin{defi}
+    Se $\beta_1 \land \dots \land \beta_n \to \alpha$ é uma \textbf{tautologia}, dizemos que $\alpha$ é \textbf{consequência tautológica} de $\beta_1, \dots, \beta_n$.
+\end{defi}
 
-\bigskip
-\noindent
-\textbf{Obs.:} Uma fórmula $\alpha$ é \textbf{logicamente equivalente} a uma fórmula $\beta$ se e somente se a fórmula $\alpha \iff \beta$ for \textbf{válida} (i.e., $\vDash \alpha \iff \beta$).
-Por comodidade, escrevemos
+Assim, no Cálculo Proposicional, a noção de consequência lógica se identifica com a noção de consequência tautológica.
+
+\begin{defi}
+    Dizemos que uma fórmula $\alpha$ é \textbf{logicamente} (ou semanticamente) \textbf{equivalente} a uma fórmula $\beta$ quando $\alpha$ é \textbf{consequência lógica} de $\beta$ e $\beta$ é consequência lógica de $\alpha$.
+\end{defi}
+
+\begin{obs}
+Uma fórmula $\alpha$ é \textbf{logicamente equivalente} a uma fórmula $\beta$ se e somente se a fórmula $\alpha \iff \beta$ for \textbf{válida} (i.e., $\vDash \alpha \iff \beta$). Por comodidade, escrevemos
+\end{obs}
 
 \centerline{$\alpha \equiv \beta$}
 \noindent para indicar que $\alpha$ é logicamente (ou semanticamente) equivalente a $\beta$; logo,
+\centerline{$\alpha \equiv \beta$ se e somente se $\alpha \iff \beta$ é uma tautologia.}
 
-$\alpha \equiv \beta$ se e somente se $\alpha \iff \beta$ é uma tautologia.
-
-\bigskip
 A seguir, apresentamos algumas equivalências lógicas importantes.
 Notemos que todas estas fórmulas são tautologias.
 
@@ -358,32 +359,25 @@ Notemos que todas estas fórmulas são tautologias.
     \item $(\alpha\ \land \sim \beta) \to \delta \equiv \alpha \to (\beta \lor \delta)$
 \end{enumerate}
 
-\newpage
-
-\newpage
-
 \section{Formas Normais}
 Para o estudo de formas clausais, conceito básico para as linguagens lógicas de programação, é importante a noção de forma normal.
 Aqui, desenvolveremos, de modo informal, os conceitos de forma conjuntiva normal e forma disjuntiva normal.
 
-\bigskip
-\noindent
-\textbf{Def.:} Literais são formas atômicas ou negações de fórmulas atômicas.
-
 \begin{defi}
-Literais são formas atômicas ou negações de fórmulas atômicas.
+    Literais são formas atômicas ou negações de fórmulas atômicas.
 \end{defi}
 
-\begin{itemize}[label={},itemindent=-3em,leftmargin=\parindent]
-    \item \textbf{Def.:} Literais são formas atômicas ou negações de fórmulas atômicas.
-\end{itemize}
+% Outra forma de fazer o "Def.:"
+% \begin{itemize}[label={},itemindent=-3em,leftmargin=\parindent]
+%     \item \textbf{Def.:} Literais são formas atômicas ou negações de fórmulas atômicas.
+% \end{itemize}
 
 \subsection{Forma Normal Conjuntiva (FNC)}
 
 Seja $\alpha$ uma fórmula proposicional.
 
 \begin{defi}
-    Diz-se que $\alpha$ está na forma normal conjuntiva (FNC) quando $\alpha$ é uma conjunção $\beta_1 \land \cdots \land \beta_n, (n > 1)$, em que cada i $(1 \leq i \leq n),\ \beta_i$ é uma disjunção de literais, ou um literal.
+    Diz-se que $\alpha$ está na forma normal conjuntiva (FNC) quando $\alpha$ é uma conjunção $\beta_1 \land \dots \land \beta_n, (n > 1)$, em que cada i $(1 \leq i \leq n),\ \beta_i$ é uma disjunção de literais, ou um literal.
 \end{defi}
 
 \begin{defi}
@@ -427,7 +421,7 @@ Assim, a FNC de $\alpha$ é
 
 \centerline{$(\sim p \lor q) \land (p\ \lor \sim q)$}
 
-De modo geral, para uma fórmula não-tautológica $\alpha$ procuramos na tabela de verdade de $\alpha$ as interpretações $I_1, \cdots I_k$ que tornam esta fórmula falsa.
+De modo geral, para uma fórmula não-tautológica $\alpha$ procuramos na tabela de verdade de $\alpha$ as interpretações $I_1, \dots, I_k$ que tornam esta fórmula falsa.
 Em cada uma dessas interpretações $I_i$ ($1 \leq i \leq k$) constrói-se a disjunção da seguinte maneira: se o valor do componente atômico p de $\alpha$ com respeito a $I_i$ for V, toma-se $\sim$p; se for F, toma-se p.
 Em seguida, determina-se a conjunção das disjunções obtidas em cada uma das interpretações $I_i$.
 
@@ -464,11 +458,10 @@ onde p é uma fórmula atômica.
 
 \pagebreak
 
-
 \subsection{Forma Normal Disjuntiva (FND)}
 
 \begin{defi}
-    Diz-se que uma formula $\alpha$ está na forma normal disjuntiva quando $\alpha$ é uma disjunção $\beta_1 \lor \cdots \lor \beta_n, n \geq 1$, onde cada $\beta_i$ $(1 \leq i \leq n)$ é uma conjunção de literais, ou um literal.
+    Diz-se que uma formula $\alpha$ está na forma normal disjuntiva quando $\alpha$ é uma disjunção $\beta_1 \lor \dots \lor \beta_n,\ n \geq 1$, onde cada $\beta_i$ $(1 \leq i \leq n)$ é uma conjunção de literais, ou um literal.
 \end{defi}
 
 \begin{defi}
@@ -502,26 +495,25 @@ onde p é uma fórmula atômica.
 
 Temos que
 
-\begin{tabular}{c | c c c}
+\begin{tabular}{c | c c c l}
     & 1 & 2 & $\alpha$ \\ \hline
-    & p & q & $p \to p \land q$ \\
-    $I_1$ & V & V & V \\
-    $I_2$ & V & F & F \\
-    $I_3$ & F & V & V \\
-    $I_4$ & F & F & V \\
+    & p & q & $p \to p \land q$ & \\
+    $I_1$ & V & V & V & $\longleftarrow$ \\
+    $I_2$ & V & F & F & \\
+    $I_3$ & F & V & V & $\longleftarrow$ \\
+    $I_4$ & F & F & V & $\longleftarrow$ \\
 \end{tabular}
 
 \bigskip
 Pela tabela de verdade vemos que três são as interpretações ($I_1$, $I_3$ e $I_4$) que tornam $\alpha$ verdadeira.
-Para se determinar a FND de $\alpha$, faremos a disjunção das conjunções obtidas da seguinte maneira: para a interpretação $I_1$, tomamos p e q e obtemos p $\land$ q, para $I_3$, tomamos $\sim$p e q e obtemos $\sim p \land q$, e para a interpretação $I_4$ tomamos $\sim p \sim q$ e obtemos $\sim p\ \land \sim q$.
+Para se determinar a FND de $\alpha$, faremos a disjunção das conjunções obtidas da seguinte maneira: para a interpretação $I_1$, tomamos p e q e obtemos p $\land$ q, para $I_3$, tomamos $\sim$p e q e obtemos $\sim p \land q$, e para a interpretação $I_4$ tomamos $\sim p$ e $\sim q$ e obtemos $\sim p\ \land \sim q$.
 Assim, a FND de $\alpha$ é
 
-$$(p \land q) \lor (\sim p \land q) \lor (\sim p \land \sim q)$$
+$$(p \land q) \lor (\sim p \land q) \lor (\sim p\ \land \sim q)$$
 
-De modo geral, para uma fórmula não-contraditória $\alpha$ procuramos na tabela de verdade de $\alpha$ as interpretações $I_1, \cdots, I_k$ que tornam esta fórmula verdadeira.
+De modo geral, para uma fórmula não-contraditória $\alpha$ procuramos na tabela de verdade de $\alpha$ as interpretações $I_1, \dots, I_k$ que tornam esta fórmula verdadeira.
 Em cada uma dessas interpretações $I_i$ $(1 \leq i \leq k)$, constrói-se a disjunção da seguinte maneira: se o valor do componente primo p de $\alpha$ com respeito a $I_i$ for V, toma-se p, e se for F, toma-se $\sim$p.
 Em seguida, determina-se a disjunção das conjunções obtidas em cada uma das interpretações de $I_i$.
-
 
 \begin{exemplo}
     Seja $\alpha$ uma fórmula tal que sua tabela de verdade seja a seguinte
@@ -530,14 +522,14 @@ Em seguida, determina-se a disjunção das conjunções obtidas em cada uma das 
 \begin{tabular}{c | c c c c l}
     & $\alpha_1$ & $\alpha_2$ & $\alpha_3$ & $\alpha$ & \\ \hline
     & p & q & r & & \\
-    $I_1$ & V & V & V & $\longleftarrow$ \\
-    $I_2$ & V & V & F & $\longleftarrow$ \\
-    $I_3$ & V & F & V & \\
-    $I_4$ & V & F & F & \\
-    $I_5$ & F & V & V & \\
-    $I_6$ & F & V & F & \\
-    $I_7$ & F & F & V & \\
-    $I_8$ & F & F & F & $\longleftarrow$
+    $I_1$ & V & V & V & V & $\longleftarrow$ \\
+    $I_2$ & V & V & F & V & $\longleftarrow$ \\
+    $I_3$ & V & F & V & F & \\
+    $I_4$ & V & F & F & F & \\
+    $I_5$ & F & V & V & F & \\
+    $I_6$ & F & V & F & F & \\
+    $I_7$ & F & F & V & F & \\
+    $I_8$ & F & F & F & V & $\longleftarrow$
 \end{tabular}
 \bigskip
 
@@ -547,14 +539,14 @@ FND($\alpha$) é $(p \land q \land r) \lor (p \land q\ \land \sim r) \lor (\sim 
 
 \noindent Se o enunciado $\alpha$ é uma contradição, então admite-se que
 
-$$FND(\alpha)\colon p\ \land \sim p$$
+\centerline{$FND(\alpha)\colon p\ \land \sim p$}
 
 \noindent onde p é um enunciado atômico.
 
 Para uma dada fórmula $\alpha$, temos a seguinte relação entre FND($\alpha$) e FNC($\alpha$):
 
 \begin{enumerate}[label=\roman*)]
-    \item FND($\alpha$) = $\sim FNC(\sim \alpha$)
+    \item FND($\alpha$) = $\sim FNC(\sim \alpha)$
 
     e
 

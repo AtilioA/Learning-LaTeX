@@ -30,8 +30,7 @@ A linguagem que surgiu na Grécia e evoluiu cada vez mais simbolicamente até o 
 Mas ela se aprimorou, de início, com os trabalhos de Frege sobre sistemas formais.
 E, posteriormente, com o surgimento de paradoxos no âmbito da teoria dos conjuntos, houve a necessidade de uma reanálise e de uma retificação do aparato formal dos sistemas dedutivos convencionais.
 Tornou-se, assim, necessário introduzir uma linguagem precisa, definida por uma gramática explícita, gramática esta cujas regras não possuem exceções.
-Esta linguagem, chamada \emph{linguagem formal}, % remover
-será o objeto de estudo deste capítulo.
+Esta linguagem, chamada \emph{linguagem formal}, será o objeto de estudo deste capítulo.
 Só estas linguagens são aptas para o tratamento da Matemática e da Informática;
 só com o emprego destes tipos de linguagens é possível construir e operar com os atuais computadores.
 
@@ -42,7 +41,7 @@ Por ser vaga e ambígua, a linguagem corrente ou natural não é inteiramente ad
 Por este motivo, para fixar os princípios, métodos e resultados de nossas investigações no plano da Lógica e da Computação, vamos aqui nos servir não de uma linguagem natural, mas de uma linguagem formal ou simbólica ou artificial.
 A introdução de linguagens artificiais com o objetivo de exprimir com correção e exatidão o pensamento e os resultados do conhecimento científico é apenas uma de suas vantagens.
 Outra, não menos importante, é a função de tornar sintético ou conciso o pensamento.
-Com efeito, a linguagem simbólica objetiva também torna concisas construções que, em linguagem corrente, seriam extremamente longas.
+Com efeito, a linguagem simbólica objetiva, também, tornar concisas construções que, em linguagem corrente, seriam extremamente longas.
 O exemplo abaixo mostra com toda clareza o que queremos dizer:
 
 \vskip 1cm
@@ -62,7 +61,6 @@ O exemplo abaixo mostra com toda clareza o que queremos dizer:
     \begin{center}
         \noindent\texttt{\myrepeat{76}{-}}
     \end{center}
-
 
     \centering simbolicamente
 
@@ -101,12 +99,15 @@ A partir dos símbolos do alfabeto e da noção intuitiva de concatenação hori
 
 São exemplos de expressões:
 
-\vskip 1cm
+\begin{center}
+    \begin{tabular}{l l}
+        & $a + y$, $3 \in (3, 5, 7), +-xy$,\\
 
-% Criar ambiente para \hskip
-\hskip 2.5cm $a + y$, $3 \in (3, 5, 7), +-xy$,\\
-\hskip 2.5cm Linguagem de Programação Fortran,\\
-\hskip 2.5cm $xy-$, $+xy$, e outros.
+        & Linguagem de Programação Fortran,\\
+
+        & $xy-$, $+xy$, e outros.
+    \end{tabular}
+\end{center}
 
 \newpage
 
@@ -124,7 +125,6 @@ Por tentativa e erro, procuraremos distinguir, entre as expressões bem formadas
 
 \vskip 0.5cm
 
-
 \noindent São exemplos de termos:
 
 \begin{itemize}[itemsep=0.01pt]
@@ -141,10 +141,7 @@ Por tentativa e erro, procuraremos distinguir, entre as expressões bem formadas
     \item $5 \times 7$
     \item $x + y$
     \item $y!$
-
 \end{itemize}
-
-\vskip 0.5cm
 
 \begin{addmargin}[2.0cm]{0cm}
 \textbf{Enunciado} (ou proposição) é a expressão que correlaciona objetos ou descreve propriedades de objetos.
@@ -169,7 +166,6 @@ Por tentativa e erro, procuraremos distinguir, entre as expressões bem formadas
     \item pertence(México, América)
 \end{itemize}
 
-% Descobrir como fazer essa parte
 \noindent \textbf{Comentário:} As variáveis $\underline{x}$ e $\underline{y}$, que ocorrem nas expressões $\bm{x + y = 3}$ e $\bm{x^2 - 5x + 6 = 0}$, são variáveis livres em tais expressões.
 Tais variáveis atuam como nomes de elementos arbitrários do domínio de discurso.
 
@@ -201,24 +197,26 @@ Exemplos de enunciados fechados:
 
 \hskip 2.5cm $\forall x(corredor(x) \to resistente(x))$
 
+\bigskip
+
 Em resumo, as expressões bem formadas da linguagem simbólica assim se classificam:
 
 \[
-    \text{Expressões:}
+    \text{Expressões }
     \begin{cases}
-        Termos
+        \text{ Termos }
         \begin{cases}
-            \text{Termo fechado ou nome}\\
-            \text{Termo aberto ou pseudo-nome}\\
+            \text{ Termo fechado ou nome }\\
+            \text{ Termo aberto ou pseudo-nome}\\
         \end{cases}
 
         \\
         \\
 
-        Enunciados
+        \text{ Enunciados }
         \begin{cases}
-            \text{Enunciado fechado ou sentença}\\
-            \text{Enunciado aberto}\\
+            \text{ Enunciado fechado ou sentença}\\
+            \text{ Enunciado aberto}\\
         \end{cases}
     \end{cases}
 \]
@@ -250,11 +248,14 @@ Assim, \textbf{Platão é grego ou Platão não é grego} é igualmente verdadei
 \bigskip
 \noindent
 Não somente esta sentença é verdadeira, como também ela é verdadeira independentemente dos constituintes \textbf{homem}, \textbf{mortal} e \textbf{Sócrates}; nenhuma alteração dessas palavras é capaz de transformar a sentença numa falsidade.
+
 \newpage
 
 \noindent Qualquer enunciado da forma:
 
-Se todo \textbf{A} é um \textbf{B} e \textbf{C} é um \textbf{A} então \textbf{C} é um \textbf{B}
+\begin{center}
+    Se todo \textbf{A} é um \textbf{B} e \textbf{C} é um \textbf{A} então \textbf{C} é um \textbf{B}
+\end{center}
 
 \noindent é igualmente verdadeiro, desde que as variáveis sejam corretamente substituídas.
 
@@ -281,12 +282,12 @@ As partículas lógicas são simbolizadas de diversas formas:
 \begin{center}
     \large
     \begin{tabular}{l l l l}
-        não          & $\sim$   & $\neg$  & \textasciitilde \\ \hline
-        e            & $\land$ & \& & $\sqcap$ \\ \hline
-        ou           & $\lor$   & $\bigvee$  & $\sqcup$ \\ \hline
-        se ... então & $\to$ & $\implies$ & $\sqsubset$  \\ \hline
-        todo         & $\forall$  & \small( \small) & \LARGE{$\sqcap$} \\ \hline
-        existe       & $\exists$ & E & \LARGE{$\sqcup$}  \\ \hline
+        não          & $\sim$    & $\neg$                 & \textasciitilde \\ \hline
+        e            & $\land$   & \&                     & $\sqcap$ \\ \hline
+        ou           & $\lor$    & $\bigvee$              & $\sqcup$ \\ \hline
+        se ... então & $\to$     & $\implies$             & $\sqsubset$  \\ \hline
+        todo         & $\forall$ & \small( \small)        & \LARGE{$\sqcap$} \\ \hline
+        existe       & $\exists$ & \reflectbox{$\exists$} & \LARGE{$\sqcup$}  \\ \hline
     \end{tabular}
 \end{center}
 
@@ -304,13 +305,13 @@ São exemplos de enunciados simples:
 \bigskip \noindent
 São exemplos de enunciados compostos:
 
-\hskip 2.5cm $\forall x(x > 9 \to x > 3)$,
+\hskip 2.5cm $\forall x\ (x > 9\ \to\ x > 3)$,
 
-\hskip 2.5cm $2 \in \mathbb{N} \land x = y$,
+\hskip 2.5cm $2 \in \mathbb{N}\ \land\ x = y$,
 
-\hskip 2.5cm $\sim(5 > 2 \lor 7 < 8)$
+\hskip 2.5cm $\sim(5 > 2\ \lor\ 7 < 8)$
 
-\newpage
+\pagebreak
 
 % \begin{center} Centraliza seção como na apostila
     \subsection*{Linguagem natural x Linguagem simbólica}
@@ -331,17 +332,19 @@ Entretanto, neste trabalho apresentaremos, ocasionalmente, exemplos de construç
 
 Apresentaremos a seguir algumas alternativas de como traduzir expressões da Linguagem Natural para a Linguagem Simbólica da Lógica de Predicados.
 
-\setcounter{exemplo}{0} % melhorar isso pelo amor de deus
+\setcounter{exemplo}{0}
 
 \bigskip
 \begin{exemplo} Jorge Amado é escritor.
 \end{exemplo}
 
-% Descobrir como inserir caracteres antes de item
 \begin{enumerate}[label=(\roman*)]
-    \item escritor(Jorge Amado)
-    \item $j \in E$; onde j: Jorge Amado, E: conjunto dos escritores
-    \item p; onde p: Jorge Amado é escritor
+    \item escritor(Jorge Amado) *
+    \item $j \in E$; onde\\
+    j: Jorge Amado,\\
+    E: conjunto dos escritores
+    \item p; onde\\
+    p: Jorge Amado é escritor
 \end{enumerate}
 
 \bigskip
@@ -349,9 +352,11 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item professor(João, Pascal)
-    \item professor de Pascal (João)
-    \item $j \in Pa$; onde j: João, Pa: conjunto dos professores de Pascal
+    \item professor(João, Pascal) *
+    \item professor de Pascal (João) *
+    \item $j \in Pa$; onde\\
+    j: João,\\
+    Pa: conjunto dos professores de Pascal
 \end{enumerate}
 
 \bigskip
@@ -359,9 +364,11 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
  \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item estuda(Ricardo, Inteligência Artificial)
-    \item estuda Inteligência Artificial (Ricardo)
-    \item $r \in IA$ ; onde r: Ricardo, IA: conjuntos dos que estudam Inteligência Artificial.
+    \item estuda(Ricardo, Inteligência Artificial) *
+    \item estuda Inteligência Artificial (Ricardo) *
+    \item $r \in IA$ ; onde\\
+    r: Ricardo,\\
+    IA: conjuntos dos que estudam Inteligência Artificial.
 \end{enumerate}
 
 \bigskip
@@ -369,11 +376,11 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item ganhou (Maurício Gugelmin, Campeonato) $\land$ sofreu (Nelson Piquet, acidente)
+    \item ganhou (Maurício Gugelmin, Campeonato) $\land$ sofreu (Nelson Piquet, acidente) *
     \item p $\land$ q; onde\\
     p: Maurício Gugelmin ganhou o campeonato;\\
     q: Nelson Piquet sofreu um acidente.
-    \item $m \in C \; \land n \in A$; onde\\
+    \item $m \in C\ \land\ n \in A$; onde\\
     m: Maurício Gugelmin;\\
     n: Nelson Piquet;\\
     C: conjunto dos que ganharam o campeonato;\\
@@ -385,8 +392,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item empata(Internacional, Flamengo) $\lor$ perde(Internacional, Flamengo) $\to$ perde(Internacional, Campeonato)
-    \item p $\lor$ q $\to$ r, onde\\
+    \item empata(Internacional, Flamengo) $\lor$ perde(Internacional, Flamengo) $\to$ perde(Internacional, Campeonato) *
+    \item p $\lor$ q $\to$ r; onde\\
     p: Internacional empata com Flamengo;\\
     q: Internacional perde para o Flamengo;\\
     r: Internacional perde o Campeonato.
@@ -397,11 +404,11 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item $\exists$x (curso-de-programação(x) $\land$ interessante(x))
-    \item $\exists$x ($x \in C \; \land \; x \in I$), onde\\
+    \item $\exists$x (curso-de-programação(x) $\land$ interessante(x)) *
+    \item $\exists$x ($x \in C\ \land\ x \in I$); onde\\
     C: conjunto dos cursos de programação;\\
     I: conjunto das coisas interessantes.
-    \item $\exists$x (C(x) $\land$ I(x)), onde\\
+    \item $\exists$x (C(x) $\land$ I(x)); onde\\
     C(x): x é curso de programação;\\
     I(x): x é interessante.
 \end{enumerate}
@@ -411,12 +418,12 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item $\forall$x (professor(x) $\land$ ensina(x, Inteligência Artificial) $\to$ trabalha(x, linguagem natural))
-    \item $\forall$x ($x \in P \; \land \; x \in I \to x \in T$), onde\\
+    \item $\forall$x (professor(x) $\land$ ensina(x, Inteligência Artificial) $\to$ trabalha(x, linguagem natural)) *
+    \item $\forall$x ($x \in P\ \land\ x \in I \to x \in T$); onde\\
     P: conjunto dos professores;\\
     I: conjunto das pessoas que ensinam Inteligência Artificial;\\
     T: conjunto das pessoas que trabalham com linguagem natural.
-    \item $\forall$x (P(x) $\; \land \;$ Q(x, Inteligência Artificial) $\to$ T(x, linguagem natural)), onde\\
+    \item $\forall$x (P(x) $\; \land \;$ Q(x, Inteligência Artificial) $\to$ T(x, linguagem natural)); onde\\
     P(x): x é professor;\\
     Q(x, Inteligência Artificial): x ensina Inteligência Artificial;\\
     T(x, linguagem natural): x trabalha com linguagem natural.
@@ -427,8 +434,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item $\sim \exists$x (motorista(x) $\land$ imprudente(x))
-    \item $\sim \exists$x (C(x) $\land$ P(x)), onde\\
+    \item $\sim \exists$x (motorista(x) $\land$ imprudente(x)) *
+    \item $\sim \exists$x (C(x) $\land$ P(x)); onde\\
     C: ser motorista;\\
     P: ser imprudente.
 \end{enumerate}
@@ -438,8 +445,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item $\sim \forall$x (professor(x) $\to$ mestre(x))
-    \item $\sim \forall$x (P(x) $\to$ M(x)), onde\\
+    \item $\sim \forall$x (professor(x) $\to$ mestre(x)) *
+    \item $\sim \forall$x (P(x) $\to$ M(x)); onde\\
     P(x): x é professor,
     \\M(x): x é mestre.
 \end{enumerate}
@@ -449,9 +456,9 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item $\sim \exists$x (natural(x) $\land \; \forall$y (natural(y) $\to$ maior(x, y)))
-    \item $\sim \exists$x (natural) ($x \in N \land \; \forall$y ($y \in N \to x > y$))
-    \item $\sim \exists$x (natural) (N(x) $\land \; \forall$y (N(y) $\to \;\; > (x, y)$)), onde\\
+    \item $\sim \exists$x (natural(x) $\land \; \forall$y (natural(y) $\to$ maior(x, y))) *
+    \item $\sim \exists$x ($x \in N\ \land\ \forall$y ($y \in N \to x > y$))
+    \item $\sim \exists$x (N(x) $\land \; \forall$y (N(y) $\to \;\; > (x, y)$)); onde\\
     N(x): ser natural
 \end{enumerate}
 
@@ -460,9 +467,10 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item \underline{$\exists$}x (natural(x) $\land$ negativo(x))
-    \item \underline{$\exists$}x (N(x) $\land$ menor(x, 0)), onde N: ser natural
-    \item \underline{$\exists$}x ($x \in \mathbb{N} \land x < 0$)
+    \item \underline{$\exists$}x (natural(x) $\land$ negativo(x)) *
+    \item \underline{$\exists$}x (N(x) $\land$ menor(x, 0)); onde\\
+    N: ser natural
+    \item \underline{$\exists$}x ($x \in \mathbb{N}\ \land\ x < 0$)
 \end{enumerate}
 
 \bigskip
@@ -470,12 +478,12 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
  \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item $\exists$ x (universidade(x) $\land$ federal(x))
-    \item $\exists$ x (U(x) $\land$ F(x)), onde\\
+    \item $\exists$x (universidade(x) $\land$ federal(x)) *
+    \item $\exists$x (U(x) $\land$ F(x)); onde\\
     U: ser universidade;\\
-    I: ser federal.
-    \item $\exists$ x ($x \in U \land x \in I$)
-    \item $\exists$ x (universidade federal(x))
+    F: ser federal.
+    \item $\exists$x ($x \in U\ \land\ x \in I$)
+    \item $\exists$x (universidade federal(x))
 \end{enumerate}
 
 \bigskip
@@ -483,8 +491,8 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item $\exists!x$ (corredor-fórmula-1(x) $\land$ tricampeão do mundo(x))
-    \item $\exists!x$ (C(x) $\land$ T(x)), onde\\
+    \item $\exists!x$ (corredor-fórmula-1(x) $\land$ tricampeão do mundo(x)) *
+    \item $\exists!x$ (C(x) $\land$ T(x)); onde\\
     C: ser corredor de Fórmula 1;\\
     T: ser tricampeão do mundo.
 \end{enumerate}
@@ -494,10 +502,11 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item \{x / aluno x(2º grau)\}
-    \item \{x / aluno do 2º grau(x)\}
-    \item \{x / A(x)\}; onde A(x): x é aluno do 2º grau
-    \item \{x / $x \in C$\}, onde\\
+    \item \{x / aluno (x, 2º grau)\} *
+    \item \{x / aluno do 2º grau(x)\} *
+    \item \{x / A(x)\}; onde\\
+    A(x): x é aluno do 2º grau
+    \item \{x / $x \in C$\}; onde\\
     C: coleção dos alunos do 2º grau
     \item C
 \end{enumerate}
@@ -506,14 +515,13 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \begin{exemplo} O número natural que é par e primo.
 \end{exemplo}
 
-% Não consigo fazer esse símbolo (acho que é tau) (???)
 \begin{enumerate}[label=(\roman*)]
-    \item x (nº natural(x) $\land$ par(x) $\land$ primo(x))
-    \item x (N(x) $\land$ P(x) $\land$ Pr(x)), onde\\
+    \item $\uptau$x (nº natural(x) $\land$ par(x) $\land$ primo(x)) *
+    \item $\uptau$x (N(x) $\land$ P(x) $\land$ Pr(x)); onde\\
     B: ser natural;\\
     P: ser par;\\
     Pr: ser primo.
-    \item x ($x \in \mathbb{N} \land x \in \mathbb{P} \land x \in \mathbb{P} r$)
+    \item $\uptau$x ($x \in \mathbb{N}\ \land\ x \in \mathbb{P}\ \land\ x \in \mathbb{P} r$)
 \end{enumerate}
 
 \bigskip
@@ -522,10 +530,10 @@ Apresentaremos a seguir algumas alternativas de como traduzir expressões da Lin
 \end{exemplo}
 
 \begin{enumerate}[label=(\roman*)]
-    \item $\uptau\ x$ (aluno da turma 1002(x))
-    \item $\uptau\ x$ (A(x)); onde\\
+    \item $\uptau x$ (aluno da turma 1002(x)) *
+    \item $\uptau x$ (A(x)); onde\\
     A(x): x é aluno da turma 1002.
-    \item $\uptau\ x$ (aluno(x, turma 1002))
+    \item $\uptau x$ (aluno(x, turma 1002)) *
 \end{enumerate}
 
 No presente texto, será dada preferência às simbolizações indicadas por *, visto que essas são mais adequadas para o tratamento da Informática.
@@ -559,9 +567,9 @@ As categorias gramaticais de nossa linguagem lógica usuais são:
 Cabe agora investigar a função que essas partículas exercem na linguagem.
 
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variáveis} são morfemas que designam objetos de forma genérica ou inespecífica.
+    \item \textbf{Variáveis} são morfemas (símbolos) que designam objetos de forma genérica ou inespecífica.
     Em princípio, a toda variável é coerente associar um \textbf{domínio} com pelo menos um elemento (não vazio), que encerra seus \textbf{valores}.
-    Assim sendo, pode-se dizer que toda variável varia sobre um domínio (não vazio) no qual ela toma seus valores.;
+    Assim sendo, pode-se dizer que toda variável varia sobre um domínio (não vazio) no qual ela toma seus valores.
 
     \item \textbf{Constantes} são morfemas que designam objetos específicos e determinados de um certo domínio ou universo de discurso;
 
@@ -624,18 +632,18 @@ Cabe agora investigar a função que essas partículas exercem na linguagem.
 
     A partir daqui não faremos distinção entre predicado e predicador.
 
-    \item \textbf{Juntores} são símbolos que formam enunciados a partir de enunciados.
+    \item \textbf{Juntores} (conectivos lógicos) são morfemas que formam enunciados a partir de enunciados.
     São juntores: \textbf{não, e, ou, se... então, se e somente se, nem, nor}.
     Os juntores também se classificam quanto ao peso (ou aridade).
     Assim: \textbf{\textit{não} é um juntor de peso 1}, \textbf{\textit{se... então} é um juntor de peso 2}.
 
     \setcounter{exemplo}{0}
         \begin{exemplo}
-            \textbf{não}(carioca(João)) - peso 1 %\hspace*{\fill}- peso 1
+            \textbf{não}(carioca(João)) - peso 1
         \end{exemplo}
 
         \begin{exemplo}
-            \textbf{se} sobe(dólar) \textbf{então} sobe(ouro) - peso 2 %\hspace*{\fill}- peso 2
+            \textbf{se} sobe(dólar) \textbf{então} sobe(ouro) - peso 2
         \end{exemplo}
     \item \textbf{Operadores} são morfemas cuja principal função é transformar expressões abertas em fechadas.
     Os operadores se subdividem em \textbf{qualificadores} e \textbf{quantificadores}.
@@ -659,7 +667,7 @@ Cabe agora investigar a função que essas partículas exercem na linguagem.
         \item \textbf{A coleção de elementos $\{ \}$} forma termos a partir de uma letra argumento (variável) e de um enunciado.
         Note que o operador $\{ \}$ (a coleção de elementos) é o principal operador da Teoria dos Conjuntos.
 
-        A partir do enunciado p(x) formamos \bm{$\{ x / p(x) \}$}, i.e., a coleção dos objetos que satisfazem ao enunciado \textbf{p(x)}. %! este parágrafo deveria estar mais recuado
+        A partir do enunciado p(x) formamos \bm{$\{ x / p(x) \}$}, i.e., a coleção dos objetos que satisfazem ao enunciado \textbf{p(x)}.
     \end{enumerate}
 
     \textbf{Quantificadores} são operadores que formam enunciados a partir de enunciados e letras argumentos (variáveis).
@@ -689,7 +697,6 @@ Cabe agora investigar a função que essas partículas exercem na linguagem.
     \noindent \textbf{Comentário:} As categorias gramaticais dos juntores e operadores (quantificadores e qualificadores) fornecem os símbolos lógicos.
 \end{enumerate}
 
-
 \subsection{Regras de Formação}
 \setcounter{exemplo}{0}
 
@@ -714,6 +721,8 @@ Como já dissemos, as expressões da linguagem são termos ou enunciados (fórmu
     \item Só serão considerados termos ou fórmulas dessa construção aquelas expressões obtidas por um número finito de aplicações de i, ii, iii, iv, v, vi vii, viii, ix.
 \end{enumerate}
 
+% Aqui poderia ter-se usado \label nos itens acima e \ref abaixo
+
 As fórmulas, como vemos, ou são \textbf{atômicas} (def. iv e v) ou são \textbf{compostas} (def. vi, vii).
 
 \section{Gramática}
@@ -736,8 +745,8 @@ As fórmulas, como vemos, ou são \textbf{atômicas} (def. iv e v) ou são \text
         \item[] Regras de L:
         \begin{enumerate}[label=R{\arabic*.}]
             \item $[$ e $]$ são expressões bem formadas de L.
-            \item Se $\alpha$ é uma expressão bem formada de L, então $[ \alpha$ é uma expressão bem formada de L.
-            \item Se $\alpha$ é uma expressão bem formada de L, então $\alpha ]$ é uma expressão bem formada de L.
+            \item Se $\alpha$ é uma expressão bem formada de L, então $[\ \alpha$ é uma expressão bem formada de L.
+            \item Se $\alpha$ é uma expressão bem formada de L, então $\alpha\ ]$ é uma expressão bem formada de L.
             \item Só serão consideradas expressões bem formadas de L aquelas construídas através de um número finito de aplicações de R1 a R3.
         \end{enumerate}
 
@@ -748,7 +757,7 @@ As fórmulas, como vemos, ou são \textbf{atômicas} (def. iv e v) ou são \text
                 \item $[\ [\ ]\ [$
                 \item $]\ ]\ [\ ]$
                 \item $]$
-                \item $[\ [\ ]\ [\ ]$
+                \item $[\ [\ ]\ ]\ [\ ]$
                 \item $]\ [$
             \end{enumerate}
         \end{multicols}
@@ -756,7 +765,7 @@ As fórmulas, como vemos, ou são \textbf{atômicas} (def. iv e v) ou são \text
         \item Dada a linguagem K cujo alfabeto é $\{a,\ b,\ c\}$ e cujas regras de formação de expressões são:
         \begin{enumerate}[label=R{\arabic*}.]
             \item a, b e c são ebf de K.
-            \item Se a é ebf de K, então aab e aa são ebf de K.
+            \item Se $\alpha$ é ebf de K, então $\alpha$ab e a$\alpha$ são ebf de K.
             \item Só serão consideradas ebf de K as expressões obtidas por um número finito de aplicações de R1 e R2.
         \end{enumerate}
 

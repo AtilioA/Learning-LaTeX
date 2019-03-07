@@ -26,7 +26,7 @@ Para mostrar o uso técnico de tais partículas, com frequência buscamos exempl
     \begin{center}
         $\sim$(o plenário está cheio)
     \end{center}
-    que se lê: \textbf{não e o caso que o plenário esteja cheio}.
+    que se lê: \textbf{não é o caso que o plenário esteja cheio}.
     Assim, dado um enunciado qualquer p, pode-se formar o enunciado $\sim$p , dito negação de p.
     Se p for um enunciado verdadeiro, $\sim$p é falso, e se p for falso, então $\sim$p é verdadeiro.
     Isto pode ser descrito através das chamadas tabelas de valores lógicos ou tabelas de verdade da negação:
@@ -62,9 +62,9 @@ Para mostrar o uso técnico de tais partículas, com frequência buscamos exempl
 
     Importa ter presente que o uso dos juntores, em Lógica, permite ligar enunciados mesmo sem qualquer tipo de vinculo significativo entre eles \textbf{--} como por exemplo:
 
-    O café está amargo $\land$ Cláudia estuda música
+    \centerline{O café está amargo $\land$ Cláudia estuda música}
 
-    De forma análoga a linguagem corrente, um enunciado conjuntivo só é verdadeiro se os enunciados componentes forem simultaneamente verdadeiros; caso contrário, será falso.
+    De forma análoga à linguagem corrente, um enunciado conjuntivo só é verdadeiro se os enunciados componentes forem simultaneamente verdadeiros; caso contrário, será falso.
     Disto decorre a seguinte tabela de verdade:
 
     \begin{center}
@@ -76,7 +76,6 @@ Para mostrar o uso técnico de tais partículas, com frequência buscamos exempl
         F & F & F
         \end{tabular}
     \end{center}
-
 
     \item \textbf{O juntor ou} (simbolicamente: $\lor$)
 
@@ -146,7 +145,7 @@ Para mostrar o uso técnico de tais partículas, com frequência buscamos exempl
         Analisamos sob que condições considerar-se-ia a resposta de B como verdadeira, ou falsa, na linguagem corrente.
         Usando $\to$, \ref{knuth-valida} é equivalente a:
 
-        \item A afirmação e de Knuth $\to$ a afirmação é válida. \label{knuth-se-entao}
+        \item A afirmação é de Knuth $\to$ a afirmação é válida. \label{knuth-se-entao}
     \end{enumerate}
 
     O antecedente de \ref{knuth-se-entao}, p, é:
@@ -176,15 +175,15 @@ Para mostrar o uso técnico de tais partículas, com frequência buscamos exempl
         \item Se afirmação é, de fato, válida, isto é, se q é verdadeira, então \ref{knuth-se-entao} é normalmente considerada verdadeira.
         \item Se a afirmação, lamentavelmente, não é válida, isto é, que q é falsa, então \ref{knuth-se-entao} é normalmente considerada falsa.
     \end{enumerate}
-    Assim, apenas num único caso (p verdadeira e q falsa), \ref{knuth-se-entao} é considerada verdadeira.
+    Assim, apenas num único caso (p verdadeira e q falsa), \ref{knuth-se-entao} é considerada falsa.
 
-    De maneira geral, se os enunciados p e q são respectivamente o \textbf{antecedente} e o \textbf{consequente} de um certo condicional, este é considerado falso apenas quando \textbf{p} é verdadeiro e \textbf{q} é falso.
+    De maneira geral, se os enunciados \textbf{p} e \textbf{q} são respectivamente o \textbf{antecedente} e o \textbf{consequente} de um certo condicional, este é considerado falso apenas quando \textbf{p} é verdadeiro e \textbf{q} é falso.
     Em todos os demais casos, o condicional é considerado verdadeiro.
     Em particular, se o antecedente é falso, o condicional é considerado verdadeiro, seja o consequente verdadeiro ou falso.
-    Um enunciado para nós será aqui sempre considerado, de modo um tanto "ingênuo", verdadeiro ou falso.
+    Um enunciado para nós será aqui sempre considerado, de modo um tanto ``ingênuo'', verdadeiro ou falso.
     Numa outra linguagem: diremos que um enunciado pode ter (um de) dois valores lógicos, ou o valor \textbf{verdade}, simbolicamente \textbf{V}; ou o valor \textbf{falsidade}, simbolicamente \textbf{F}.
 
-    O quadro abaixo resume a situação relativa a determinação do valor de um enunciado condicional p $\to$ q (em conformidade com a discussão acima), quando são dados os valores do seu antecedente p e de seu consequente q:
+    O quadro abaixo resume a situação relativa à determinação do valor de um enunciado condicional \bm{$p \to q$} (em conformidade com a discussão acima), quando são dados os valores do seu antecedente \textbf{p} e de seu consequente \textbf{q}:
 
     \begin{center}
         \begin{tabular}{c c c}
@@ -217,7 +216,7 @@ Para mostrar o uso técnico de tais partículas, com frequência buscamos exempl
 
     Impõe-se ter presente as duas seguintes condições:
     \begin{enumerate}[label=(\roman*)]
-        \item O juntor $\iff$ pode ser definido mediante -> e $\land$.
+        \item O juntor $\iff$ pode ser definido mediante $\to$ e $\land$.
 
         Assim, a fórmula \bm{$p \iff q$} equivale à fórmula \bm{$(p \to q) \land (q \to p)$}
 
