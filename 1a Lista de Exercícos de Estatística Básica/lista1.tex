@@ -1,0 +1,208 @@
+\documentclass[
+	% --- opções da classe memoir ---
+	12pt,				% Tamanho da fonte
+	openright,			% Capítulos começam em pág ímpar (insere página vazia caso preciso)
+	twoside,			% Para impressão em recto e verso. Oposto a oneside
+	a4paper,			% Tamanho do papel.
+	% -- opções do pacote babel --
+	english,			% Idioma adonal para hifenização
+	french,				% Idioma adicional para hifenização
+	spanish,			% Idioma adicional para hifenização
+	brazil,				% O último idioma é o principal do documento
+	]{abntex2}
+
+
+% ---
+% Pacotes
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% Para melhorias de justificação
+\usepackage{float}
+\usepackage{mathabx}
+\usepackage[ampersand]{easylist}
+\usepackage{enumitem}
+
+\usepackage{multicol}
+\usepackage{multirow}
+
+\usepackage{lipsum}
+
+\usepackage[brazilian,hyperpageref]{backref}
+\usepackage[alf]{abntex2cite}
+
+\setlist[enumerate]{itemsep=1pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% COLOR DEFINITIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[svgnames]{xcolor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{MyColor1}{rgb}{0.2,0.4,0.6} %mix personal color
+\newcommand{\textb}{\color{Black} \usefont{OT1}{lmss}{m}{n}}
+\newcommand{\blue}{\color{MyColor1} \usefont{OT1}{lmss}{m}{n}}
+\newcommand{\blueb}{\color{MyColor1} \usefont{OT1}{lmss}{b}{n}}
+\newcommand{\red}{\color{LightCoral} \usefont{OT1}{lmss}{m}{n}}
+
+
+\usepackage{titlesec}
+
+
+\renewcommand\thesection{\arabic{section}.} %define sections numbering
+\renewcommand\thesubsection{\thesection\arabic{subsection}} %subsec.num.
+
+\newcommand{\mysection}{
+\titleformat{\section} [runin] {\usefont{OT1}{lmss}{b}{n}\color{MyColor1}} 
+{\thesection} {3pt} {} } 
+
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\renewcommand{\theequation}{\thesection\arabic{equation}}
+
+\title{\blue Estatística Básica \\
+\blueb Lista de Exercícios 1}
+\author{Atílio Antônio Dadalto\\Ezequiel Schneider Reinholtz\\Luana Gabriele de Sousa Costa}
+
+\date{2019}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{document}
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+\textual
+
+
+\maketitle
+\textual
+\newpage
+% \imprimirfolhaderosto
+
+\section{Solução da Questão 1}
+\subsection{Parte a)}
+Temos as seguintes variáveis:
+\begin{enumerate}[label=\Alph*)]
+    \item dieta - qualitativa nominal;
+    \item idade - quantitativa discreta;
+    \item peso inicial - quantitativa contínua;
+    \item peso após um mês - quantitativa contínua;
+    \item IMC inicial - quantitativa contínua;
+    \item IMC após um mês - quantitativa contínua.
+\end{enumerate}
+
+\subsection{Parte b)}
+\begin{table}[ht]
+    \centering
+    \renewcommand\arraystretch{1.5}
+    \begin{tabular}{c c c c c c c}
+        \hline & PD0 A & PD30 A & PD0 B & PD30 B & PD0 C & PD30 C \\
+        \hline Média & 74,3 & 71 & 79 & 75,5 & 83,8 & 83,3 \\
+        Mediana & 72 & 69,5 & 78 & 73,5 & 86 & 85,5 \\
+        Desvio Padrão & 7,98 & 9,29 & 12,68 & 12,15 & 13,58 & 13,17 \\
+        \hline
+    \end{tabular}
+    \caption{Medidas resumo de pesos das dietas}
+    \label{medidas-pesos}
+\end{table}
+
+Analisando a Tabela~\ref{medidas-pesos}, temos que indivíduos emagreceram sob a dieta A, visto que a média e a mediana diminuíram. Os pesos também estão levemente mais distanciados da média. A dieta B apresentou a maior queda no peso dos participantes, a notar pela média e mediana. O grupo de controle C manteve o peso estável, com leve flutuação. 
+
+\subsection{Parte c)}
+Para a idade, poderíamos usar o boxplot, mas o pequeno intervalo de idades -- de 18 a 21 anos apenas -- em uma amostra pequena inviabiliza o uso desta visualização. Neste caso, podemos utilizar um histograma, dado que desejamos visualizar a distribuição de uma única variável quantitativa:
+\begin{figure}[H]
+	\begin{center}
+	    \includegraphics[scale=0.75]{figuras/q1c.pdf}
+	\end{center}
+\caption{Histograma demonstrando a densidade de idades}
+\end{figure}
+Sendo assim, fica claro que as idades se encontram no intervalo $[18, 21]$.
+
+\subsection{Parte d)}
+\begin{figure}[!htbp]
+	\begin{center}
+	    \includegraphics[scale=0.75]{figuras/q1d.pdf}
+	\end{center}
+\caption{Gráfico de dispersão entre IMCD0 e IMCD30 para as três dietas}
+\end{figure}
+
+Por meio da visualização do gráfico de dispersão, fica muito mais clara a comparação entre as três dietas. As dietas A e B ambas apresentaram queda de IMC dos participantes em relação à C, com desempenho parecido entre as duas neste conjunto de dados e a A tendo melhor expectativa para perda de IMC.
+
+\section{Solução da Questão 2}
+\subsection{Parte a)}
+A população, uma vez que o gestor usou todo o conjunto de funcionários para fazer o teste de eficiência, em vez de um conjunto menor que a população.
+
+\subsection{Parte b)}
+Cada medida resumo reflete o resultado dos grupos (A e B) em dois momentos diferentes (T1 e T2):
+\begin{enumerate}[label=\Alph*)]
+    \item mínimo - a menor nota 
+    \item 1º quartil - a nota que está acima de 25\% das notas
+    \item média - nota que ``equilibra'' as frequências das notas
+    \item mediana - a nota que está acima de 50\% das notas
+    \item 3º quartil - a nota que está acima de 75\% das notas
+    \item máximo - a maior nota
+    \item desvio padrão - o quanto as notas se desviaram da média
+\end{enumerate}
+
+\subsection{Parte c)}
+O grupo A demonstrou significativa melhoria nas medidas resumo em T2, o que atesta a eficiência do curso.
+
+\subsection{Parte d)}
+No primeiro momento, não há muita diferença entre os dois grupos A e B. No entanto, após aplicado o curso, o grupo A demonstra um ganho de nota enorme, com o intervalo interquartil do grupo A em T2 muito acima do intervalo interquartil do grupo B no mesmo momento.
+
+\subsection{Parte e)}
+Sim, pois a diferença entre o grupo de controle e o de tratamento é expressiva --- todas as medidas resumo apresentaram melhoria, e a mediana das notas quase dobrou.
+
+\section{Solução da Questão 3}
+\subsection{Parte a)}
+Em uma situação em que analisa-se a renda de uma população, visto que a mediana é mais robusta contra os poucos pontos de renda muito alta que enviesariam a média e, portanto, é mais apropriada para representar a renda da população.
+\subsection{Parte b)}
+\begin{figure}[!htbp]
+	\begin{center}
+	    \includegraphics[scale=0.85]{figuras/q3b.pdf}
+	\end{center}
+\caption{Exemplo de histograma de dados com média = mediana = 5.50.}
+\end{figure}
+Distribuições simétricas sempre possuem média igual à mediana.
+
+\subsection{Parte c)}
+\begin{figure}[H]
+	\begin{center}
+	    \includegraphics[scale=0.65]{figuras/q3c.pdf}
+	\end{center}
+\caption{Exemplo de histograma de dados com média = 5.36 e mediana = 8.50.}
+\end{figure}
+Uma situação em que isso ocorre é com a idade gestacional no parto, uma vez que a distribuição é assimétrica para a esquerda.
+
+\subsection{Parte d)}
+\begin{figure}[!htbp]
+	\begin{center}
+	    \includegraphics[scale=0.7]{figuras/variavelX.pdf}
+	\end{center}
+\caption{Variável X com variância = 5.83 e média = 5.00}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\begin{center}
+	    \includegraphics[scale=0.75]{figuras/variavelY.pdf}
+	\end{center}
+\caption{Variável Y com variância = 7.17 e média = 5.00}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\begin{center}
+	    \includegraphics[scale=0.75]{figuras/variavelZ.pdf}
+	\end{center}
+\caption{Variável Z com variância = 10.88 e média = 5.00}
+\end{figure}
+
+
+
+\end{document}

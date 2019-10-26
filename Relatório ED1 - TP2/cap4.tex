@@ -1,0 +1,44 @@
+\chapter{Análise  e resultados}\label{cap-analise-resultado}
+
+Os testes aqui mostrados se referem aos resultados obtidos pela Máquina 1.\footnote{Planilha disponível no \href{https://docs.google.com/spreadsheets/d/1yzVdhAuRN6BSb2E2VDG79fv59cQ-DlLtYV5bvRnVaVQ/edit?usp=sharing}{Google Planilhas}} Os testes foram realizados rodando o indexador com uma estrutura por vez, e, como supracitado, realizando 50 iterações do mesmo teste. Os arquivos utilizados são 10x maiores a cada teste para que os gráficos possam ser analisados de forma linear, posto que o eixo y possui escala logarítmica. Com arquivos de 1GB, a Máquina 1 começa a enfrentar problemas para carregar estruturas, precisando lançar mão da memória swap --- substancialmente mais lenta que a RAM --- sobretudo com a árvore de prefixos, uma vez que esta estrutura demanda mais memória que as demais, em geral.
+
+\section{Inserções}
+
+\begin{center}\label{graf_ins_curva}
+    \includegraphics[scale=0.7]{Relatório/figuras/graficos_m1/insercoes_curva.pdf}
+\end{center}
+
+\begin{center}\label{graf_ins_barra}
+    \includegraphics[scale=0.7]{Relatório/figuras/graficos_m1/insercoes_barra.pdf}
+\end{center}
+
+\begin{center}\label{graf_ins_barra2}
+    \includegraphics[scale=0.7]{Relatório/figuras/graficos_m1/insercoes_barra2.pdf}
+    \small{Fonte: elaborado pelos autores.}
+\end{center}
+
+A discrepância entre os tempos da lista em comparação com o resto das estruturas talvez seja melhor visualizado com o eixo y em escala linear:
+\begin{center}\label{graf_ins_eixoylinear}
+    \includegraphics[scale=0.7]{Relatório/figuras/graficos_m1/insercoes_eixoy_linear.pdf}
+\end{center}
+
+Como visto acima, a lista encadeada chega a apresentar desempenho quase 50x pior se comparada à outras estruturas para leitura de arquivos de 10mb, mesmo tendo um desempenho equivalente às outras para arquivos de tamanho $\leq$ 1kb.
+
+A tabela hash, por apresentar um tamanho $M$ expressivo, deve alocar muito espaço inicialmente, algo que diminui sua velocidade consideravelmente com arquivos pequenos. Para arquivos maiores, no entanto, a estrutura empatou com a árvore trie, cujo desempenho superou os das outras árvores.
+
+\section{Buscas}\label{sec-grafbuscas}
+
+\begin{center}\label{graf_buscas_curva}
+    \includegraphics[scale=0.7]{Relatório/figuras/graficos_m1/buscas_curva.pdf}
+\end{center}
+
+\begin{center}\label{graf_buscas_barra}
+    \includegraphics[scale=0.7]{Relatório/figuras/graficos_m1/buscas_barra.pdf}
+\end{center}
+
+\begin{center}\label{graf_buscas_barra2}
+    \includegraphics[scale=0.7]{Relatório/figuras/graficos_m1/buscas_barra2.pdf}
+    \small{Fonte: elaborado pelos autores.}
+\end{center}
+
+Para buscas, tivemos um empate entre a árvore binária não balanceada e a AVL. A tabela hash e a árvore de prefixos também obtiveram resultados semelhantes, com uma pequena margem de vitória para a árvore trie. Esta última atingiu os melhores tempos de buscas dentre todas as estruturas, com perda apenas em arquivos minúsculos (100b ou menos).

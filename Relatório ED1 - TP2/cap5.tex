@@ -1,0 +1,20 @@
+\chapter*{CONCLUSÃO}\label{cap-conclusao}
+\addcontentsline{toc}{chapter}{CONCLUSÃO}
+
+Com os dados levantados e a análise feita, podemos então discutir os resultados de uma forma geral. A amostra de 50 iterações é boa o bastante para tomarmos conclusões sobre os desempenhos das estruturas.
+
+% por conta de sua inserção que percorre a lista toda em busca de um elemento que seja igual ao elemento a ser inserido 
+% Mesmo que as inserções das árvores possuam complexidade computacional grande, estas possuem uma buscas mais velozes que a da lista, por exemplo.
+Sendo assim, a lista encadeada, como mostrado no Capítulo~\ref{cap-analise-resultado}, é a estrutura mais lenta dentre todas do projeto, possuindo custo $O(n)$ em vez do $O(1)$ usual para inserções de listas encadeadas. Apesar de tudo, a implementação da lista também é extremamente mais simples comparada às implementações das árvores, o que não ajuda apenas a construção inicial de um projeto, mas também sua manutenção.
+
+A árvore binária sem balanceamento teve desempenho quase idêntico à árvore AVL, vencendo por pouco no tempo de inserções e empatando no tempo de buscas.
+
+A árvore binária balanceada, por sua vez, demonstrou um desempenho equilibrado dentre as 5 estruturas do projeto, tendo ainda uma implementação não extremamente complexa; por conta de seu equilíbrio, foi escolhida para acomodar Palavras na tabela hash.
+
+A árvore de prefixos, ou trie, teve, em média, o melhor desempenho de todos para inserções e buscas e praticamente empatando com a tabela hash. No entanto, ela demanda muita memória, mesmo cada nó possuindo apenas 36 filhos.
+
+Por fim, a tabela hash é uma estrutura peculiar, visto que o seu tamanho M pode variar enormemente de uma implementação para outra. O valor escolhido para nosso indexador, 100003, fez com que a tabela hash tivesse um desempenho inferior a outras estruturas para entradas pequenas, porém tendo certo ganho com aumento dos arquivos. Cada caso de uso da tabela hash deve ser analisado individualmente para que seja possível encontrar um número mais próximo do ideal, economizando, assim, tempo de execução e memória.
+
+\enlargethispage{\baselineskip}
+\enlargethispage{\baselineskip}
+Portanto, cabe ao idealizador de um projeto determinar qual estrutura é mais adequada ao problema em questão, analisando, se possível, a razão entre inserção e busca e também se a solução não é complexa demais para o objetivo proposto. Para um projeto diminuto, a lista encadeada poderia ser utilizada sem problemas notáveis de performance, ainda sendo válido destacar sua simples implementação; no caso de um indexador, no entanto, ela representou a pior estrutura. Como visto na Seção~\ref{sec-grafbuscas}, as melhores estruturas para inserções e buscas, neste caso, foram a árvore trie e a tabela hash. Para um projeto como este de um indexador de palavras, os autores consideram o TAD árvore de prefixos como o melhor, estando tecnicamente empatada com a tabela hash.

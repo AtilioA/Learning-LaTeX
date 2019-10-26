@@ -1,0 +1,12 @@
+\chapter*{Conclusão}\label{cap-conclusao}
+\addcontentsline{toc}{chapter}{CONCLUSÃO}
+
+Com os dados levantados e a análise feita, podemos então discutir os resultados de uma forma geral. Apesar de uma amostra de 10 iterações não ser ideal, é o suficiente para tomarmos conclusões sobre os desempenhos.
+
+Sendo assim, a lista encadeada, como comentado na Seção~\ref{sub_lista_entrada_r}, é a estrutura ideal para um projeto com uma proporção maior de inserções em relação a buscas. Sua inserção com complexidade $O(1)$ faz com que ela tenha o maior desempenho, já que as inserções das árvores possuem complexidade computacional muito maior. A implementação da lista também é extremamente mais simples comparada às implementações das árvores, o que não ajuda apenas a construção inicial de um projeto, mas também sua manutenção. No entanto, a complexidade de sua busca é de $O(n^2)$, o que faz com que hajam estruturas mais capacitadas se esse for um fator importante em um programa. 
+
+A árvore binária sem balanceamento mostrou-se uma péssima escolha quando a entrada é sequencial. Com problemas de \textit{stack overflow} ao lidar com entradas com $n \geq 100000$, torna-se uma estrutura inviável para projetos grandes e com entradas até mais ou menos sequenciais. A busca no contexto sequencial também deixa muito a desejar, tendo performance semelhante ou pior que uma lista encadeada, estrutura essa que possui uma busca já custosa.
+
+Por fim, a árvore binária balanceada demonstrou o desempenho mais equilibrado dentre as três estruturas; sua inserção é levemente mais lenta que a da lista encadeada, porém a busca consegue ser extremamente mais rápida, com complexidade $O(\log{n})$ no pior caso. Além disso, não enfrenta problemas de \textit{stack overflow} como a árvore sem balanceamento, comprovando ainda mais sua robustez.
+
+Portanto, cabe ao idealizador de um projeto determinar qual estrutura é mais adequada ao problema em questão, analisando, se possível, a razão entre inserção e busca e também se a solução não é complexa demais para o objetivo proposto.

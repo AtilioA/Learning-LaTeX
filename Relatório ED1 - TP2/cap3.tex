@@ -1,0 +1,24 @@
+\chapter{Metodologia}\label{cap-metodologia}
+
+% Descrever a metodologia dos testes, como variou o tamanho dos arquivos, quantos arquivos foram utilizados, descrição do computador em que foram feitos os testes.
+
+Utilizando scripts de bash, pudemos automatizar os processos de testes, facilitando muito o levantamento de dados, possibilitando a obtenção de um maior espaço amostral e reduzindo os erros humanos. 
+
+Os testes foram realizados executando 50 iterações do programa. Por exemplo, um carregamento de 10 arquivos com 500 buscas aleatórias seria repetido 50 vezes. Assim, garantimos que o espaço amostral seja satisfatório para a obtenção de dados pouco enviesados por \textit{outliers} --- neste caso, buscas e inserções muito lentas ou muito rápidas --- sobre a execução do programa. Foram feitas 100 buscas aleatórias em cada iteração, ao final tomando-se o tempo médio das 100 buscas para cada uma das 50 iterações, em que mais uma vez é tomada a média dos tempos, desta vez das 50 iterações.
+
+Além disso, todos os testes foram efetuados em duas máquinas diferentes. A Máquina 1 conta com 16GB de RAM, swap de 2GB e um processador Intel i7-7700 com 8 núcleos rodando a 3.60GHz com um sistema operacional Linux Ubuntu 18.04.2 LTS; já a Máquina 2 possui 8GB de RAM, swap de 2GB, um processador AMD FX-6300 com 6 núcleos rodando a 3.80GHz com um sistema operacional Linux Mint 19.1 Cinnamon. Utilizaremos a Máquina 1 como referência nos testes de performance do Capítulo~\ref{cap-analise-resultado}, com os testes da Máquina 2 disponíveis no Apêndice~\ref{apendiceA}.
+
+Os arquivos utilizados para testes variaram de 6b --- uma palavra --- a 1GB --- dados da Wikipedia ---, de 1 a 15 arquivos por testes. Arquivos com mais de 20MB usualmente demoram mais de uma hora para testar em listas encadeadas, portanto este foi limite estipulado para essa estrutura, com 1GB sendo o limite de todas as outras estruturas. É importante ressaltar que o indexador foi projetado para ler apenas o alfabeto latino de 26 caracteres e os 10 algarismos arábicos, principalmente por conta da necessidade de se estabelecer um número de nós filhos da árvore trie.
+
+
+\begin{comment}
+
+A Figura \ref{fig:graf} exemplifica o uso de uma figura gráfica no texto.
+
+\begin{figure}[!htb]
+\centering
+%   \includegraphics[scale=0.90]{figuras/graf-exemplo.png}
+  \caption{Exemplo de inserção de figura}
+  \label{fig:graf}
+\end{figure}
+\end{comment}

@@ -1,0 +1,17 @@
+\chapter{Metodologia}\label{cap-metodologia}
+
+% Descrever a metodologia dos testes, como variou o tamanho dos arquivos, quantos arquivos foram utilizados, descrição do computador em que foram feitos os testes.
+\cite{guarino-et-al:hobook09}
+Utilizando scripts de bash, foi possível automatizar os processos de testes, facilitando muito o levantamento de dados, possibilitando a obtenção de um maior espaço amostral e reduzindo os erros humanos.
+Os dados foram então organizados em uma planilha\footnote{\hyperlink{https://docs.google.com/spreadsheets/d/1kPc4gESqhumm2cwgiMjTlisKmKfm9pgLG3LPqsUFfPI/edit?usp=sharing}{Link para a planilha}} e os gráficos gerados a partir desta.
+
+Os testes foram realizados executando 10 iterações de um mesmo programa. Por exemplo, um carregamento de 1 arquivo de 100 inserções e 1000 buscas aleatórias seria repetido 10 vezes.
+Assim, garante-se que o espaço amostral seja satisfatório para a obtenção de dados menos enviesados por \textit{outliers} --- neste caso, inserções ou buscas muito lentas ou muito rápidas --- sobre a execução do programa.
+
+Quanto aos arquivos, estes estão divididos em números aleatoriamente posicionados --- randômicos --- e números posicionados em ordem crescente --- sequenciais.
+Para ambas categorias, foram feitos testes de 100, 1000, 10000, 100000 e 1000000 inserções, cada inserção também fazendo $100, \ldots, 1000000$ buscas.
+
+
+Ao final, toma-se o tempo médio de $100, \ldots, 1000000$ inserções, e o tempo médio das médias de $100, \ldots, 1000000$ buscas para cada magnitude de inserção --- isto é, quanto tempo em média uma busca leva para um espaço de $n$ inserções.
+
+Ademais, todos os testes foram executados em uma máquina de 8GB de RAM, um processador AMD FX-6300 com 6 núcleos rodando a 3.80GHz e um sistema operacional Linux Mint 19.1.

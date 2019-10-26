@@ -1,0 +1,386 @@
+\documentclass[
+	% --- opções da classe memoir ---
+	12pt,				% Tamanho da fonte
+	openright,			% Capítulos começam em pág ímpar (insere página vazia caso preciso)
+	twoside,			% Para impressão em recto e verso. Oposto a oneside
+	a4paper,			% Tamanho do papel.
+	% -- opções do pacote babel --
+	english,			% Idioma adonal para hifenização
+	french,				% Idioma adicional para hifenização
+	spanish,			% Idioma adicional para hifenização
+	brazil,				% O último idioma é o principal do documento
+	]{abntex2}
+
+
+% ---
+% Pacotes
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% Para melhorias de justificação
+\usepackage{float}
+% \usepackage{mathabx}
+\usepackage[ampersand]{easylist}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{lipsum}
+\usepackage{amsfonts}
+\usepackage{siunitx}
+\usepackage{amsmath}
+
+\usepackage[brazilian,hyperpageref]{backref}
+\usepackage[alf]{abntex2cite}
+
+\setlist[enumerate]{itemsep=1pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% COLOR DEFINITIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[svgnames]{xcolor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{MyColor1}{rgb}{0.2,0.4,0.6} %mix personal color
+\newcommand{\textb}{\color{Black} \usefont{OT1}{lmss}{m}{n}}
+\newcommand{\blue}{\color{MyColor1} \usefont{OT1}{lmss}{m}{n}}
+\newcommand{\blueb}{\color{MyColor1} \usefont{OT1}{lmss}{b}{n}}
+\newcommand{\red}{\color{LightCoral} \usefont{OT1}{lmss}{m}{n}}
+
+\renewcommand\thesection{\arabic{section}.} %define sections numbering
+\renewcommand\thesubsection{\thesection\arabic{subsection}} %subsec.num.
+
+\newcommand{\mysection}{
+\titleformat{\section} [runin] {\usefont{OT1}{lmss}{b}{n}\color{MyColor1}} 
+{\thesection} {3pt} {} } 
+
+\renewcommand{\theequation}{\thesection\arabic{equation}}
+
+\title{\blue Estatística Básica \\
+\blueb Lista de Exercícios 2}
+\author{Atílio Antônio Dadalto\\Tiago da Cruz Santos}
+
+\date{2019}
+% \\\{(?=[A-Z])|\\\{(?=[0-9])
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+\textual
+
+\maketitle
+\textual
+\newpage
+% \imprimirfolhaderosto
+
+\section{Solução da Questão 1}
+Podemos definir o espaço amostral da seguinte forma:
+
+$\Omega = \{(A, A), (B, B), (A, C, C), (B, C, C), (A, C, B, A),\\
+(A, C, B, B), (B, C, A, B), (B, C, A, A)\}$.
+
+\section{Solução da Questão 2}
+\begin{enumerate}[label=\alph*)]
+    \item $\Omega = \{(1, 1), (1, 2), ..., (1, 6), (2, 1), (2, 2), ..., (2, 6), ..., (6, 6)\}$;
+    \item $\Omega = \{0, 1, 2, ..., M\}$, com M sendo o número máximo de peças defeituosas;
+    \item Se M = sexo masculino e F = sexo feminino:
+    
+    $\Omega = \{(M, M, M), (M, M, F), (M, F, M), (F, M, M),\\(M, F, F), (F, M, F), (F, F, M), (F, F, F)\}$;
+    \item $\Omega = \{(N, N, ..., N), (S, N, ..., N), (S, S, ..., N), ..., (S, S, ..., S)\}$;
+    \item $\Omega = \{t \mid t \in \mathbb{R}, t \geq 0\}$;
+    \item $\Omega = \{3, 4, 5, ..., 10\}$, uma vez que o mínimo de fichas é 3 e o máximo é 10;
+    \item $\Omega = \{1, 2, 3, ...\}$;
+    \item $\Omega = \{\ang{0}, \ang{6}, \ang{12}, ..., \ang{360}\}$;
+    \item Usando ``solteira'' = so, ``casada'' = ca, amasiada = am, ``divorciada'' = di e ``viúva'' = vi:
+    
+    $\Omega = \{(A, \text{so}), (A, \text{ca}), (A, \text{am}), (A, \text{di}), (A, \text{vi}),\\(B, \text{so}), (B, \text{ca}), ..., (B, \text{vi}), ..., (C, \text{vi}), ..., (D, \text{vi})\}$.
+\end{enumerate}
+
+
+\section{Solução da Questão 3}
+Duas moedas são lançadas, logo $\Omega = \{CC, CR, RC, RR\}$ sendo $C$ = cara e $R$ = coroa.
+
+\begin{enumerate}[label=\alph*)]
+    \item $A = \{CC, CR, RC\}$.
+    \item $A = \{CC\}$.
+    \item $A = \{CR, RC, RR\}$.
+\end{enumerate}
+
+\section{Solução da Questão 4}
+\begin{enumerate}[label=\alph*)]
+    \item $A\cap B^c$.
+    \item $(A\cap B^c) \cup (A^c \cap B)$.
+    \item $A^c \cap B^c$.
+\end{enumerate}
+
+\section{Solução da Questão 5}
+\begin{enumerate}[label=\alph*)]
+    \item Para expressar os resultados possíveis, podemos determinar o espaço amostral do experimento.
+    Isto é, com P = retirada de bola preta e V = retirada de bola vermelha, temos:
+    
+    $\Omega = \{(PP), (PV), (VP), (VV)\}$.
+
+    Calculando as probabilidades, considerando que não há reposição: 
+    $$P(PP) = \frac{3}{8}\cdot\frac{2}{7} = \frac{6}{56} \approx 0.107.$$
+    $$P(PV) = \frac{3}{8}\cdot\frac{5}{7} = \frac{15}{56} \approx 0.267.$$
+    $$P(VP) = \frac{5}{8}\cdot\frac{3}{7} = \frac{15}{56} \approx 0.267.$$
+    $$P(VV) = \frac{5}{8}\cdot\frac{4}{7} = \frac{20}{56} \approx 0.357.$$
+    
+    \item Com reposição, temos:
+    $$P(PP) = \frac{3}{8}\cdot\frac{3}{8} = \frac{9}{64} \approx 0.140.$$
+    $$P(PV) = \frac{3}{8}\cdot\frac{5}{8} = \frac{15}{64} \approx 0.234.$$
+    $$P(VP) = \frac{5}{8}\cdot\frac{3}{8} = \frac{15}{64} \approx 0.234.$$
+    $$P(VV) = \frac{5}{8}\cdot\frac{5}{8} = \frac{25}{64} \approx 0.390.$$
+    
+\end{enumerate}
+
+\section{Solução da Questão 6}
+
+\begin{enumerate}[label=\alph*)]
+    \item Para bola preta na primeira e segunda extrações, temos que, sem reposição,
+    $$P(PP) = \frac{3}{8}\cdot\frac{2}{7} = \frac{6}{56} \approx 0.107.$$
+    Com reposição, 
+    $$P(PP) = \frac{3}{8}\cdot\frac{3}{8} = \frac{9}{64} \approx 0.140.$$
+    
+    \item Para bola preta na segunda extração, temos $P(PP) + P(VP)$, isto é:
+    
+    Sem reposição:
+    $$\frac{6}{56} + \frac{15}{56} = \frac{21}{56} = 0.375.$$
+    Com reposição:
+    $$\frac{9}{64} + \frac{15}{64} = \frac{24}{64} = 0.375.$$
+    
+    \item Para bola vermelha na primeira extração, temos $P(VP) + P(VV)$, isto é:
+    
+    Sem reposição:
+    $$\frac{5}{8}\cdot \frac{4}{7} + \frac{5}{8}\cdot \frac{3}{7} = \frac{35}{56} = 0.625$$
+    Com reposição:
+    $$\frac{5}{8}\cdot \frac{5}{8} + \frac{5}{8}\cdot \frac{3}{8} = \frac{40}{64} = 0.625$$
+    
+\end{enumerate}
+
+
+\section{Solução da Questão 7}
+Uma vez que os eventos são independentes, $P(A \cap B) = P(A)\cdot P(B)$. Se ambos estão tentando ao mesmo tempo, independentemente, temos que a probabilidade do problema ser resolvido é igual a $P(A \cup B) = P(A) + P(B) - P(A \cap B) = \frac{2}{3} + \frac{3}{4} - (\frac{2}{3} \cdot \frac{3}{4}) = \frac{8}{12} + \frac{9}{12} - \frac{6}{12} = \frac{11}{12}$.
+
+\section{Solução da Questão 8}
+\begin{enumerate}[label=\alph*)]
+    \item $\frac{2800 + 7000}{15800} \approx 0.62.$
+    \item $\frac{800 + 2500}{15800} \approx 0.21.$
+    \item $\frac{1800}{15800} \approx 0.11.$
+    \item $\frac{800}{2800} \approx 0.29.$
+\end{enumerate}
+
+\section{Solução da Questão 9}
+\begin{enumerate}[label=\alph*)]
+    \item $\frac{8300}{15800}\cdot\frac{8300}{15800} \approx 0.28.$
+    \item $\frac{2800}{15800}\cdot\frac{2000}{15800} \approx 0.02.$
+    \item $\frac{13000}{15800}\cdot\frac{13000}{15800} \approx 0.68.$
+\end{enumerate}
+\section{Solução da Questão 10}
+\begin{enumerate}[label=\alph*)]
+    \item $\frac{8300}{15800}\cdot\frac{8299}{15799} \approx 0.28.$
+    \item $\frac{2800}{15800}\cdot\frac{2000}{15799} \approx 0.02.$
+    \item $\frac{13000}{15800}\cdot\frac{12999}{15799} \approx 0.68.$
+\end{enumerate}
+
+\section{Solução da Questão 11}
+Temos os seguintes caminhos possíveis entre os dois pontos:
+
+$A = (1-4)$
+
+$B = (2-5)$
+
+$C = (1-3-5)$
+
+$D = (2-3-4)$
+
+Se algum desses caminhos puder ser utilizado, o sistema estará funcionando. Portanto, a probabilidade de funcionamento do sistema é $P(S) = P(A \cup B \cup C \cup D)$.
+
+Seja $c_i$ o evento do $i$-ésimo componente funcionar, $i = \{1, 2, 3, 4, 5\}$.
+
+$P(A) = P(c_1 \cap c_4)$
+
+$P(B) = P(c_2 \cap c_5)$
+
+$P(C) = P(c_1 \cap c_3 \cap c_5)$
+
+$P(D) = P(c_2 \cap c_3 \cap c_4)$
+
+$P(S) = P((c_1 \cap c_4) \cup (c_2 \cap c_5) \cup (c_1 \cap c_3 \cap c_5) \cup (c_2 \cap c_3 \cap c_4))$
+
+% $P(S) = P(c_1 \cap c_4) + P(c_2 \cap c_5) + P(c_1 \cap c_3 \cap c_5) + P(c_2 \cap c_3 \cap c_4) - P(c_1\cap c_2\cap c_4\cap c_5) - P(c_1\cap c_3\cap c_4\cap c_5) - P(c_1\cap c_2\cap c_3\cap c_4) \text{da interseção do já errei}$
+\vspace{0.5cm}
+Sabemos que
+
+\begin{align*}
+P(A \cup B \cup C \cup D) &= P(A) + P(B) + P(C) + P(D) - P(A \cap B)\\
+&- P(A \cap C) - P(A \cap D)- P(B \cap C) - P(B \cap D) - P(C \cap D)\\
+&+ P(A \cap B \cap C) + P(A \cap B \cap D) + P(A \cap C \cap D)\\
+&+ P(B \cap C \cap D) - P(A \cap B \cap C \cap D).
+\end{align*}
+
+Como os componentes funcionam de forma independente,
+\begin{align*}
+P(S) &= P(A) + P(B) + P(C) + P(D) - P(A) \cdot P(B)\\
+&- P(A) \cdot P(C) - P(A) \cdot P(D) - P(B) \cdot P(C) - P(B) \cdot P(D) - P(C) \cdot P(D)\\
+&+ P(A) \cdot P(B) \cdot P(C) + P(A) \cdot P(B) \cdot P(D) + P(A) \cdot P(C) \cdot P(D)\\
+&+ P(B) \cdot P(C) \cdot P(D) - P(A) \cdot P(B) \cdot P(C) \cdot P(D)
+\end{align*}
+
+
+% Ignorar isso
+% \begin{align*}
+% % P(S) &= P(c_1 \cap c_4 \cup c_2 \cap c_5 \cup c_1 \cap c_3 \cap c_5 \cup c_2 \cap c_3 \cap c_4)\\
+% % &= P(c_1 \cap c_4) + P(c_2 \cap c_5) + P(c_1 \cap c_3 \cap c_5) + P(c_2 \cap c_3 \cap c_4)\\
+% % &- P(c_1 \cap c_4 \cap c_2 \cap c_5) - P(c_1 \cap c_4 \cap c_1 \cap c_3 \cap c_5)\\
+% % &- P(c_1 \cap c_4 \cap c_2 \cap c_3 \cap c_4)- P(c_2 \cap c_5 \cap c_1 \cap c_3 \cap c_5)\\
+% % &- P(c_2 \cap c_5 \cap c_2 \cap c_3 \cap c_4) - P(c_1 \cap c_3 \cap c_5 \cap c_2 \cap c_3 \cap c_4)\\
+% % &+ P(c_1 \cap c_4 \cap c_2 \cap c_5 \cap c_1 \cap c_3 \cap c_5)\\
+% % &+ P(c_1 \cap c_4 \cap c_2 \cap c_5 \cap c_2 \cap c_3 \cap c_4)\\
+% % &+ P(c_1 \cap c_4 \cap c_1 \cap c_3 \cap c_5 \cap c_2 \cap c_3 \cap c_4)\\
+% % &+ P(c_2 \cap c_5 \cap c_1 \cap c_3 \cap c_5 \cap c_2 \cap c_3 \cap c_4)\\
+% % &- P(c_1 \cap c_4 \cap c_2 \cap c_5 \cap c_1 \cap c_3 \cap c_5 \cap c_2 \cap c_3 \cap c_4).
+% \end{align*}
+
+% &= P(c_1 \cap c_4) + P(c_2 \cap c_5) + P(c_1 \cap c_3 \cap c_5) + P(c_2 \cap c_3 \cap c_4)\\
+% &- P(c_1 \cap c_4 \cap c_2 \cap c_5) - P(c_4 \cap c_1 \cap c_3 \cap c_5)\\
+% &- P(c_1 \cap c_4 \cap c_2 \cap c_3) - P(c_2 \cap c_5 \cap c_1 \cap c_3)\\
+% &- P(c_5 \cap c_2 \cap c_3 \cap c_4) + 2P(c_1 \cap c_5 \cap c_2 \cap c_3 \cap c_4)\\.
+
+% Então
+
+% \begin{align*}
+% P(S) &= P(c_1 \cap c_4 \cup c_2 \cap c_5 \cup c_2 \cap c_5 \cup c_2 \cap c_3 \cap c_4)\\
+% &= P(c_1 \cap c_4) + P(c_2 \cap c_5) + P(c_2 \cap c_5) + P(c_2 \cap c_3 \cap c_4)\\
+% &- P(c_1 \cap c_4 \cap c_2 \cap c_5) - P(c_1 \cap c_4 \cap c_2 \cap c_5)\\
+% &- P(c_1 \cap c_4 \cap c_2 \cap c_3 \cap c_4)- P(c_2 \cap c_5 \cap c_2 \cap c_5)\\
+% &- P(c_2 \cap c_5 \cap c_2 \cap c_3 \cap c_4) - P(c_2 \cap c_5 \cap c_2 \cap c_3 \cap c_4)\\
+% &+ P(c_1 \cap c_4 \cap c_2 \cap c_5 \cap c_2 \cap c_5)\\
+% &+ P(c_1 \cap c_4 \cap c_2 \cap c_5 \cap c_2 \cap c_3 \cap c_4)\\
+% &+ P(c_1 \cap c_4 \cap c_2 \cap c_5 \cap c_2 \cap c_3 \cap c_4)\\
+% &+ P(c_2 \cap c_5 \cap c_2 \cap c_5 \cap c_2 \cap c_3 \cap c_4)\\
+% &- P(c_1 \cap c_4 \cap c_2 \cap c_5 \cap c_2 \cap c_5 \cap c_2 \cap c_3 \cap c_4).
+% \end{align*}
+
+% Simplificando,
+% \begin{align*}
+%     P(S) &= P(c_2 \cap c_5) + P(c_2 \cap c_3 \cap c_4)\\
+%     &- P(c_1 \cap c_4 \cap c_2 \cap c_5) -  P(c_1 \cap c_4 \cap c_2 \cap c_3)\\
+%     &- P(c_2 \cap c_5 \cap c_3 \cap c_4) + P(c_1 \cap c_5 \cap c_2 \cap c_3 \cap c_4).
+% \end{align*}
+
+% Note que os conjuntos formados por 1, 4 e por 2, 5 são os únicos conectados em paralelo. Portanto $P(c_1 \cap c_4 \cap c_2 \cap c_5) = P(c_1 \cap c_4) * P(c_2 \cap c_5)$.
+
+\section{Solução da Questão 12}
+A = Peça ser da máquina A
+
+B = Peça ser da máquina B
+
+C = Peça ser da máquina C
+
+D = Peça ser defeituosa
+
+\begin{align*}
+    P(A) &= 0.25 & P(D|A) = 0.05\\
+    P(B) &= 0.35 & P(D|B) = 0.04\\
+    P(C) &= 0.4 & P(D|C) = 0.02\\
+\end{align*}
+
+    $$P(A|D) = \frac{P(A\cap D)}{P(D)} = \frac{P(D|A)\cdot P(A)}{P(D)}$$
+    $$P(B|D) = \frac{P(B\cap D)}{P(D)} = \frac{P(D|B)\cdot P(A)}{P(D)}$$
+    $$P(C|D) = \frac{P(C\cap D)}{P(D)} = \frac{P(D|C)\cdot P(A)}{P(D)}$$
+
+Pelo teorema da probabilidade total (assumindo que as produções das máquinas formem uma partição do espaço amostral):
+\begin{align*}
+    P(D) &= P(D|A)\cdot P(A) + P(D|B)\cdot P(B) + P(D|C)\cdot P(C)\\
+    P(D) &= 0.05\cdot0.25 + 0.04\cdot0.35 + 0.02\cdot0.4 = 0.0345.
+\end{align*}
+
+$$P(A|D) = \frac{0.05\cdot0.25}{0.0345} \approx 0.362$$
+$$P(B|D) = \frac{0.04\cdot0.35}{0.0345} \approx 0.405$$
+$$P(C|D) = \frac{0.02\cdot0.4}{0.0345} \approx 0.231$$
+
+\section{Solução da Questão 13}
+Temos que:
+
+$A_1 =$ Evento de uma pessoa da categoria 1 sofrer acidente.
+
+$A_2 =$ Evento de uma pessoa da categoria 2 sofrer acidente.
+
+$C_1 =$ Evento de uma pessoa ser da categoria 1.
+
+$C_2 =$ Evento de uma pessoa ser da categoria 2.
+
+e
+
+$P(A_1) = 0.1.$
+
+$P(A_2) = 0.05.$
+
+$P(C_1) = 0.2.$
+
+$P(C_2) = 0.8.$
+
+\begin{enumerate}[label=\alph*)]
+    \item \label{PAq13} Pelo teorema da probabilidade total (uma vez que $C_1$ e $C_2$ são eventos disjuntos e, unidos, formam todo o espaço amostral), a probabilidade de um novo cliente sofrer acidente no primeiro ano é igual a $P(A_1) \cdot P(C_1) + P(A_2) \cdot P(C_2) = 0.1 \cdot 0.2 + 0.05 \cdot 0.8 = 0.06.$
+    
+    \item Queremos calcular $P(C_1|A_1)$:
+    
+    $$P(C_1|A_1) = \frac{P(A_1|C_1) \cdot P(C_1)}{P(A)}$$
+    % $$P(A) = 0.1 \cdot 0.2 + 0.05 \cdot 0.8 = 0.06$$
+    Por \ref{PAq13}, $P(A) = 0.06$. Como os eventos $A_i$ são independentes dos eventos $C_i, i = \{1, 2\}$,
+    $$P(C_1|A_1) = \frac{0.1 \cdot 0.2}{0.06} = \frac{1}{3}.$$
+\end{enumerate}
+
+\section{Solução da Questão 14}
+
+Definindo nossos eventos:
+
+E = Amigo esquecer de enviar a carta;
+
+C = Correio extraviar a carta;
+
+N = Carteiro não entregar a carta.
+
+Sabemos que:
+\begin{align*}
+    P(E) &= 0.1\\
+    P(C|E^c) &= 0.1\\
+    P(N |\ C^c\cap E^c) &= 0.1
+\end{align*}
+
+Desejamos calcular
+$$P(E|N) = \frac{P(N|E)\cdot P(E)}{P(N)}$$
+em que
+$$P(N) = P(N|E)\cdot P(E) + P(N|E^c)\cdot P(E^c)$$
+
+Sabemos que a probabilidade de o carteiro não entregar a carta dado que o amigo esqueceu de enviá-la é 1. Logo:
+\begin{align*}
+    P(N) &= 1\cdot 0.1 + P(N|E^c)\cdot P(E^c)\\
+    P(N) &= 0.1 + P(N|E^c) * 0.9\\
+    P(N|E^c) &= P(N\cap C|E^c) + P(N\cap C^c|E^c)\\
+\end{align*}
+Teremos que calcular estes dois últimos termos separadamente:
+\begin{align*}
+    P(N\cap C^c|E^c) = \frac{P(N\cap C^c\cap E^c)}{P(E^c)} &= \frac{P(N\cap C^c\cap E^c)\cdot P(C^c\cap E^c)}{P(E^c)\cdot P(C^c\cap E^c)}\\
+    &= P(N|C^c\cap E^c)\cdot P(C^c|E^c) = 0.1\cdot 0.9 = 0.09\\\\
+    P(N\cap C|E^c) = \frac{P(N\cap C\cap E^c)}{P(E^c)} &=  \frac{P(N\cap C\cap E^c)\cdot P(C\cap E^c)}{P(E^c)\cdot P(C\cap E^c)}\\
+    &= P(N|C\cap E^c)\cdot P(C|E^c) = 1\cdot 0.1 = 0.1
+\end{align*}
+
+Voltando para P(N):
+\begin{align*}
+    P(N) &= 0.1 + (0.09 + 0.1)\cdot 0.9\\
+    P(N) &= 0.271\\
+    P(E|N) &= \frac{0.1}{0.271} \approx 0.369.
+\end{align*}
+Essa é a probabilidade de o amigo ter esquecido de enviar a carta.
+
+\end{document}
