@@ -1,0 +1,443 @@
+\documentclass[
+	% --- opções da classe memoir ---
+	12pt,				% Tamanho da fonte
+	openright,			% Capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% Para impressão em recto e verso. Oposto a oneside
+	a4paper,			% Tamanho do papel.
+	% -- opções do pacote babel --
+	english,			% Idioma adicional para hifenização
+% 	french,				% Idioma adicional para hifenização
+% 	spanish,			% Idioma adicional para hifenização
+	brazil,				% O último idioma é o principal do documento
+	]{abntex2}
+
+
+% ---
+% Pacotes
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% Para melhorias de justificação
+\usepackage{float}
+\usepackage[ampersand]{easylist}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{lipsum}
+\usepackage{amsfonts}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{systeme}
+
+\usepackage[brazilian,hyperpageref]{backref}
+\usepackage[alf]{abntex2cite}
+
+\setlist[enumerate]{itemsep=1pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% COLOR DEFINITIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[svgnames]{xcolor}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \definecolor{MyColor1}{rgb}{0.2,0.4,0.6} %mix personal color
+% \newcommand{\textb}{\color{Black} \usefont{OT1}{lmss}{m}{n}}
+% \newcommand{\blue}{\color{MyColor1} \usefont{OT1}{lmss}{m}{n}}
+% \newcommand{\blueb}{\color{MyColor1} \usefont{OT1}{lmss}{b}{n}}
+% \newcommand{\red}{\color{LightCoral} \usefont{OT1}{lmss}{m}{n}}
+
+\renewcommand\thesection{\arabic{section}.} %define sections numbering
+\renewcommand\thesubsection{\thesection\arabic{subsection}} %subsec.num.
+
+\newcommand{\mysection}{
+\titleformat{\section} [runin] {\usefont{OT1}{lmss}{b}{n}\color{MyColor1}} 
+{\thesection} {3pt} {} } 
+
+\renewcommand{\theequation}{\thesection\arabic{equation}}
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{\textmd{Estatística Básica}\\
+Lista de Exercícios 3}
+\autor{Atílio Antônio Dadalto \\ Tiago da Cruz Santos \\ Menção honrosa: Jairo Marcos Oliveira Moutinho}
+\local{Vitória}
+\data{2019}
+\instituicao{%
+  Universidade Federal do Espírito Santo
+  \par Departamento de Informática}
+\tipotrabalho{Relatório}
+\preambulo{Relatório apresentado como requisito parcial para aprovação na disciplina de Estrutura de Dados I, pela Universidade Federal do Espírito Santo.}
+% \let\cleardoublepage\clearpage
+
+\newcommand{\versao}{2.0}
+\newcommand{\subtitulo}{Anteprojeto}
+
+
+%%% Configurações finais de aparência. %%%
+% Altera o aspecto da cor azul.
+% \definecolor{blue}{RGB}{41,5,195}
+
+% Informações do PDF.
+\makeatletter
+\hypersetup{
+	pdftitle={\@title}, 
+	pdfauthor={\@author},
+	pdfsubject={\imprimirpreambulo},
+	pdfcreator={LaTeX with abnTeX2},
+	pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+	colorlinks=true,				% Colore os links (ao invés de usar caixas).
+	linkcolor=black,					% Cor dos links.
+	citecolor=blue,					% Cor dos links na bibliografia.
+	filecolor=magenta,				% Cor dos links de arquivo.
+	urlcolor=blue,					% Cor das URLs.
+	bookmarksdepth=4
+}
+\makeatother
+
+% Espaçamentos entre linhas e parágrafos.
+\setlength{\parindent}{1.3cm}
+\setlength{\parskip}{0.2cm}
+
+
+\begin{document}
+% Capa do trabalho.
+\imprimircapa
+% \frenchspacing
+\textual
+
+\section{Solução da Questão 1}
+
+
+\begin{enumerate}[label=\alph*)]
+    \item Sim, pois trata-se da repetição de um ensaio de Bernoulli 4 vezes. Ainda, as repetições são independentes; o resultado de um ensaio não tem influência nenhuma no resultado de qualquer outro ensaio, uma vez que há reposição.
+    
+    A probabilidade de sucesso $p$ é $\frac{6}{14}$, visto que existem 6 bolas verdes dentre as 14 possíveis.
+    
+    \item Queremos calcular $P(X \geq 3)$:
+    \begin{align*}
+        &P(X \geq 3) = P(X = 3) + P(X = 4)\\
+        &P(X = 3) = \binom{4}{3} \cdot \biggl(\frac{6}{14}\biggr)^{3} \cdot \biggl(\frac{8}{14}\biggr)^1 = \frac{432}{2401}.\\
+        &P(X = 4) = \binom{4}{4} \cdot \biggl(\frac{6}{14}\biggr)^{4} \cdot \biggl(\frac{8}{14}\biggr)^0 = \frac{81}{2401}.
+    \end{align*}
+    
+    Então $P(X \geq 3) = \frac{81}{2401} + \frac{432}{2401} = \frac{511}{2401} \approx 0.212$.
+    
+    \item Queremos calcular $P(1 \leq X \leq 3)$.
+    Isto é o mesmo que calcular ${1 - P(X = 0) - P(X = 4)}$:
+    \begin{align*}
+        &P(X = 4) = \frac{81}{2401}.\\[0.5em]
+        &P(X = 0) = \binom{4}{0} \cdot \biggl(\frac{6}{14}\biggr)^{0} \cdot \biggl(\frac{8}{14}\biggr)^4 = \frac{256}{2401}.\\[0.5em]
+        &P(1 \leq X \leq 3) = 1 - \frac{81}{2401} - \frac{256}{2401} = \frac{2401}{2401} - \frac{337}{2401} = \frac{2064}{2401} \approx 0.859.
+    \end{align*}
+
+    \item Não. Uma distribuição adequada para descrever retiradas sem reposição é a hipergeométrica.
+\end{enumerate}
+
+
+\section{Solução da Questão 2}
+
+
+Para que $g(x)$ seja uma função de probabilidade, ela deve retornar valores entre $0$ e $1$, além de que a soma de todos os valores possíveis deve ser $1$.
+Portanto, temos que:
+
+$$(-(a - b)) + (b) + (a) + (a + b) + (b - a) = 4b = 1 \to b = \frac{1}{4}.$$
+
+Juntando com as outras condições:
+\[
+\begin{cases}
+    b = \frac{1}{4}\\
+    0 \leq -(a - b) \leq 1\\
+    0 \leq a \leq 1\\
+    0 \leq b \leq 1\\
+    0 \leq a + b \leq 1\\
+    0 \leq b - a \leq 1
+\end{cases}
+\]
+
+Sabemos que $b = \frac{1}{4}$ e, como $-(a-b) = b - a$, teremos
+\[
+\begin{cases}
+    b = \frac{1}{4}\\
+    0 \leq a \leq 1\\
+    0 \leq a + b \leq 1\\
+    0 \leq b - a \leq 1
+\end{cases}
+\]
+
+Subtraindo $b$ das duas últimas inequações,
+\[
+\begin{cases}
+    b = \frac{1}{4}\\
+    0 \leq a \leq 1\\
+    -\frac{1}{4} \leq a \leq \frac{3}{4}\\
+    -\frac{1}{4} \leq - a \leq \frac{3}{4}
+\end{cases}
+\]
+
+Então $0 \leq a \leq 1$, porém $-\frac{1}{4} \leq a \leq \frac{3}{4}$ e também $\frac{1}{4} \geq a \geq -\frac{3}{4}$. Sendo assim, $a$ deve estar entre $0$ e $\frac{1}{4}$ para que todas estas desigualdades sejam satisfeitas, isto é, $0 \leq a \leq \frac{1}{4}$.
+
+
+\section{Solução da Questão 3}
+
+
+\begin{enumerate}[label=\alph*)]
+    \item Temos que, para esta variável seguindo distribuição de Poisson,\\ $P(X=1) = P(X=2)$. Isto ocorre quando
+    
+    $$\frac{e^{-\lambda} \cdot \lambda^1}{1!} = \frac{e^{-\lambda} \cdot \lambda^2}{2!} \to \frac{e^{-\lambda} \cdot \lambda}{1} = \frac{e^{-\lambda} \cdot \lambda^2}{2}$$
+    Poderíamos encontrar o valor de $\lambda$ aplicando o logaritmo natural (uma vez que $\lambda$ assume valores maiores que $0$) em ambas as partes da igualdade ou multiplicando-as por $\frac{1}{e^{-\lambda}}$ e encontrando as raízes maiores que 0 da equação de segundo grau.
+    % Utilizando a segunda opção, temos:
+    % $$\lambda = \frac{\lambda^2}{2}$$
+    % $$\lambda - \frac{\lambda^2}{2} = 0$$
+    % Encontrando as raízes por $\frac{-b}{2a}$:
+    % $$\frac{-1}{2 \cdot 1/2}$$
+    % se fude
+    Utilizando a primeira opção\footnotemark, temos:
+    
+    \footnotetext{O Sr. Jairo Marcos esteve presente na resolução deste exercício, resolvendo, por iniciativa própria e voluntária, através da aplicação do logaritmo natural. Como resultado, nosso estimado colega entrou em estado de êxtase pela beleza matemática dos logaritmos. Sendo assim, os autores reservam-se o direito à homenagem a Jairo Marcos pela participação nesta lista de exercícios.}
+    
+    $$\ln{\left(\frac{e^{-\lambda} \cdot \lambda}{1}\right)} = \ln{\left(\frac{e^{-\lambda} \cdot \lambda^2}{2}\right)}$$
+    $$\ln{(e^{-\lambda})} + \ln{(\lambda)} - \ln{(1)} = \ln{(e^{-\lambda})} + \ln{(\lambda^2)} - \ln{(2)}$$
+    $$\ln{(\lambda)} - 0 = \ln{(\lambda^2)} - \ln{(2)}$$
+    $$\ln{(\lambda)} = 2\ln{(\lambda)} - \ln{(2)}$$
+    $$\ln{(\lambda)} = \ln{(2)}$$
+    $$e^{\ln{(\lambda)}} = e^{\ln{(2)}}$$
+    $$\lambda = 2.$$
+    
+    Daí,
+    \begin{align*}
+        P(X < 4) &= P(X = 0) + P(X = 1) + P(X = 2) + P(X = 3)\\
+        P(X = 0) &= \frac{e^{-2} \cdot \lambda^0}{0!} = e^{-2} \approx 0.135\\
+        P(X = 1) &= P(X = 2) = \frac{e^{-2} \cdot 2^1}{1!} = e^{-2} \cdot 2 \approx 0.270\\
+        P(X = 3) &= \frac{{e^{-2} \cdot 2^3}}{3!} = \frac{e^{-2} \cdot 8}{6} = \frac{4e^{-2}}{3} \approx 0.180\\
+        \text{Portanto, } P(X < 4) &= e^{-2} + 2e^{-2} \cdot 2 + \frac{4e^{-2}}{3} = \frac{19e^{-2}}{3} \approx 0.857.
+    \end{align*}
+    
+    \item Temos que P(X = 1) = 0.1 e P(X = 2) = 0.2. Então
+    \begin{align*}
+        P(X = 1) &= \frac{e^{-\lambda}\lambda^1}{1!} = 0.1\\[0.5em]
+        P(X = 1) &= \ln{(e^{-\lambda}\lambda)} = \ln{(0.1)}\\
+        P(X = 1) &= -\lambda + \ln{(\lambda)} = \ln{(0.1)}.\tag{1}\\[1em]
+        P(X = 2) &= \frac{e^{-\lambda}\lambda^2}{2!} = 0.2\\[0.5em]
+        P(X = 2) &= \ln{(e^{-\lambda}\lambda^2)} = \ln{(0.4)}\\
+        P(X = 2) &= -\lambda + 2\ln{(\lambda)} = \ln{(0.4)}.\tag{2}
+    \end{align*}
+    Subtraindo (1) de (2),
+    \begin{align*}
+        \ln{(\lambda)} &= \ln{(0.4)} - \ln{(0.1})\\
+        \lambda &= e^{\ln{(0.4)} - \ln{(0.1)}}\\
+        \lambda &= \frac{0.4}{0.1} \to \lambda = 4.
+    \end{align*}
+    Sendo assim,
+    \begin{align*}
+        P(X = 3) &= \frac{e^{-4}4^3}{3!} = \frac{32e^{-4}}{3} \approx 0.195.
+    \end{align*}
+    
+\end{enumerate}
+
+
+\section{Solução da Questão 4}
+
+
+Definindo \textit{peça ser defeituosa} como o sucesso dos experimentos, devemos analisar as probabilidades das distribuições para cada comprador. Em ambos os casos, temos que $X \sim B(n,\ \frac{1}{5})$:
+
+Com o comprador A, a amostra é de 5 peças e receberá classificação II se mais de uma peça for defeituosa. Assim, a probabilidade de classificar como II é $P(X > 1) = 1 - (P(X = 0) + P(X = 1))$: 
+
+$$P(X = 0) = \binom{5}{0}\left(\frac{1}{5}\right)^0 \left(\frac{4}{5}\right)^5 = \left(\frac{4}{5}\right)^5 = \frac{1024}{3125}$$
+$$P(X = 1) = \binom{5}{1}\left(\frac{1}{5}\right)^1 \left(\frac{4}{5}\right)^4 = \left(\frac{4}{5}\right)^4 = \frac{256}{625}$$
+$$1 - (P(X = 0) + P(X = 1)) = 1 - \frac{2304}{3125} = \frac{821}{3125} \approx 0.262.$$
+A probabilidade de classificar comoD I é $$1 - \frac{821}{3125} = \frac{2304}{3125} \approx 0.738.$$
+
+Assim, o comprador A paga, em média, $1{,}20 \cdot \frac{2304}{3125} + 0{,}80 \cdot \frac{821}{3125} = \frac{13824}{15625} + \frac{3284}{15625} = \frac{17108}{15625} \approx 1{,}094$ reais.
+
+Com o comprador B, a amostra é de 10 peças e receberá classificação II se mais de duas peças forem defeituosas. Assim, a probabilidade de classificar como II é $P(X > 2) = 1 - (P(X = 0) + P(X = 1) + P(X = 2))$: 
+
+$$P(X = 0) = \binom{10}{0}\left(\frac{1}{5}\right)^0 \left(\frac{4}{5}\right)^10 = \left(\frac{4}{5}\right)^5 = \frac{1024}{3125}$$
+$$P(X = 1) = \binom{10}{1}\left(\frac{1}{5}\right)^1 \left(\frac{4}{5}\right)^9 = 2\left(\frac{4}{5}\right)^9 = \frac{256}{625}$$
+$$1 - (P(X = 0) + P(X = 1) + P(X = 2)) = 1 - \frac{3146489}{9765625} = \frac{6619136}{9765625}$$
+A probabilidade de classificar como I é $$1 - \frac{6619136}{9765625} = \frac{3146489}{9765625}$$
+
+Assim, o comprador B paga, em média, $1{,}20 \cdot \frac{3146489}{9765625} + 0{,}80 \cdot \frac{6619136}{9765625} = \frac{18878934}{48828125} + \frac{26476544}{48828125} = \frac{45355478}{48828125} \approx 0{,}928$ reais.
+
+O comprador A oferece maior lucro, pois paga mais pelas peças da indústria.
+
+
+\section{Solução da Questão 5}
+
+
+Queremos provar que, se $s$ e $t$ são inteiros positivos, então $P(X > s + t \mid X > s) = P(X \geq t)$. A equação pode ser reescrita pelo teorema de Bayes:
+$$P(X > s + t \mid X > s) = \frac{P(\{X > s + t\}\cap \{X > s\})}{P(X > s)} = \frac{P(X > s + t)}{P(X > s)}$$
+
+A distribuição geométrica é uma distribuição discreta e sua função de probabilidade é definida por $P(X = k) = p(1 - p)^k$. Por ser uma distribuição discreta, sua função de distribuição acumulada é definida por um somatório:
+\begin{align*}
+    P(X \leq k) &= \sum_{i = 0}^{k} p(1 - p)^i = p\sum_{i = 0}^{k} (1 - p)^{i} = p\frac{(1 - p)((1 - p)^{k} - (1 - p)^{-1})}{(1 - p) - 1}\\
+    &= \frac{p}{-p}\left((1 - p)^{k+1} - \frac{1 - p}{1 - p}\right) = 1 - (1 - p)^{k + 1}\\
+    P(X > k) &= 1 - P(X \leq k) = (1 - p)^{k + 1}\\
+    P(X \geq k) &= P(X > k) + P(X = k) = (1 - p)^{k + 1} + p(1 - p)^k = (1 - p)^k((1 - p) + p)\\
+    P(X \geq k) &= (1 - p)^k \tag{1}\label{(1-p)^k}
+\end{align*}
+
+Utilizando o resultado~\eqref{(1-p)^k} na equação reescrita, temos que:
+\[\frac{P(X > s + t)}{P(X > s)} = \frac{(1 - p)^{s + t + 1}}{(1 - p)^{s + 1}} = (1 - p)^{s + t + 1 - s - 1} = (1 - p)^t \tag{2} \label{x>s+t}\]
+    
+Porém, note que, também pelo resultado (\ref{(1-p)^k}), 
+\[P(X \geq t) = (1 - p)^t \tag{3} \label{x>k}\]
+\[\text{Portanto, por~\eqref{x>s+t} e \eqref{x>k}, } P(X > s + t) = P(X \geq t).\]
+
+\section{Solução da Questão 6}
+
+
+\begin{enumerate}[label=\alph*)]
+    \item Sabemos que $X \sim \operatorname{Poisson}(2)$. Queremos calcular a chance de se encontrar pelo menos um erro numa página escolhida ao acaso, ou seja, $P(X \geq 1)$, ou $1 - P(X = 0)$: \label{poissonPagina}
+    
+    $$P(X = 0) = \frac{e^{-2}\cdot 2^0}{0!} = e^{-2}$$
+    $$P(X \geq 1) = 1 - e^{-2} \approx 0.864.$$
+    
+    \item Teremos uma nova variável aleatória --- número de páginas com pelo menos um erro ---, desta vez seguindo distribuição binomial com $n = 5$ e com a probabilidade calculada no item \ref{poissonPagina}. Isto é, $X \sim B(5,\ 0.864)$. Para pelo menos uma página, devemos calcular $P(X \geq 1)$, ou $1 - P(X = 0)$: \label{binomialPagina}
+    
+    $$P(X = 0) = \binom{5}{0} \cdot 0.864^0 \cdot (0.136)^5 \approx 0.00004$$
+    $$P(X \geq 1) \approx 1 - 0.00004 \approx 0.99996.$$
+    
+    \item Como dito no item \ref{binomialPagina}, esta variável aleatória segue o modelo binomial.
+\end{enumerate}
+
+
+\section{Solução da Questão 7}
+
+
+\begin{enumerate}[label=\alph*)]
+    \item A variável aleatória X segue distribuição exponencial com $\lambda = \frac{1}{60}$. Queremos calcular $P(X \geq 70)$:
+    
+    $$P(X \geq 70) = e^{-\frac{70}{60}} \approx 0.3114.$$
+
+    \item Queremos calcular $P(X < 70 \mid X \geq 50)$:
+    \begin{align*}
+        P(X < 70 \mid X \geq 50) &= \frac{P(\{X < 70\} \cap \{X \geq 50\})}{P(X \geq 50)} = \frac{P(50 \leq X < 70)}{P(X \geq 50)}\\[1em]
+        &= \frac{\frac{1}{60}\cdot \int_{50}^{70} e^{\frac{-x}{60}} dx}{P(X \geq 50)} = \frac{e^{\frac{-5}{6}} - e^\frac{-7}{6}}{e^{\frac{-5}{6}}} \approx 0.2835.
+    \end{align*}
+    
+    \item Temos que $P(X > m) = \frac{1}{2}$. Então
+    \begin{align*}
+        e^{-\frac{m}{60}} &= \frac{1}{2}\\
+        \ln{\left(e^{-\frac{m}{60}}\right)} &= \ln{\left(\frac{1}{2}\right)}\\
+        -\frac{m}{60} &= \ln{(1)} - \ln{(2)}\\
+        -m &= -60\ln{(2)}\\
+        m &= 60\ln{(2)} \approx 41{,}5 \text{ anos.}
+    \end{align*}
+\end{enumerate}
+
+
+\section{Solução da Questão 8}
+
+
+\begin{enumerate}[label=\alph*)]
+    \item Podemos fazer manipulações algébricas para encontrar $\alpha$. Primeiro, sabemos que \label{alpha2}
+    $$P(-1 < X < 2) = \frac{3}{4} \to \frac{2 - \alpha}{\beta - \alpha} - \left(\frac{-1 - \alpha}{\beta - \alpha}\right) = \frac{3}{4}.$$
+    
+    Então, como $\alpha = -\alpha$ e $\beta = \alpha$,
+    
+    $$\frac{2 - \alpha}{2\alpha}-\frac{-1 - \alpha}{2\alpha} = \frac{3}{2\alpha} = \frac{3}{4} \to \frac{1}{a} = \frac{1}{2} \to \alpha = 2.$$
+
+    \item Analogamente ao item \ref{alpha2},
+    $$P(|X| < 1) = P(-1 < X < 1) = \frac{1 - a}{2a} - \frac{-1 - a}{2a} = \frac{2}{2a}$$
+    $$P(|X| > 2) = 1 - P(-2 < X < 2) = 1 - \left(\frac{2 - a}{2a} - \frac{-2 - a}{2a}\right) = 1 - \frac{4}{2a} = \frac{a - 2}{a}$$
+    
+    Sabemos que $P(|X| < 1) = P(|X| > 2)$, então
+    
+    $$\frac{2}{2a} = \frac{a - 2}{a} \to 1 = a - 2 \to a = 3.$$
+\end{enumerate}
+
+
+\section{Solução da Questão 9}
+
+
+Desenvolver as desigualdades com módulo e as formas reduzidas é grande parte do trabalho: 
+\begin{enumerate}[label=\alph*)]
+    \item $P(|X| < \mu) = P(-\mu < X < \mu) = P\left(\frac{-\mu - \mu}{\sigma} < Z < \frac{\mu - \mu}{\sigma}\right) = P\left(\frac{-2\mu}{\sigma} < Z < 0\right) =\\
+    P(0 \leq Z \leq \frac{2\mu}{\sigma})$.
+    
+    \item $P(|X -\mu| > 0) = P(X < \mu) + P(X > \mu) = P\left(\frac{X - \mu}{\sigma} < \frac{\mu - \mu}{\sigma}\right) + P\left(\frac{X - \mu}{\sigma} > \frac{\mu -\mu}{\sigma}\right) = P(Z < 0) + P(Z > 0) = 1$.
+    
+    \item $P(X - \mu < -\sigma) = P\left(\frac{X - \mu}{\sigma} < \frac{-\sigma}{\sigma}\right) = P(Z < -1) = 0.1587$.
+    
+    \item $P(\sigma < |X -\mu| < 2\sigma) = P(\sigma < X - \mu < 2\sigma) + P(-\sigma > X - \mu > -2\sigma) =\\
+    P\left(\frac{\sigma}{\sigma} < \frac{X - \mu}{\sigma} < \frac{2\sigma}{\sigma}\right) + P\left(\frac{-\sigma}{\sigma} > \frac{X - \mu}{\sigma} > \frac{-2\sigma}{\sigma}\right) = P(1 < Z < 2) + P(-1 > Z > -2) = 2\cdot P(1 < Z < 2) = 2\cdot (P(Z < 2) - P(Z < 1)) = 0.27182$.
+\end{enumerate}
+
+\section{Solução da Questão 10}
+
+
+\begin{enumerate}[label=\alph*)]
+    \item Probabilidade de pelo menos de $980 \text{ml} = P(X \geq 0.980)$, assumindo modelo normal $(\mu = 1 \text{ e } \sigma = 10^{-2})$:
+    
+    $$P(X \geq 0.980) = P\left(\frac{X - \mu}{\sigma} \geq \frac{0.980 - 1}{10^{-2}}\right) = P(Z \geq -2)$$
+    $$P(Z \geq -2) = P(Z \leq 2) = 0.97725.$$
+    
+    Tirando 3 garrafas ao acaso, tem-se uma variável aleatória acerca do número de garrafas com pelo menos $980$ml em três ensaios de Bernoulli, isto é, seguindo uma distribuição binomial, com $k = 3$ e $p = 0.97725$:
+    
+    $$P(X = k) = \binom{3}{k}(0.97725)^{k}(0.02275)^{3-k}$$
+    
+    Probabilidade de 3 garrafas terem pelo menos $980$ml:
+    
+    $$P(X = 3) = (0.97725)^3 \approx 0.933291.$$
+    
+    \item Queremos calcular a probabilidade de não ocorrer mais de uma garrafa com menos de $980$ml, isto é, queremos que pelo menos 2 das 3 tenham $980$ml ou mais. 
+    
+    Pelo menos duas com ao menos $980$ml:
+    \begin{align*}
+        P(X \geq 2) &= P(X = 2) + P(X = 3)\\
+        P(X = 2) &= \binom{3}{2}(0.97725)^{2}(0.02275)^{3-2} + 0.933291 =  0.065180\\
+        P(X \geq 2) &= 0.065180 + 0.933291 \approx 0.998471.
+    \end{align*}
+    
+\end{enumerate}
+
+\section{Solução da Questão 11}
+
+
+
+Temos que $X \sim N(100, 100).$ Então $\mu = 100$ e $\sigma = 10.$
+\begin{enumerate}[label=\alph*)]
+    \item Para $P(X < 115)$, vamos encontrar a distribuição normal reduzida Z:
+    $$Z = \frac{115 - 100}{10} = 1.5$$
+    $$P(X < 115) = P(Z < 1.5) =  1 - 0.0668 \approx 0.9332.$$
+    %1 - P(Z > -1.5)\textcolor{red}{?}
+    
+    \item Para $P(X > 80)$, vamos encontrar a distribuição normal reduzida:
+    $$Z = \frac{80 - 100}{10} = -2$$
+    $$P(X > 80) = P(Z > -2) = 1 - P(Z < -2) = 1 - 0.0228 \approx 0.9772.$$
+    
+    % \item Sabemos que $|X - 100| \leq 10 = \begin{cases} X \leq 90, &\text{ se } X - 100 \geq 0 \\ X \geq -90, &\text{ se } X - 100 < 0  \end{cases}$
+    \item Sabemos que $|X - 100| \leq 10 = -10 \leq X - 100 \leq 10$. Então $P(|X - 100| \leq 10) = P(-10 \leq X - 100 \leq 10)$. Como a média é 100, basta dividirmos toda desigualdade por $\sigma$ para acharmos a distribuição normal reduzida: \label{-1<Z<1}
+    $$P(-10 \leq X - 100 \leq 10) = P\left(-\frac{10}{10} \leq \frac{X - 100}{10} \leq \frac{10}{10}\right) = P(-1 \leq Z \leq 1).$$
+    Agora resta encontrar $P(-1 \leq Z \leq 1)$, isto é, a área à esquerda de 1 menos a área à esquerda de -1:
+    
+    $$P(-1 \leq Z \leq 1) = P(Z \leq 1) - P(Z \leq -1) = 0.8413 - 0.1587 = 0.6827$$
+    
+    \item Nos é dado que $P(100 - a \leq X \leq 100 + a) = 0.95$:
+    $$P(100 - a \leq X \leq 100 + a) = P(-a \leq X - 100 \leq a) = P\left(\frac{-a}{10} \leq Z \leq \frac{a}{10}\right).$$
+    % De maneira similar ao item \ref{-1<Z<1}, isso é o mesmo que:
+    Por simetria, podemos concluir que isso é o mesmo que:
+    \begin{align*}
+        2\cdot P\left(0 \leq Z \leq \frac{a}{10}\right) &= 0.95 \to P\left(0 \leq Z \leq \frac{a}{10}\right) = 0.475\\[1em]
+        \frac{a}{10} &= 1.96 \to a = 19.6.
+    \end{align*}
+    \end{enumerate}
+
+
+\section{Solução da Questão 12}
+
+
+Temos que $X \sim N(500, 50)$, isto é, $\mu = 500$ e $\sigma = 50$.
+
+Para que a empresa não consiga atender a todos os pedidos (600 unidades), ela atenderá no máximo 599 pedidos, ou seja, queremos calcular $P(X \leq 599)$. Encontrando a distribuição normal reduzida Z:
+$$Z = \frac{599 - 100}{50} = 1.98$$
+$$P(X \leq 599) = P(Z \leq 1.98) = 0.9761.$$
+
+\end{document}

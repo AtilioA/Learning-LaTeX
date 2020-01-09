@@ -1,0 +1,155 @@
+\documentclass[
+	% --- opções da classe memoir ---
+	12pt,				% Tamanho da fonte
+	openright,			% Capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% Para impressão em recto e verso. Oposto a oneside
+	a4paper,			% Tamanho do papel.
+	% -- opções do pacote babel --
+	english,			% Idioma adicional para hifenização
+% 	french,				% Idioma adicional para hifenização
+% 	spanish,			% Idioma adicional para hifenização
+	brazil,				% O último idioma é o principal do documento
+	]{abntex2}
+
+
+% ---
+% Pacotes
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% Para melhorias de justificação
+\usepackage{float}
+\usepackage[ampersand]{easylist}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{lipsum}
+\usepackage{amsfonts}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{systeme}
+
+\usepackage[brazilian,hyperpageref]{backref}
+\usepackage[alf]{abntex2cite}
+
+\setlist[enumerate]{itemsep=1pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% COLOR DEFINITIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[svgnames]{xcolor}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \definecolor{MyColor1}{rgb}{0.2,0.4,0.6} %mix personal color
+% \newcommand{\textb}{\color{Black} \usefont{OT1}{lmss}{m}{n}}
+% \newcommand{\blue}{\color{MyColor1} \usefont{OT1}{lmss}{m}{n}}
+% \newcommand{\blueb}{\color{MyColor1} \usefont{OT1}{lmss}{b}{n}}
+% \newcommand{\red}{\color{LightCoral} \usefont{OT1}{lmss}{m}{n}}
+
+\renewcommand\thesection{\arabic{section}.} %define sections numbering
+\renewcommand\thesubsection{\thesection\arabic{subsection}} %subsec.num.
+
+\newcommand{\mysection}{
+\titleformat{\section} [runin] {\usefont{OT1}{lmss}{b}{n}\color{MyColor1}} 
+{\thesection} {3pt} {} } 
+
+\renewcommand{\theequation}{\thesection\arabic{equation}}
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{\textmd{Estatística Básica}\\
+Lista de Exercícios Extra}
+\autor{Atílio Antônio Dadalto}
+\local{Vitória}
+\data{2019}
+\instituicao{%
+  Universidade Federal do Espírito Santo
+  \par Departamento de Informática}
+\tipotrabalho{Relatório}
+\preambulo{Lista de exercícios apresentada como requisito parcial para aprovação na disciplina de Estatística Básica, pela Universidade Federal do Espírito Santo.}
+% \let\cleardoublepage\clearpage
+
+\newcommand{\versao}{2.0}
+\newcommand{\subtitulo}{Anteprojeto}
+
+
+%%% Configurações finais de aparência. %%%
+% Altera o aspecto da cor azul.
+% \definecolor{blue}{RGB}{41,5,195}
+
+% Informações do PDF.
+\makeatletter
+\hypersetup{
+	pdftitle={\@title}, 
+	pdfauthor={\@author},
+	pdfsubject={\imprimirpreambulo},
+	pdfcreator={LaTeX with abnTeX2},
+	pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+	colorlinks=true,				% Colore os links (ao invés de usar caixas).
+	linkcolor=black,					% Cor dos links.
+	citecolor=blue,					% Cor dos links na bibliografia.
+	filecolor=magenta,				% Cor dos links de arquivo.
+	urlcolor=blue,					% Cor das URLs.
+	bookmarksdepth=4
+}
+\makeatother
+
+% Espaçamentos entre linhas e parágrafos.
+\setlength{\parindent}{1.3cm}
+\setlength{\parskip}{0.2cm}
+
+
+\begin{document}
+% Capa do trabalho.
+\imprimircapa
+% \frenchspacing
+\textual
+
+\section{Solução da Questão 1}
+$Y$ é uma variável que indica o tempo entre ocorrências. Sabemos que:
+\begin{align*}
+    F(y) &= P(Y < y)\\
+    &= 1 - P(Y > y)
+\end{align*}
+$P(Y > y)$ é a probabilidade do intervalo entre dois eventos ser maior que $y$, isto é, a probabilidade de não ocorrer nenhum evento em um intervalo $y$.
+
+Seja $t = y$. Podemos representar a mesma situação com uma distribuição Poisson com parâmetro $\lambda y$ (apenas variando o intervalo de interesse) em que $X = 0$ (não ocorrerá nenhum evento). Isto é, $P(Y > y) = P(X = 0)$. Então:
+\begin{align*}
+    F(y) &= 1 - P(Y > y)\\
+    &= 1 - P(X = 0)\\
+    &= 1 - \frac{e^{-\lambda y}(\lambda y)^0}{0!}\\
+    &= 1 - e^{-\lambda y}
+\end{align*}
+Então $P(Y < y) = 1 - P(X = 0)= 1 - e^{-\lambda y}$. Também sabemos que:
+    $$Y \text{ segue uma distribuição exponencial}$$
+    $$\iff$$
+    $$F(y) = P(Y < y) = 1 - e^{-\lambda y}$$
+Portanto, $Y$ segue uma distribuição exponencial de parâmetro $\lambda$.
+
+\section{Solução da Questão 2}
+Um equipamento será considerado fora de controle caso o desempenho se afaste da média em 2 unidades do desvio padrão. Isto é, a probabilidade de que o equipamento seja considerado fora de controle é igual a $P(X > \mu + 2\sigma) + P(X < \mu - 2\sigma)$. Levando para a forma normal reduzida:
+\begin{align*}
+    P(X > \mu + 2\sigma) &= P\left(\frac{X - \mu}{\sigma} > \frac{\mu + 2\sigma - \mu}{\sigma}\right)\\
+    &= P(Z > 2) = 1 - P(Z < 2) = 1 - 0.9722 = 0.0228.\\[1em]
+    P(X < \mu - 2\sigma) &= P\left(\frac{X - \mu}{\sigma} < \frac{\mu - 2\sigma - \mu}{\sigma}\right)\\
+    &= P(Z < -2) = 0.0228.
+\end{align*}
+Então a probabilidade de que o equipamento seja considerado fora de controle é igual a 0.0228 + 0.0228 = 0.0456.
+
+\begin{enumerate}[label=\alph*)]
+    \item O equipamento será desligado caso seja avaliado e esteja fora de controle. As avaliações são independentes e queremos saber a probabilidade de que o primeiro sucesso --- estar fora de controle --- ocorra na 1ª tentativa. Isso sugere o uso de um modelo geométrico com $p = 0.0456$ (calculado acima):
+    $$P(X = k) = p(1-p)^{k-1} \to P(X = 1) = 0.0456(0.9544)^0 = 0.0456.$$
+    
+    \item Temos a mesma situação do item a), porém com X = 10, visto que desejamos saber a probabilidade do primeiro sucesso, isto é, primeira manutenção decorrente do equipamento estar fora de controle, ser no décimo dia:
+    $$P(X = k) = p(1-p)^{k-1} \to P(X = 10) = 0.0456(0.9544)^9 \approx 0.0299.$$
+    
+    \item Como mencionado acima, utilizamos uma variável seguindo o modelo geométrico para calcular a probabilidade do primeiro sucesso acontecer no $k$-ésimo dia, ou seja, ocorrerem $k - 1$ fracassos antes do primeiro sucesso (manutenção), com $p = 0.0456$.
+\end{enumerate}
+\end{document}

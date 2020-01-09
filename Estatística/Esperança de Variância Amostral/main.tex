@@ -1,0 +1,47 @@
+\documentclass[11pt]{article}
+
+\title{Esperança da variância amostral}
+\author{Atílio Antônio Dadalto}
+\date{2019}
+
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% Para melhorias de justificação
+\usepackage{float}
+\usepackage[ampersand]{easylist}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+\begin{document}
+
+\maketitle
+
+\section{Demonstração}
+Representando as observações amostrais por $x_i$ com $i = \{1, 2, ..., n\}$, em que $n$ é o tamanho da amostra. Sabemos que $E(x_i) = \mu$ e $Var(x_i) = \sigma^2$. Assim, temos:
+
+\begin{align*}
+    E(\hat{\sigma}^2) &= E\left(\frac{\sum \limits_{i = 1}^{n} (x_i - \bar{x})^2}{n - 1}\right) = \frac{1}{n - 1} E\left(\sum \limits_{i = 1}^{n} (x_i - \bar{x})^2\right) = \frac{1}{n - 1} E\left(\sum \limits_{i = 1}^{n} (x_i - \mu + \mu - \bar{x})^2\right)\\
+    &= \frac{1}{n - 1} E\left(\sum \limits_{i = 1}^{n} (x_i - \mu + \mu - \bar{x}) (x_i - \mu + \mu - \bar{x})\right) = \frac{1}{n - 1} E\left(\sum \limits_{i = 1}^{n} (x_i^2 - 2x_i\bar{x} + \bar{x}^2)\right)\\
+    &= \frac{1}{n - 1} E\left(\sum \limits_{i = 1}^{n} (x_i^2) - 2\sum \limits_{i = 1}^{n} (x_i\bar{x}) + \sum \limits_{i = 1}^{n} (\bar{x}^2)\right)\\
+    &= \frac{1}{n - 1} E\left(\sum \limits_{i = 1}^{n} (x_i^2) - 2\bar{x}\sum \limits_{i = 1}^{n} (x_i) + n \cdot (\bar{x}^2)\right)\\
+    &= \frac{1}{n - 1} E\left(\sum \limits_{i = 1}^{n} (x_i^2) - 2n\bar{x}^2 + n\bar{x}^2 \right)\\
+    &= \frac{1}{n - 1} E\left(\sum \limits_{i = 1}^{n} (x_i^2) - n\bar{x}^2 \right)\\
+    &= \frac{1}{n - 1} \left(\sum \limits_{i = 1}^{n} E(x_i^2) - E(n\bar{x}^2)\right)\\
+    &= \frac{1}{n - 1} \left(\sum \limits_{i = 1}^{n} (\sigma^2 + \mu^2) - n \cdot E(\bar{x}^2) \right)\\
+    &= \frac{1}{n - 1} \left(n \cdot (\sigma^2 + \mu^2) - n \left(\frac{\sigma^2}{n} + \mu^2\right) \right)\\
+    &= \frac{1}{n - 1} \left(n\sigma^2 + n\mu^2 - \sigma^2 - n\mu^2 \right)\\[0.5em]
+    &= \frac{1}{n - 1} \left(n\sigma^2 - \sigma^2 \right)\\[0.5em]
+    &= \frac{\sigma^2(n - 1)}{n - 1}\\[0.5em]
+    &= \sigma^2
+\end{align*}
+
+\end{document}

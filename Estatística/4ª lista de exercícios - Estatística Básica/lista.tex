@@ -1,0 +1,398 @@
+\documentclass[
+	% --- opções da classe memoir ---
+	12pt,				% Tamanho da fonte
+	openright,			% Capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% Para impressão em recto e verso. Oposto a oneside
+	a4paper,			% Tamanho do papel.
+	% -- opções do pacote babel --
+	english,			% Idioma adicional para hifenização
+% 	french,				% Idioma adicional para hifenização
+% 	spanish,			% Idioma adicional para hifenização
+	brazil,				% O último idioma é o principal do documento
+	]{abntex2}
+
+
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% Para melhorias de justificação
+\usepackage{float}
+\usepackage[ampersand]{easylist}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{lipsum}
+\usepackage{amsfonts}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{systeme}
+
+\usepackage[brazilian,hyperpageref]{backref}
+\usepackage[alf]{abntex2cite}
+
+\setlist[enumerate]{itemsep=1pt}
+
+
+\renewcommand\thesection{\arabic{section}.} %define sections numbering
+\renewcommand\thesubsection{\thesection\arabic{subsection}} %subsec.num.
+
+\newcommand{\mysection}{
+\titleformat{\section} [runin] {\usefont{OT1}{lmss}{b}{n}\color{MyColor1}} 
+{\thesection} {3pt} {} } 
+
+\renewcommand{\theequation}{\thesection\arabic{equation}}
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{\textmd{Estatística Básica}\\
+Lista de Exercícios 4}
+\autor{Atílio Antônio Dadalto \\ Tiago da Cruz Santos}
+\local{Vitória}
+\data{2019}
+\instituicao{%
+  Universidade Federal do Espírito Santo
+  \par Departamento de Informática}
+\tipotrabalho{Relatório}
+\preambulo{Relatório apresentado como requisito parcial para aprovação na disciplina de Estrutura de Dados I, pela Universidade Federal do Espírito Santo.}
+% \let\cleardoublepage\clearpage
+
+\newcommand{\versao}{2.0}
+\newcommand{\subtitulo}{Anteprojeto}
+
+
+%%% Configurações finais de aparência. %%%
+% Altera o aspecto da cor azul.
+% \definecolor{blue}{RGB}{41,5,195}
+
+% Informações do PDF.
+\makeatletter
+\hypersetup{
+	pdftitle={\@title}, 
+	pdfauthor={\@author},
+	pdfsubject={\imprimirpreambulo},
+	pdfcreator={LaTeX with abnTeX2},
+	pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+	colorlinks=true,				% Colore os links (ao invés de usar caixas).
+	linkcolor=black,					% Cor dos links.
+	citecolor=blue,					% Cor dos links na bibliografia.
+	filecolor=magenta,				% Cor dos links de arquivo.
+	urlcolor=blue,					% Cor das URLs.
+	bookmarksdepth=4
+}
+\makeatother
+
+% Espaçamentos entre linhas e parágrafos.
+\setlength{\parindent}{1.3cm}
+\setlength{\parskip}{0.2cm}
+
+\begin{document}
+\imprimircapa
+% \frenchspacing
+\textual
+
+\section{Solução da Questão 1}
+\begin{enumerate}[label=\alph*)]
+    \item É razoável supor que $X$ segue modelo binomial de tal forma que, para $\hat{p}_1$,
+    \begin{align*}
+    E(\hat{p}_1) &= E\left(\frac{X}{n}\right) = \frac{E(X)}{n} = p\\
+    Var(\hat{p}_1) &= Var\left(\frac{X}{n}\right) = \frac{Var(X)}{n^2} = \frac{p(1 - p)}{n}.
+    \end{align*}
+    
+    Para $\hat{p}_2$, $A$ segue modelo de Bernoulli, pois assume valor 1 se o primeiro resultado for um sucesso ou 0 caso contrário (fracasso). Sendo assim,
+    \begin{align*}
+    E(\hat{p}_2) &= E(A) = p\\
+    Var(\hat{p}_2) &= Var(A) = p(1 - p).
+    \end{align*}
+    
+    $\hat{p}_2$ não é um bom estimador porque só assume o valor 0 ou 1 e só depende do primeiro ensaio de Bernoulli. Além disso, possui maior variância (menor precisão) que $\hat{p}_1$ (quando $n > 0$), visto que $Var(\hat{p}_2) = nVar(\hat{p}_1)$.
+    
+    
+    \item Para verificar se os estimadores são consistentes, façamos análise assintótica de $\hat{p}_1$ e $\hat{p}_2$. Para $E(\hat{p}_1)$ e $Var(\hat{p}_1)$:
+    
+    $$\lim_{n \to \infty} E(\hat{p}_1) = \lim_{n \to \infty} p = p$$
+    
+    $$\lim_{n \to \infty} Var(\hat{p}_1) = \lim_{n \to \infty} \frac{p(1 - p)}{n} = 0$$
+    
+    Para $E(\hat{p}_2)$ e $Var(\hat{p}_2)$:
+    
+    $$\lim_{n \to \infty} E(\hat{p}_2) = \lim_{n \to \infty} p = p$$
+    
+    $$\lim_{n \to \infty} Var(\hat{p}_2) = \lim_{n \to \infty} p(1 - p) = p(1 - p)$$
+    
+    O estimador $\hat{p}_1$ é consistente uma vez que sua estimativa se aproxima do valor real da população conforme $n$ aumenta; isto não acontece com $\hat{p}_2$ pois, ao aumentar $n$, a estimativa da variância não converge para o valor real do parâmetro. %!
+\end{enumerate}
+
+\section{Solução da Questão 2}
+\begin{enumerate}[label=\alph*)]
+    \item Encontrando os valores de S($\mu$):
+    
+    Para $\mu = 6$:
+    \begin{align*}
+        S(6) &= \sum \limits_{t}^{} (y_t - 6)^2 = (3 - 6)^2 + (5 - 6)^2 + (6 - 6)^2 + (8 - 6)^2 + (16 - 6)^2\\
+        &= \sum \limits_{t}^{} (y_t - 6)^2 = 114
+    \end{align*}
+    
+    Para $\mu = 7$:
+    \begin{align*}
+        S(7) &= \sum \limits_{t}^{} (y_t - 7)^2 = (3 - 7)^2 + (5 - 7)^2 + (6 - 7)^2 + (8 - 7)^2 + (16 - 7)^2\\
+        &= \sum \limits_{t}^{} (y_t - 7)^2 = 103
+    \end{align*}
+    
+        Para $\mu = 8$:
+    \begin{align*}
+        S(8) &= \sum \limits_{t}^{} (y_t - 8)^2 = (3 - 8)^2 + (5 - 8)^2 + (6 - 8)^2 + (8 - 8)^2 + (16 - 8)^2\\
+        &= \sum \limits_{t}^{} (y_t - 8)^2 = 102
+    \end{align*}
+    
+        Para $\mu = 9$:
+    \begin{align*}
+        S(9) &= \sum \limits_{t}^{} (y_t - 9)^2 = (3 - 9)^2 + (5 - 9)^2 + (6 - 9)^2 + (8 - 9)^2 + (16 - 9)^2\\
+        &= \sum \limits_{t}^{} (y_t - 9)^2 = 111
+    \end{align*}
+    
+    Para $\mu = 10$:
+    \begin{align*}
+        S(10) &= \sum \limits_{t}^{} (y_t - 10)^2 = (3 - 10)^2 + (5 - 10)^2 + (6 - 10)^2 + (8 - 10)^2 + (16 - 10)^2\\
+        &= \sum \limits_{t}^{} (y_t - 10)^2 = 130
+    \end{align*}
+O valor 8 para $\mu$ parece tornar mínimo $S(\mu)$. Gráfico:
+    \begin{figure}[H]
+        \centering
+        \includegraphics{figuras/S(Mu).pdf}
+    \end{figure}
+    
+    \item Derivando $S(\mu)$:
+    \begin{align*}
+        \frac{dS(\mu)}{d\mu} &= -2 \sum \limits_{t = 1}^{n} (y_t - \mu)\\
+        &= -2 \sum \limits_{t = 1}^{n} (y_t + 2n\mu)
+    \end{align*}
+    Igualando a 0 para encontrar $\hat{\mu}_{MQ}$, teremos um estimador para $\mu$. Sendo assim:
+    $$\frac{dS(\mu)}{d\mu} = 0 \iff \mu = \hat{\mu}_{MQ}$$
+    $$\hat{\mu}_{MQ} = \frac{\sum \limits_{t = 1}^{n} y_t}{n} = \bar{y} = 7.6.$$
+    7.6 é a estimativa de $\mu$, que condiz com o valor encontrado intuitivamente.
+    
+\end{enumerate}
+
+\section{Solução da Questão 3}
+\begin{enumerate}[label=\alph*)]
+    \item Gráfico de $y_t$ contra $t$:
+    \begin{figure}[H]
+        \centering
+        \includegraphics{figuras/ano_inflacao.pdf}
+    \end{figure}
+    
+    \item Para encontrar $\bar{\alpha}$ e $\bar{\beta}$, devemos derivar $S(\alpha, \beta) = \sum \limits_{t = 1}^{n} (y_t - \alpha - \beta t)^2$ e igualar a zero:
+
+    \begin{align*}
+        \frac{dS(\alpha, \beta)}{d\alpha} &= -2 \sum \limits_{t = 1}^{n} (y_t - \alpha - \beta t)\\
+        &= -2\sum \limits_{t = 1}^{n}(y_t) + 2\sum \limits_{t = 1}^{n}(\alpha) + 2\beta\sum \limits_{t = 1}^{n}(t)\\
+        &\text{Sabemos que $\sum \limits_{t = 1}^{n}\left(\frac{y_t}{n}\right) = \Bar{y}$ e que $\sum \limits_{t = 1}^{n}\left(\frac{t}{n}\right) = \Bar{t}$, então:}\\
+        &= -2n\Bar{y} + 2n\alpha + 2n\beta\Bar{t} = 0 \iff \alpha = \Bar{y} - \beta\Bar{t}\\
+        \frac{dS(\alpha, \beta)}{d\beta} &= -2 \sum \limits_{t = 1}^{n} t(y_t - \alpha - \beta t)\\
+        &= -2\sum \limits_{t = 1}^{n}(ty_t - t\alpha - t^2\beta)\\
+        &= -2\sum \limits_{t = 1}^{n}(ty_t) + 2\sum \limits_{t = 1}^{n}(t\alpha) + 2\sum \limits_{t = 1}^{n}(t^2\beta)\\
+        &= -2\sum \limits_{t = 1}^{n}(ty_t) + 2\alpha\sum \limits_{t = 1}^{n}(t) + 2\beta\sum \limits_{t = 1}^{n}(t^2)\\
+        &= -2\sum \limits_{t = 1}^{n}(ty_t) + 2n\alpha\Bar{t} + 2\beta\sum \limits_{t = 1}^{n}(t^2)
+    \end{align*}
+    \begin{align*}
+        &\text{Usando $\alpha$ encontrado anteriormente, temos:}\\
+        &= -2\sum \limits_{t = 1}^{n}(ty_t) + 2n(\Bar{y} - \beta\Bar{t})\Bar{t} + 2\beta\sum \limits_{t = 1}^{n}(t^2)\\
+        &= -2\sum \limits_{t = 1}^{n}(ty_t) + 2n\Bar{t}\Bar{y} - 2n\beta\Bar{t}^2 + 2\beta\sum \limits_{t = 1}^{n}(t^2) = 0\\
+        &\iff \beta\sum \limits_{t = 1}^{n}(t^2) - n\beta\Bar{t}^2 = \sum \limits_{t = 1}^{n}(ty_t) - n\Bar{t}\Bar{y}\\
+        &\iff \beta = \frac{\sum \limits_{t = 1}^{n}(ty_t) - n\Bar{t}\Bar{y}}{\sum \limits_{t = 1}^{n}(t^2) - n\Bar{t}^2}
+    \end{align*}
+    
+    Portanto, os estimadores de mínimos quadrados para $\alpha$ e $\beta$ são:
+    \begin{align*}
+        &\alpha = \Bar{y} - \beta\Bar{t} &\beta = \frac{\sum \limits_{t = 1}^{n}(ty_t) - n\Bar{t}\Bar{y}}{\sum \limits_{t = 1}^{n}(t^2) - n\Bar{t}^2}
+    \end{align*}
+    
+    Usando os valores da amostra:
+    \begin{align*}
+        &\alpha = -642,714285714 &\beta = 355,607142857
+    \end{align*}
+    \item Usando os valores encontrados no item b) temos que:
+    \begin{align*}
+        y_t = -642,714285714 + 355,607142857\cdot 1981 = 703815,035714003
+    \end{align*}
+\end{enumerate}
+
+% \section{Solução da Questão 4}
+
+
+% \section{Solução da Questão 5}
+
+
+\section{Solução da Questão 6}
+\begin{enumerate}[label=\alph*)]
+    \item Queremos $IC(\mu;0.99)$. Portanto, $1 - \alpha = 0.99 \Rightarrow \alpha = 0.01 \Rightarrow \frac{\alpha}{2} = 0.005$.
+    \begin{align*}
+        IC(800;0.99) &= \left(800 - z_{1 - \frac{\alpha}{2}} \cdot \frac{100}{20}; 800 + z_{1 - \frac{\alpha}{2}} \cdot \frac{100}{20}\right)\\
+        &= (800 - 2.57 \cdot 5; 800 + 2.57 \cdot 5)\\
+        &= (787.15, 812.85)
+    \end{align*}
+
+    \item Queremos encontrar $1 - \alpha$ para $IC(800;1 - \alpha) = (799.02, 800.98)$. Avaliando apenas o limite inferior, por brevidade:
+    \begin{align*}
+        800 - 0.98 &= 800 - z_{1 - \frac{\alpha}{2}} \cdot \frac{100}{\sqrt{400}};\\
+        - 0.98 &= - z_{1 - \frac{\alpha}{2}} \cdot 5\\
+        \frac{0.98}{5} &= z_{1 - \frac{\alpha}{2}}\\
+        z_{1 - \frac{\alpha}{2}} &= 0.196\\
+        1 - \frac{\alpha}{2} &\approx 0.5775\\
+        \frac{\alpha}{2} &= 42.5\\
+        \alpha &= 85\\
+        1 - \alpha &= 0.15
+    \end{align*}
+    Portanto, diríamos que a vida média é $800 \mp 0.98$ com 15\% de confiança. 
+    
+    \item Sabemos o valor de $IC(\mu;0.95)$ para um $n$ ainda desconhecido e que desejamos encontrar. $1 - \alpha = 0.95 \Rightarrow \alpha = 0.05 \Rightarrow \frac{\alpha}{2} = 0.025$. Avaliando apenas o limite inferior, por brevidade:
+    \begin{align*}
+        % IC(800;0.95) &= 800 - z_{1 - \frac{\alpha}{2}} \cdot \frac{100}{\sqrt{n}}\\
+        800 - 7.84 &= 800 - \frac{196}{\sqrt{n}}\\
+        - 7.84 &= -\frac{196}{\sqrt{n}}\\
+        \sqrt{n} &= \frac{196}{7.84}\\
+        \sqrt{n} &= 25\\
+        n &= 625
+    \end{align*}
+
+    \item Assumimos que, pelo teorema do limite central, uma amostra de variância finita tem sua distribuição amostral da média aproximando-se de uma distribuição normal conforme o tamanho da amostra aumenta. Portanto, é razoável assumir que a distribuição da amostra segue uma distribuição normal.
+\end{enumerate}
+
+\section{Solução da Questão 7}
+\begin{enumerate}[label=\alph*)]
+    \item Temos que $\hat{p} = \frac{100}{300} = \frac{1}{3}$. Queremos calcular $IC(\hat{p};0.95)$, isto é, um intervalo de confiança para uma proporção $\hat{p}$, com $1 - \alpha = 0.95$, $\frac{\alpha}{2} = 0.025$:
+    \begin{align*}
+        IC(\hat{p};1 - \alpha) &= \hat{p} \mp z_{1 - \frac{\alpha}{2}} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}\\
+        IC\left(\frac{1}{3};0.95\right) &= \frac{1}{3} \mp 1.96 \sqrt{\frac{\frac{1}{3}\frac{2}{3}}{300}}\\
+        &= \left(\frac{1}{3} - 1.96 \cdot \frac{2}{9 \cdot 17.32}, \frac{1}{3} + 1.96 \cdot \frac{2}{9 \cdot 17.32}\right)\\
+        &= (0.280, 0.386)
+    \end{align*}
+    
+    Construindo um grande número de intervalos aleatórios com tamanho amostral $n$ para a proporção $\hat{p}$, esta estará contida em 95\% dos intervalos.
+    
+    \item Desejamos encontrar o tamanho da amostra de tal forma que $IC(\hat{p};0.95) = \hat{p} \mp 0.02$. Analisando apenas o intervalo inferior, por brevidade:
+    \begin{align*}
+        IC(\hat{p};0.95) &= \hat{p} - 0.02\\
+        IC\left(\frac{1}{3};0.95\right) &= \frac{1}{3} - 0.02\\
+        \frac{1}{3} - 1.96 \sqrt{\frac{\frac{1}{3}\frac{2}{3}}{n}} &= \frac{1}{3} - 0.02\\
+        - 1.96\ \sqrt{\frac{\frac{2}{9}}{n}} &= - 0.02\\
+        1.96\ \sqrt{\frac{2}{9}}\ \frac{1}{\sqrt{n}} &= 0.02\\
+        \frac{1.96}{0.02}\ \sqrt{\frac{2}{9}} &= \sqrt{n}\\
+        \left(\frac{1.96}{0.02}\right)^2 \frac{2}{9} &= n\\
+        n &= 9604 \cdot \frac{2}{9}\\
+        n &\approx 2134.
+    \end{align*}
+    Dado este tamanho amostral, a probabilidade de que o erro da proporção amostral $\hat{p}$ não exceda 0.02 é de 95\%.
+\end{enumerate}
+
+\section{Solução da Questão 8}
+\begin{enumerate}[label=\alph*)]
+    \item Queremos calcular $IC(\mu;0.9)$. Portanto, $1 - \alpha = 0.9 \Rightarrow \alpha = 0.1 \Rightarrow \frac{\alpha}{2} = 0.05$
+    
+    Usando a tabela da distribuição normal temos que $z_{1 - \frac{\alpha}{2}} \approx 1.645$.
+    
+    Calculando a média amostral temos:
+    \begin{align*}
+        \frac{4.9 + 7 + 8.1 + 4.5 + 5.6 + 6.8 + 7.2 + 5.7 + 6.2}{9} \approx 6.22
+    \end{align*}
+    
+    Encontrando $IC(6.22,0.9)$:
+    \begin{align*}
+        IC(6.22;0.9) &= \left(6.22 - 1.645\cdot \frac{2}{\sqrt{9}}; 6.22 + 1.645\cdot \frac{2}{\sqrt{9}}\right)\\
+        &= \left(5.123, 7.316\right)
+    \end{align*}
+    \item Usando $0.9$ como o intervalo de confiança, sabemos que $z_{1 - \frac{\alpha}{2}} = 1.645$. Vamos encontrar o tamanho da amostra $n$ para que o limite não exceda 0.01:
+    \begin{equation*}
+        0.01 \geq 1.645\cdot \frac{2}{\sqrt{n}} \Rightarrow \sqrt{n} \geq \frac{1.645 \cdot 2}{0.01} \Rightarrow n \geq 108241
+    \end{equation*}
+    
+    \item Uma vez que o tamanho amostral é muito pequeno e o desvio padrão populacional é desconhecido, deveríamos utilizar uma distribuição t de Student com $n-1$ graus de liberdade para utilizar o desvio padrão amostral com a estatística $t$.
+\end{enumerate}
+
+\section{Solução da Questão 9}
+\begin{enumerate}[label=\alph*)]
+\item Calculando esperança dos estimadores para determinar viés:
+
+\begin{enumerate}[label=(\roman*)]
+        \item 
+            \begin{align*}
+                E(T_1) &= E\left(\frac{\hat{\mu}_1 + \hat{\mu}_2}{2}\right)\\
+                &= \frac{E(\hat{\mu}_1 + \hat{\mu}_2)}{2}\\
+                &= \frac{E(\hat{\mu}_1) + E(\hat{\mu}_2)}{2}\\
+                &= \frac{\mu + \mu}{2}\\
+                &= \frac{2\mu}{2}\\
+                &= \mu
+            \end{align*}
+            $T_1$ não é viciado pois $E(T_1) = \mu$.
+        \item
+            \begin{align*}
+                E(T_2) &= E\left(\frac{4\hat{\mu}_1 + \hat{\mu}_2}{5}\right)\\
+                &= \frac{E(4\hat{\mu}_1 + \hat{\mu}_2)}{5}\\
+                &= \frac{E(4\hat{\mu}_1) + E(\hat{\mu}_2)}{5}\\
+                &= \frac{4E(\hat{\mu}_1) + E(\hat{\mu}_2)}{5}\\
+                &= \frac{4\mu + \mu}{5}\\
+                &= \frac{5\mu}{5}\\
+                &= \mu
+            \end{align*}
+            $T_2$ não é viciado pois $E(T_2) = \mu$.
+        \item
+            \begin{align*}
+                E(T_3) &= E(\hat{\mu}_1)\\
+                &= \mu
+            \end{align*}
+            $T_3$ não é viciado pois $E(T_3) = \mu$.
+            
+            Sendo assim, nenhum estimador é viciado.
+      \end{enumerate}
+\item Calculando variância dos estimadores para determinar eficiência:
+
+Calculando a variância de $T_1$:
+\begin{align*}
+    Var(T_1) &= Var\left(\frac{\hat{\mu}_1 + \hat{\mu}_2}{2}\right)\\
+    &= \frac{Var(\hat{\mu}_1 + \hat{\mu}_2)}{4}
+\end{align*}
+Como $\hat{\mu}_1$ e $\hat{\mu}_2$ são independentes:
+\begin{align*}
+    \frac{Var(\hat{\mu}_1 + \hat{\mu}_2)}{4} &= \frac{Var(\hat{\mu}_1) + Var(\hat{\mu}_2)}{4}\\
+    &= \frac{Var(\hat{\mu}_1) + 3Var(\hat{\mu}_1)}{4}\\
+    &= \frac{4Var(\hat{\mu}_1)}{4}\\
+    &= Var(\hat{\mu}_1)
+\end{align*}
+
+Calculando variância de $T_2$, temos:
+\begin{align*}
+    Var(T_2) &= Var\left(\frac{4\hat{\mu}_1 + \hat{\mu}_2}{5}\right)\\
+    &= \frac{Var(4\hat{\mu}_1 + \hat{\mu}_2)}{25}\\
+\end{align*}
+Como $\hat{\mu}_1$ e $\hat{\mu}_2$ são independentes:
+\begin{align*}
+    \frac{Var(4\hat{\mu}_1 + \hat{\mu}_2)}{25} &= \frac{Var(4\hat{\mu}_1) + Var( \hat{\mu}_2)}{25}\\
+    &= \frac{16Var(\hat{\mu}_1) + Var(\hat{\mu}_2)}{25}\\
+    &= \frac{16Var(\hat{\mu}_1) + 3Var( \hat{\mu}_1)}{25}\\
+    &= \frac{19Var(\hat{\mu}_1)}{25}\\
+    &= 0,76Var(\hat{\mu}_1)
+\end{align*}
+
+Calculando variância de $T_3$, temos:
+\begin{align*}
+    Var(T_3) &= Var(\hat{\mu}_1)
+\end{align*}
+Logo:
+\begin{align*}
+    &Var(T_1) = Var(\hat{\mu}_1)\\ 
+    &Var(T_2) = 0,76Var(\hat{\mu}_1)\\ 
+    &Var(T_3) = Var(\hat{\mu}_1)
+\end{align*}
+Então:
+$$Var(T_2) < Var(T_1) = Var(T_3)$$
+$T_2$ possui a maior eficiência, e $T_1$ e $T_3$ possuem a mesma eficiência.
+\end{enumerate}
+
+\end{document}

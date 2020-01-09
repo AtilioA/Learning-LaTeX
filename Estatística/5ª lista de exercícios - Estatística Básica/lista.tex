@@ -1,0 +1,286 @@
+\documentclass[
+	% --- opções da classe memoir ---
+	12pt,				% Tamanho da fonte
+	openright,			% Capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% Para impressão em recto e verso. Oposto a oneside
+	a4paper,			% Tamanho do papel.
+	% -- opções do pacote babel --
+	english,			% Idioma adicional para hifenização
+% 	french,				% Idioma adicional para hifenização
+% 	spanish,			% Idioma adicional para hifenização
+	brazil,				% O último idioma é o principal do documento
+	]{abntex2}
+
+
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% Para melhorias de justificação
+\usepackage{float}
+\usepackage[ampersand]{easylist}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{lipsum}
+\usepackage{amsfonts}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{systeme}
+\usepackage{mathtools}
+
+\usepackage[brazilian,hyperpageref]{backref}
+\usepackage[alf]{abntex2cite}
+
+\setlist[enumerate]{itemsep=1pt}
+
+
+\renewcommand\thesection{\arabic{section}.} %define sections numbering
+\renewcommand\thesubsection{\thesection\arabic{subsection}} %subsec.num.
+
+\newcommand{\mysection}{
+\titleformat{\section} [runin] {\usefont{OT1}{lmss}{b}{n}\color{MyColor1}} 
+{\thesection} {3pt} {} } 
+
+\renewcommand{\theequation}{\thesection\arabic{equation}}
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{\textmd{Estatística Básica}\\
+Lista de Exercícios 5}
+\autor{Atílio Antônio Dadalto \\ Tiago da Cruz Santos}
+\local{Vitória}
+\data{2019}
+\instituicao{%
+  Universidade Federal do Espírito Santo
+  \par Departamento de Informática}
+\tipotrabalho{Relatório}
+\preambulo{Relatório apresentado como requisito parcial para aprovação na disciplina de Estrutura de Dados I, pela Universidade Federal do Espírito Santo.}
+% \let\cleardoublepage\clearpage
+
+\newcommand{\versao}{2.0}
+\newcommand{\subtitulo}{Anteprojeto}
+
+
+%%% Configurações finais de aparência. %%%
+% Altera o aspecto da cor azul.
+% \definecolor{blue}{RGB}{41,5,195}
+
+% Informações do PDF.
+\makeatletter
+\hypersetup{
+	pdftitle={\@title}, 
+	pdfauthor={\@author},
+	pdfsubject={\imprimirpreambulo},
+	pdfcreator={LaTeX with abnTeX2},
+	pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+	colorlinks=true,				% Colore os links (ao invés de usar caixas).
+	linkcolor=black,					% Cor dos links.
+	citecolor=blue,					% Cor dos links na bibliografia.
+	filecolor=magenta,				% Cor dos links de arquivo.
+	urlcolor=blue,					% Cor das URLs.
+	bookmarksdepth=4
+}
+\makeatother
+
+% Espaçamentos entre linhas e parágrafos.
+\setlength{\parindent}{1.3cm}
+\setlength{\parskip}{0.2cm}
+
+\begin{document}
+\imprimircapa
+% \frenchspacing
+\textual
+
+\section{Solução da Questão 1}
+\begin{enumerate}[label=\alph*)]
+    \item Queremos calcular $IC(\mu, 0.90)$ e $IC(\mu, 0.90)$:
+    
+    \begin{align*}
+        IC(\mu, 0.90) &= \left(18.5 - 1.65 \cdot \frac{6}{\sqrt{50}};18.5 + 1.65 \cdot \frac{6}{\sqrt{50}}\right)\\
+        &= (17.10, 19.90)\\
+        IC(\mu, 0.99) &= \left(18.5 - 2.58 \cdot \frac{6}{\sqrt{50}};18.5 + 2.58 \cdot \frac{6}{\sqrt{50}}\right)\\
+        &= (16.31, 20.69)
+    \end{align*}
+    É notável que a margem de erro e o grau de confiança são medidas que crescem juntas,  portanto faz sentido o erro aumentar conforme aumenta-se o grau de confiança de 90\% para 99\%.
+    
+    \item Queremos calcular $IC(\mu, 0.90)$ para $n = 25$ e $n = 100$:
+    
+    Para $n = 25$:
+    \begin{align*}
+        IC(\mu, 0.90) &= \left(18.5 - 1.65 \cdot \frac{6}{\sqrt{25}};18.5 + 1.65 \cdot \frac{6}{\sqrt{25}}\right)\\
+        &= (20.48, 16.52)
+    \end{align*}
+    
+    Para $n = 100$:
+    \begin{align*}
+        IC(\mu, 0.90) &= \left(18.5 - 1.65 \cdot \frac{6}{\sqrt{100}};18.5 + 1.65 \cdot \frac{6}{\sqrt{100}}\right)\\
+        &= (17.51, 19.49)
+    \end{align*}
+    
+    Temos que, pelo TLC, conseguimos uma precisão maior com amostras maiores, portanto faz sentido o intervalo com $n = 100$ ser mais preciso do que o intervalo com $n = 25$.
+
+\end{enumerate}
+
+\section{Solução da Questão 2}
+
+Dadas as informações da questão, as seguintes informações estão presentes:
+
+\begin{align*}
+    \bar{x} &= 50 &H_{0}: \mu = 60\\
+    \sigma &= 20 &H_{1}: \mu \neq 60\\
+    \mu &= 60\\
+    \alpha &= 0.05\\
+    n &= 9
+\end{align*}
+
+Sabemos que $z_{1 - \frac{\alpha}{2}} = 1.96$, pela tabela da normal. Calculando a estatística do teste:
+\begin{align*}
+Z_{obs} &= \frac{\bar{x} - \mu_{0}}{\frac{\sigma}{\sqrt{n}}}\\
+&= \frac{50 - 60}{\frac{20}{\sqrt{9}}}\\
+&= -1.5
+\end{align*}
+
+Como o teste é bilateral, a região crítica é $Z < -1.96$ e $Z > 1.96$. Sabemos que $-1.96 < Z < 1.96$, portanto não temos evidências para rejeitar $H_{0}$.
+
+\section{Solução da Questão 3}
+
+\begin{enumerate}[label=\alph*)]
+    \item Queremos calcular $IC(\mu, 0.95)$:
+    
+    \begin{align*}
+        IC(\mu, 0.95) &= \left(31.5 - 1.96 \cdot \frac{3}{\sqrt{25}};31.5 + 1.96 \cdot \frac{3}{\sqrt{25}}\right)\\
+        &= (30.325, 32.675)
+    \end{align*}
+    
+    \item Definindo nossas hipóteses para $\mu \coloneqq$ quantidade média de nicotina nos cigarros produzidos pelo fabricante B: 
+    \[
+        \begin{cases}
+            H_0: \mu \leq 30\\
+            H_1: \mu > 30
+        \end{cases}
+    \]
+    
+    Fixamos o nível de significância em 5\%.
+    
+    Agora, a estatística do teste:
+    \begin{align*}
+        Z_{obs} &= \frac{\bar{x} - \mu_0}{\frac{\sigma}{\sqrt{n}}} \sim N(0, 1)\\
+        &= \frac{31.5 - 30}{\frac{3}{\sqrt{25}}}\\
+        &= 0.5 \cdot 5\\
+        &= 2.5
+    \end{align*}
+    
+    Definindo região crítica: como o teste é unilateral à direita com nível de significância 5\%, a região crítica é todo $n \in \mathbb{R}$ tal que $n > 1.96$.
+    
+    $Z_{obs} = 2.5$ e $2.5 > 1.96$, portanto rejeitamos $H_0$. Logo, há indícios de que o fabricante A tem razão em sua afirmação de que os cigarros do fabricante B possuem mais do que 30mg de nicotina.
+\end{enumerate}
+
+
+\section{Solução da Questão 4}
+
+\begin{enumerate}[label=\alph*)]
+    \item A estimativa pontual para $p$ é de $\frac{13}{80} = 16.25\%$
+    \item 
+    
+    Ao usar a confiança como $90\%$, sabemos que $\alpha = 0.1$. Então $z_{1 - \frac{\alpha}{2}} = 1.645$ pela tabela da normal:
+    
+    \begin{align*}
+        IC(p, 0.90) &= \left(0.1625 - 1.645\sqrt{\frac{0.1625(1 - 0.1625)}{80}}; 0.1625 + 1.645\sqrt{\frac{0.1625(1 - 0.1625)}{80}}\right)\\
+        &= \left(0.09465;0.23034\right)
+    \end{align*}
+    \item Sabemos que, usando $\alpha = 10\%$, $z_{1 - \frac{\alpha}{2}} = 1.645$. Calculando a estatística do teste, temos que:
+    \begin{align*}
+        H_{0}: p &= 0.09\\
+        H_{1}: p &\neq 0.09
+    \end{align*}
+    \begin{align*}
+        Z_{obs} = \frac{0.1625 - 0.09}{\sqrt{\frac{0.09(1 - 0.09)}{80}}} = 2.266
+    \end{align*}
+    
+    Como $1.645 < 2.266$, existem evidências para rejeitar $H_{0}$, ou seja, a proporção de abortos espontâneos em grávidas que consomem quantidades elevadas de cafeína é diferente da proporção de abortos espontâneos em grávidas normais.
+    
+\end{enumerate}
+
+
+\section{Solução da Questão 5}
+
+\begin{enumerate}[label=\alph*)]
+    \item
+    \[
+        \begin{cases}
+            H_0: \mu \geq 90\\
+            H_1: \mu < 90
+        \end{cases}
+    \]
+    \item Há indícios de que a afirmação da SSA é falsa, uma vez que o valor $p$ menor que o nível de significância usual (0.05) nos faz questionar a validade da hipótese nula.
+    \item Sim, pois, ainda que existam indícios contra a hipótese nula, estes não são tão fortes, e, com um preço menor, torna-se mais desejável utilizar este medicamento.
+\end{enumerate}
+
+
+\section{Solução da Questão 6}
+
+Para refutar a afirmação, o fabricante pode fazer um teste de hipóteses onde $H_{0}$ representa a proporção de produtos defeituosos ser menor ou igual a $20\%$:
+
+\begin{align*}
+    n &= 50 &H_{0}: p \leq 0.2\\
+    \hat{p} &= 0.27 &H_{1}: p > 0.2\\
+    \alpha &= 0.05
+\end{align*}
+
+Pela tabela da normal, sabemos que $z_{\alpha} = 1.645$. Calculando a estatística do teste, temos que:
+
+\begin{align*}
+    \frac{\hat{p} - p}{\sqrt{\frac{p(1 - p)}{n}}} &= \frac{0.27 - 0.2}{\sqrt{\frac{0.2(1 - 0.2)}{50}}}\\
+    &= 1.2374
+\end{align*}
+
+Como o teste é unilateral à direita, a região crítica é  $Z > 1.645$. Visto que $Z < 1.645$, não existem evidências para rejeitar $H_{0}$.
+
+\section{Solução da Questão 7}
+
+\begin{enumerate}[label=\alph*)]
+    \item Podemos notar visualmente uma correlação positiva entre o eixo x e o y:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale = 0.75]{figuras/dispersao7.pdf}
+        \caption{Gráfico de dispersão}
+    \end{figure}
+    \item Sabemos que o coeficiente linear $r$ de correlação de Pearson é dado por
+    \begin{align*}
+        r &= \frac{n(\sum xy) - (\sum x)(\sum y)}{\sqrt{n\sum x^2 - (\sum x)^2][n\sum y^2 - (\sum y)^2]}}\\
+        &\approx 0.98
+    \end{align*}
+    Portanto, existe uma correlação muito forte entre a média final e o ganho por horas trabalhadas.
+    \item Temos que $\alpha \approx 1.72$ e $\beta \approx 2.83$. Portanto, a reta é aproximadamente $y = 1.72 + 2.83x + \epsilon$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale = 0.75]{figuras/dispersao7fit.pdf}
+        \caption{Gráfico com reta ajustada}
+    \end{figure}
+    \item $1.72 + 2.83\cdot 7 \approx \text{R}\$21.5$.
+\end{enumerate}
+
+
+\section{Solução da Questão 8}
+
+\begin{enumerate}[label=\alph*)]
+    \item Temos que $\alpha \approx 7.15$ e $\beta \approx -0.27$. Portanto, a reta é aproximadamente $y = 7.15 - 0.27x + \epsilon$.
+    \item O modelo parece fazer sentido:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale = 0.75]{figuras/MMQ8.pdf}
+        \caption{Gráfico com reta ajustada}
+    \end{figure}
+    \item $\beta$, é a inclinação da reta. Indica que a tendência do preço é diminuir conforme tomamos casas com idades maiores.
+    \item É o ponto em que a reta intercepta o eixo $y$. Para uma casa recém-construída, com $x = 0$, temos que o valor assume $y = 7.15$.
+\end{enumerate}
+
+
+\end{document}
