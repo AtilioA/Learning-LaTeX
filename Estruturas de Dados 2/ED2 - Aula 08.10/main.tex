@@ -1,0 +1,73 @@
+\documentclass[a4paper, 11pt, brazil]{article}
+
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{enumitem}
+\usepackage{stackrel}
+\usepackage{mathtools,bm}
+\usepackage{mathrsfs}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text. 
+\usepackage{fullpage} % changes the margin
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{float}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{enumitem}
+\usepackage{stackrel}
+\usepackage{mathtools,bm}
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{titling}
+ 
+\begin{document}
+	\title{Aula assíncrona 08/10 - Estrutura de Dados II}
+	\author{Atílio Antônio Dadalto}
+	\date{}
+	\maketitle
+	    \vspace{-3em}
+		\hrule
+
+\section*{Algoritmos básicos de ordenação}
+A ordenação é uma atividade que está presente em praticamente todos os dias de nossas vidas. Em software, não é diferente --- comumente precisamos utilizar da ordenação para alcançar algum objetivo. Podemos ordenar qualquer tipo de dado para o qual ordenação seja bem definida, isto é, que possa estabelecer uma relação de ordem entre elementos desse tipo.
+
+% \subsection*{Insertion sort}
+% É você quem decide se o seu dia vai ser incrível ou não.  Você tá realmente obcecado pelos seus sonhos? O segredo do sucesso é começar antes de estar pronto. Walk the f*ing talk. Never f*ing give up. Bora pra action. Viva em busca da masterização e do profissionalismo, every f*ing day. Ninguém lembra do médio, foque no excelente.
+% \subsection*{Selection sort}
+% Bora pra action. Busque o next level. A vida acontece de você e não pra você. O inconformismo é o combustível da alta performance. Construa algo que seja top. Trabalho é aprendizado, tudo é um só, onelife. O segredo do sucesso é começar antes de estar pronto. Você nunca vai estar pronto então comece agora.
+% \subsection*{Bubble sort}
+% Encare problemas como oportunidades. Never f*ing give up. O segredo do sucesso é começar antes de estar pronto. Quebre padrões e atinja a alta performance em todas as áreas da sua vida. Busque o next level. Se é pra entrar no jogo, vai all-in. O segredo do sucesso é começar antes de estar pronto. Menos desculpas e mais action.
+%     \subsection*{Shell sort}
+%     A vida acontece de você e não pra você. Encare problemas como oportunidades. Trabalho é aprendizado, tudo é um só, onelife. Não perde tempo com bullshit. Walk the f*ing talk. A vida acontece de você e não pra você. Encare problemas como oportunidades. Você nunca vai estar pronto então comece agora.
+
+\begin{center}
+\begin{tabular}{ |c|p{0.375\linewidth}|c|c|c|c| } 
+ \hline
+ Algoritmo & Ideia & Pior caso & Caso médio & Melhor caso \\
+ \hline
+ Bubble Sort & Varrer o vetor trocando itens adjacentes de posição & $O(n^2)$ & $O(n^2)$ & $O(n)$ \\
+ Insertion Sort & Varre o vetor inserindo cada item na posição correta & $O(n^2)$ & $O(n^2)$ & $O(n)$ \\
+ Selection Sort & Varre o vetor trocando itens adjacentes de posição & $O(n^2)$ & $O(n^2)$ & $O(n)$ \\
+ Shell Sort & Variação do Insertion Sort, porém divide o vetor original em vários segmentos menores & $O(n \log{n})$ & Depende & Depende($O(n)$) \\
+ \hline
+\end{tabular}
+\end{center}
+
+\subsection*{Ordenação interna vs. externa}
+Quando o arquivo a ser ordenado é carregado em memória, a ordenação é \textit{interna}. Quando ordenamos arquivos de um disco de armazenamento, dizemos que a ordenação é \textit{externa}. A principal diferença é que, no primeiro caso, qualquer item pode ser acessado facilmente, enquanto no segundo eles devem ser acessados sequencialmente. Normalmente, quando falamos de algoritmos de ordenação, estamos falando de algoritmos \textit{internos}.
+\subsection*{Algoritmos adaptativos vs. não adaptativos}
+Algoritmos de ordenação adaptativos são aqueles que fazem uma verificação de comparação (e.g. se um número é menor que outro) e a próxima decisão depende diretamente desta verificação. Os algoritmos não adaptativos realizam sequências de operações as quais não dependem da natureza dos dados (exemplo: selection sort). A maioria dos algoritmos de ordenação que conhecemos são adaptativos.
+
+\subsection*{Algoritmos estáveis vs. não estáveis}
+Um algoritmo é dito \textit{estável} se ele preserva a ordem relativa de itens com chaves duplicadas. Algoritmos não estáveis "embaralham" os dados quando existem chaves de mesmo tamanho.
+
+\end{document}

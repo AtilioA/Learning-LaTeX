@@ -1,0 +1,12 @@
+\chapter{ANÁLISE DE COMPLEXIDADE}\label{cap-analise-complexidade}
+\section{Cálculo de distâncias}
+Tomando um grafo completo, temos $n$ vértices. É necessário calcular a distância de cada vértice com cada vértice adjacente, sem a necessidade de calcular a distância entre um vértice k e ele mesmo. Sendo assim, temos $n*(n-1)$ cálculos de distância. Porém, sendo $D(A,B)$ a distância entre $A$ e $B$, temos que $D(A,B) = D(B,A)$. Ou seja, só é necessário calcular a distância uma vez para cada par de ponto, reduzindo o número de cálculos para $\frac{n(n-1)}{2}$. Como cada ponto possui $m$ coordenadas, temos que a complexidade é de $O\left(\frac{(n*m)((n*m)-1)}{2}\right) = O\left(\frac{(n*m)^2}{2} - \frac{n*m}{2}\right) = O(n^2)$ se $n > m$.
+
+\section{Ordenação de distâncias}
+Consiste basicamente no \textit{quicksort} (implementado pelo \texttt{qsort}): $O(N \log{N})$, onde $N = \frac{n(n-1)}{2}$, isto é, o número de distâncias, com $n$ sendo o número de pontos.
+
+\section{Obtenção da MST}
+Sabendo que a implementação de Kruskal utilizando a estrutura de disjoint-set (union-find em nosso projeto) possui complexidade $O(E \log{V})$, em que E são arestas e V são vértices, teríamos complexidade $O\left(\frac{n(n-1)}{2}\log{n}\right) = O\left((\frac{n^2}{2}-\frac{n}{2})\log{n}\right)$, podendo ser simplificada para $O(n^2)$, $n$ sendo o número de pontos.
+
+\section{Identificação dos grupos}
+Vimos que o uso simples e isolado do \texttt{qsort} possui custo $O(n \log{n})$. Isto se refere à ordenação do vetor de pontos por ordem alfabética de nome. O algoritmo para ordenação do vetor \texttt{ids} do union-find percorre o UF ($n$ vezes), realizando operações de $find$ ($O(n+m\lg^{\star}{n})$, como visto em aula) e \texttt{set\_id} (constante) a cada iteração, finalizando com uma única chamada de \texttt{qsort} após o laço, idêntica à do passo anterior. Possui, portanto, complexidade $O(2(n \log{n}) + (n+\frac{n-1}{2}\lg^{\star}{n}))$, podendo ser simplificada para $O(n \log n)$.

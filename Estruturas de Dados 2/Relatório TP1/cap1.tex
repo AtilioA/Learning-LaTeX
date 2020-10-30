@@ -1,0 +1,8 @@
+\chapter*[INTRODUÇÃO]{INTRODUÇÃO}\label{cap-introducao} % Basicamente finalizado
+\addcontentsline{toc}{chapter}{INTRODUÇÃO}
+
+O presente documento tem como objetivo apresentar o relatório de resultados da implementação do nosso algoritmo para resolver o problema de agrupamento, no caso o agrupamento de espaçamento máximo, utilizando árvores geradoras mínimas (Minimum Spanning Tree ou MST).
+
+No primeiro momento, apresentamos a organização das estruturas de dados escolhidas e o funcionamento do programa. Em seguida, uma breve análise de complexidade das principais etapas do processo. Por fim, a análise empírica para os cinco casos de teste disponibilizados.
+
+Observamos nos resultados obtidos que o tempo de execução de cada etapa está em conformidade com a complexidade de cada passo. Para uma entrada pequena (por exemplo, a do caso 1), o tempo de leitura e escrita consomem quase $50\%$ do tempo total de execução do programa, visto que há considerável computação gasta em \emph{overhead} relacionado à manipulação de arquivos, enquanto a ordenação das distâncias consome cerca de $42\%$. É proveitoso observar, todavia, que quando a entrada cresce, o tempo de execução das etapas de leitura e escrita tendem a $0\%$ do tempo total de execução. Por outro lado, a etapa de ordenação das distâncias passa a ser cerca de $95\%$ do tempo total de execução, como podemos vislumbrar para os testes 3, 4 e 5 (vide Tabela~\ref{tab-tempo-execucao}). 

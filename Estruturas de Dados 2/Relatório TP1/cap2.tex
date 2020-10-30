@@ -1,0 +1,36 @@
+\chapter{Metodologia}\label{cap-metodologia}
+
+Neste capítulo, descrevemos as principais decisões de implementação, justificando algoritmos e estruturas de dados escolhidos.
+
+\section{Organização das estruturas}\label{sec-organizacao}
+As principais estruturas utilizadas na implementação do programa são:
+\begin{itemize}
+  \item Vetor estático com tamanho de linhas * colunas, cuja definição vem a partir do número de linhas do arquivo de entrada (i.e., quantidade de pontos) e da dimensão do ponto, respectivamente, esta última estabelecida ao ler a primeira linha da entrada, assim obtendo-se a quantidade de coordenadas. Esse vetor é utilizado para guardar o identificador e as coordenadas dos pontos. Poderíamos entendê-lo como a matriz de pontos (neste caso, coordenadas).
+  \item Struct UF, estrutura usada para representar um grafo. É também usada para criar nossa árvore geradora mínima.  
+  \item Struct Point, estrutura na qual guardamos a string identificadora de um ponto, suas coordenadas, além de seu id na estrutura UF.
+  \item Struct Dist, estrutura em que guardamos o índice de dois nós do vetor de pontos e a distância euclidiana entre eles. Depois que as distâncias estiverem ordenadas, usaremos um vetor desse tipo no Algoritmo de Kruskal para obter o índice dos elementos.
+
+\end{itemize}
+
+\section{O programa}
+\subsection{Leitura dos dados}
+O programa inicia guardando o nome do arquivo de entrada, a quantidade de grupos ($k$) e o nome do arquivo de saída. A partir disso, abrimos o arquivo de entrada e fazemos a contagem de linhas para saber quantos pontos teremos com a função \texttt{count\_lines}. Em seguida, com a função \texttt{determine\_dimensions}, lemos novamente o arquivo, mas com o intuito de determinar a dimensão com que iremos trabalhar o problema. Ambas funções estão definidas na biblioteca \texttt{utils.h}.
+
+De posse dessas informações, é criado um vetor de strings do tamanho do número de linhas e um vetor de tipo \texttt{double} com tamanho número de linhas multiplicado pelo tamanho da dimensão, como visto na Seção~\ref{sec-organizacao}.
+Passamos essas estruturas para a função \texttt{read\_input\_file} também da \texttt{utils.h}, ocasião na qual lemos o arquivo de entrada com o objetivo de preencher os dois vetores supracitados com o identificador único do ponto e a coordenada do ponto no $\mathbb{R}^m$. Finalizada essa etapa, temos nosso tempo de execução de leitura.
+
+\subsection{Cálculo das distâncias}
+Prontamente, criamos e inicializamos um vetor de pontos com a função\\ \texttt{point\_array\_init} da \texttt{point.h}, a partir dos dados obtidos na etapa anterior. Com essa estrutura formada, seguimos para a função \texttt{Dist\_create\_array} da \texttt{dists.h}, responsável por criar um vetor de struct \texttt{Dist} de tamanho $\frac{n (n - 1)}{2}$ (n sendo o número de pontos) para armazenar todas as distâncias entre os pontos, bem como os índices dos pontos em questão. Após o cálculo de todas as distâncias entre os pontos, também chegamos ao tempo de execução total do cálculo destas.
+
+\subsection{Ordenação das distâncias}
+O passo seguinte é a ordenação das distâncias com \texttt{qsort} na função \texttt{Dist\_sort} da \texttt{dists.h}, a fim de que possamos usar essa estrutura ordenada para obtermos a árvore geradora mínima na etapa seguinte. Com a conclusão da ordenação das distâncias, conseguimos o tempo total de execução desta etapa.
+
+\subsection{Obtenção da MST}
+Em síntese, na função \texttt{generate\_MST\_kruskal} da \texttt{dists.h}, começamos com a alocação uma estrutura UF, que, conforme descrito anteriormente, representará um grafo. Temos nela o número de pontos, as componentes, os pesos/tamanhos e os identificadores únicos. Ato contínuo, verificamos se os pontos estão conexos com operações de \emph{find}. Se estiverem, vamos ignorá-los. Do contrário, usamos uma operação de \emph{union} para conectar esses dois elementos. O algoritmo para quando obtemos apenas $k$ componentes conexas. O retorno é a árvore geradora mínima.
+
+\subsection{Identificação de grupos}
+Nesta etapa, já teremos as $k$ componentes conexas, obtidas ao final da execução do algoritmo de Kruskal. Para podermos identificar os grupos corretamente, ordenamos o vetor de pontos por ordem alfabética de nome, e também pelo id da raiz de cada componente conexa. Primeiramente, a função \texttt{Point\_sort} ordena o vetor de pontos, ordenando \emph{apenas os componentes dos grupos} de acordo com a ordem lexicográfica dos nomes dos pontos, ainda não ordenando a ordem entre os grupos. Após isso, a função \texttt{Point\_group\_sort} faz a ordenação final, identificando o primeiro elemento de cada grupo (agora o elemento de menor ordem lexicográfica) como a raiz de toda a componente conexa, para que o vetor esteja finalmente ordenado e pronto para a escrita do arquivo de saída. Em ambas as funções, é utilizado a função \texttt{\href{https://linux.die.net/man/3/qsort_r}{qsort\_r}}, onde, além do comparador, é passada a estrutura UF para decisão da ordem entre os elementos com base nas raízes obtidas do UF.
+
+
+\subsection{Escrita dos dados}
+Para finalizar, fazemos a escrita da saída em arquivo seguindo a convenção adotada na especificação, com os grupos ordenados em ordem lexicográfica e, internamente cada elemento também seguindo essa ordem. Verificamos os pontos pertencendo ao mesmo grupo (possuindo mesma raiz). Caso pertençam, escrevemos separando por vírgulas. Caso sejam de grupos distintos, escrevemos em uma nova linha seguindo a mesma lógica até não existirem mais grupos.

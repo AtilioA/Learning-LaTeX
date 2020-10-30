@@ -1,0 +1,52 @@
+\documentclass[a4paper, 11pt, brazil]{article}
+
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{enumitem}
+\usepackage{stackrel}
+\usepackage{mathtools,bm}
+\usepackage{mathrsfs}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text. 
+\usepackage{fullpage} % changes the margin
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{float}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{enumitem}
+\usepackage{stackrel}
+\usepackage{mathtools,bm}
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{titling}
+ 
+\begin{document}
+    \vspace{-5ex}
+	\title{Aula assíncrona 15/09 - Estrutura de Dados II}
+	\author{Atílio Antônio Dadalto}
+	\date{}
+	\maketitle
+		\hrule
+	
+\section*{Conectividade dinâmica com quick-union}
+O quick-union é um algoritmo similar ao quick-find, concentrando-se porém em tornar mais rápida a operação de união. Ainda temos o array \texttt{id[]} para armazenar os nós pais de cada nó (podendo ser o próprio caso seja raiz). A função \texttt{find(node)} varre o vetor \texttt{id} procurando pela raiz de \texttt{node}, um inteiro. Utilizando esta última, a \texttt{connected(p, q)} verifica se os inteiros \texttt{p} e \texttt{q} possuem a mesma raiz. Por fim, a função \texttt{union(p, q)} une a árvore de \texttt{p} à arvore de \texttt{q} ao fazer com que a raiz de \texttt{p} seja a raiz de \texttt{q}, essencialmente unindo ambas as árvores.
+
+Inicialmente, o comportamento do quick-union em geral não é mais rápido que o do quick-find. No entanto, é possível realizar algumas modificações, como a adição de pesos e a compressão de caminhos, descritas a seguir.
+
+\subsection*{Weighted quick-union}
+A adição de pesos evita com que árvores muito altas ou degeneradas acabem surgindo em decorrência de operações de união. Para isto, será necessário guardar o tamanho de cada árvore em um array, \texttt{sz[]}. Funções \texttt{find} e \texttt{connected} são idênticas ao quick-union tradicional. A \texttt{union}, por sua vez, agora passa a ``pendurar" a árvore menor sob a maior, com base no tamanho das árvores, também atualizando o array \texttt{sz[]} das árvores.
+
+Com árvores balanceadas, a complexidade das operações de \texttt{find} e \texttt{connected} são reduzidas, visto que a altura/profundidade tem um limite superior de $\lg N$. A complexidade de $N$ da antiga operação \texttt{union} era devido à utilização do \texttt{find}. Uma vez que complexidade maior não foi adicionada (apenas constantes) e que a complexidade do \texttt{find} fora reduzida, a complexidade de \texttt{union} também foi --- para $\lg N$, como mencionado anteriormente. No entanto, é possível melhorar ainda mais com a compressão de caminhos.
+
+\subsection*{Weighted quick-union with path compression}
+A compressão de caminho consiste em, após calcular a raiz de um nó \texttt{p}, atribuir a raiz da árvore ao \texttt{id[]} do nó. Desta forma, caminhar por este nó e encontrar sua raiz se torna mais rápido e o algoritmo executa quase que em tempo linear neste trecho.
+\end{document}

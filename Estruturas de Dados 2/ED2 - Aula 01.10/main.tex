@@ -1,0 +1,47 @@
+\documentclass[a4paper, 12pt, brazil]{article}
+
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{enumitem}
+\usepackage{stackrel}
+\usepackage{mathtools,bm}
+\usepackage{mathrsfs}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text. 
+\usepackage{fullpage} % changes the margin
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{float}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{enumitem}
+\usepackage{stackrel}
+\usepackage{mathtools,bm}
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{titling}
+ 
+\begin{document}
+    \vspace{-5ex}
+	\title{Aula assíncrona 01/10 - Estrutura de Dados II}
+	\author{Atílio Antônio Dadalto}
+	\date{}
+	\maketitle
+		\hrule
+	
+\section*{Teoria de algoritmos - Complexidade de tempo}
+Podemos estudar algoritmos tendo em mente como suas respectivas performances são impactadas em função das entradas recebidas. Problemas que gostaríamos de resolver possuem, intrinsecamente, um grau de dificuldade que pode impedir a existência de algoritmos extremamente eficientes. Desta forma, podemos analisar a complexidade de um algoritmo de forma a estabelecer um limite superior --- uma garantia, desempenho mínimo --- e um inferior --- uma limitação, desempenho máximo --- para que possamos comparar diferentes algoritmos, análise esta completamente independente da plataforma em que esses são executados, uma vez que ela se dá através da análise do código e suas implicações no tempo de execução. Algoritmos podem ser ótimos, isto é, possuírem o limite inferior igual ao superior, e, através de prova matemática, determinar-se a não existência de algoritmos mais eficientes.
+
+Comumente focamos no pior caso quando avaliamos a complexidade de algoritmos. Isto se deve ao fato de o limite inferior representar uma garantia de performance, qualquer que seja a situação --- não teremos desempenho pior que este com o algoritmo em questão. Primeiro, podemos determinar a dificuldade de um problema para que possamos planejar uma solução ótima. Após o desenvolvimento de um algoritmo inicial, provamos um limite inferior. Daí, tentamos aumentar ambos os limites desenvolvendo um algoritmo gradualmente mais otimizado.
+
+\section*{Complexidade de espaço}
+Ainda considerando complexidade de algoritmos, podemos avaliar o uso de memória de um algoritmo em função das características da entrada N. No entanto, um valor exato de RAM utilizada está intimamente relacionado à linguagem de programação utilizada, uma vez que estruturas possuem diferentes tamanhos de acordo com a implementação da LP.
+\end{document}

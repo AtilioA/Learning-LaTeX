@@ -1,0 +1,64 @@
+\chapter{ANÁLISE EMPÍRICA}\label{cap-analise-empirica}
+
+Os testes foram executados num computador com processador Ryzen 5 3600X rodando a 4.0GHz e 16GB de RAM. Cada entrada foi executada 50 vezes, sendo tirada a média das 50 iterações. As porcentagens foram arredondadas para 1 casa decimal e podem não totalizar 100\%.
+\renewcommand\cellgape{\Gape[2pt]}
+\begin{table}[h]
+\centering
+\begin{tabular}{lccccccc}
+\toprule
+{} &   Leitura &  Distâncias &  Ordenação &       MST &  Agrupamento &   Escrita \\
+
+Entrada 1 & \mc{0.000066 \\ (23.9\%)}
+&   \mc{0.000007 \\ (2.5\%)}
+&   \mc{0.000115 \\ (41.7\%)}
+&   \mc{0.000009 \\ (3.3\%)}
+&   \mc{0.000003 \\ (1.0\%)}
+&   \mc{0.000076 \\ (27.5\%)}
+\\
+Entrada 2 & \mc{0.000107 \\ (14.2\%)}
+&   \mc{0.000031 \\ (4.2\%)}
+&   \mc{0.000517 \\ (69.3\%)}
+&   \mc{0.000021 \\ (2.8\%)}
+&   \mc{0.000006 \\ (0.8\%)}
+&   \mc{0.000064 \\ (8.6\%)}
+\\
+Entrada 3 & \mc{0.000524 \\ (0.6\%)}
+&   \mc{0.002971 \\ (3.5\%)}
+&   \mc{0.079349 \\ (94.9\%)}
+&   \mc{0.000287 \\ (0.3\%)}
+&   \mc{0.000272 \\ (0.3\%)}
+&   \mc{0.000217 \\ (0.3\%)}
+\\
+Entrada 4 & \mc{0.002632 \\ (0.4\%)}
+&   \mc{0.022593 \\ (3.8\%)}
+&   \mc{0.565981 \\ (95.3\%)}
+&   \mc{0.000761 \\ (0.1\%)}
+&   \mc{0.000926 \\ (0.2\%)}
+&   \mc{0.000371 \\ (0.1\%)}
+\\
+Entrada 5 & \mc{0.009535 \\ (0.4\%)}
+&   \mc{0.115482 \\ (4.5\%)}
+&   \mc{2.453364 \\ (95.0\%)}
+&   \mc{0.001777 \\ (0.1\%)}
+&   \mc{0.002072 \\ (0.1\%)}
+&   \mc{0.000649 \\ (0.0\%)}
+\\
+
+
+\bottomrule
+\end{tabular}
+\caption{Tabela com tempos de execução em segundos para cada entrada fornecida.}
+\label{tab-tempo-execucao}
+\end{table}
+
+
+Podemos notar que, para as entradas 1 (50 pontos, $m = 2$) e 3 (1000 pontos, $m = 2$, 20x maior):
+\vspace{-1em}
+\begin{itemize}
+\setlength\itemsep{0em}
+
+\item O cálculo de distâncias é 424x mais demorado, o que condiz com o valor de $O(n^2)$ obtido, visto que uma entrada 20x maior terá 400x mais impacto no tempo de execução deste trecho;
+\item Ordenação de distâncias cresce 690x, também condizendo com o valor de $O(N \log{N})$, uma vez que este cresce \~{}750x ao aumentar $n$ em 20x, tendo $N = \frac{n(n-1)}{2}$;
+\item Da entrada 3 para 5 (5x mais pontos), o agrupamento tornou-se 7.6x mais lento, condizendo com $O(n \log{n})$.
+
+\end{itemize}
